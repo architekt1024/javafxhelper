@@ -20,5 +20,6 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 11.0.4
+        java-package: jdk+fx
     - name: Build with Maven
-      run: mvn -DskipTests -B package --file pom.xml
+      run: mvn -B package --file pom.xml
