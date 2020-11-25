@@ -22,7 +22,6 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -132,7 +131,7 @@ public final class FXUtils {
 	 * @throws IOException fail load FXML file
 	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link StageUtils#loadMainStage(URL, Stage, String, String)}
 	 */
-	@Deprecated
+	@Deprecated(forRemoval = true, since = "0.1.6")
 	public static void loadMainStage(@Nonnull URL fxml, @Nonnull Stage stage, @Nonnull String title, @Nullable String stylesheets) throws IOException {
 		StageUtils.loadMainStage(fxml, stage, title, stylesheets);
 	}
@@ -150,7 +149,7 @@ public final class FXUtils {
 	 * @throws IOException fail load FXML file
 	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link StageUtils#loadNonResizableStage(FXMLLoader, String, Window)}
 	 */
-	@Deprecated
+	@Deprecated(forRemoval = true, since = "0.1.6")
 	public static Stage loadNonResizableStage(@Nonnull FXMLLoader fxmlLoader, @Nonnull String title, @Nonnull Window parentWindow) throws IOException {
 		return StageUtils.loadNonResizableStage(fxmlLoader, title, parentWindow);
 	}
@@ -167,7 +166,7 @@ public final class FXUtils {
 	 * @throws IOException fail load FXML file
 	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link StageUtils#prepareUtilityWindow(FXMLLoader, String, Window, boolean)}
 	 */
-	@Deprecated
+	@Deprecated(forRemoval = true, since = "0.1.6")
 	public static Stage prepareUtilityWindow(@Nonnull FXMLLoader fxmlLoader, @Nonnull String title, @Nonnull Window parentWindow) throws IOException {
 		return StageUtils.prepareUtilityWindow(fxmlLoader, title, parentWindow, true);
 	}
@@ -181,7 +180,7 @@ public final class FXUtils {
 	 *
 	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link FileDialog#showOpenFileDialog(Stage)}
 	 */
-	@Deprecated
+	@Deprecated(forRemoval = true, since = "0.1.6")
 	public static File showOpenFileDialog(@Nullable Stage stage) {
 		return FileDialog.showOpenFileDialog(stage);
 	}
@@ -196,7 +195,7 @@ public final class FXUtils {
 	 *
 	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link FileDialog#showOpenFileDialog(Stage, File)}
 	 */
-	@Deprecated
+	@Deprecated(forRemoval = true, since = "0.1.6")
 	public static File showOpenFileDialog(@Nullable Stage stage, @Nullable File initialDirectory) {
 		return FileDialog.showOpenFileDialog(stage, initialDirectory);
 	}
@@ -213,7 +212,7 @@ public final class FXUtils {
 	 * @since 0.1.5
 	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link FileDialog#showOpenFileDialog(Stage, FileChooser.ExtensionFilter...)}
 	 */
-	@Deprecated
+	@Deprecated(forRemoval = true, since = "0.1.6")
 	public static File showOpenFileDialog(@Nullable Stage stage, @Nullable FileChooser.ExtensionFilter... extensionFilters) {
 		return FileDialog.showOpenFileDialog(stage, extensionFilters);
 	}
@@ -230,7 +229,7 @@ public final class FXUtils {
 	 * @since 0.1.5
 	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link FileDialog#showOpenFileDialog(Stage, File, FileChooser.ExtensionFilter...)}
 	 */
-	@Deprecated
+	@Deprecated(forRemoval = true, since = "0.1.6")
 	public static File showOpenFileDialog(@Nullable Stage stage, @Nullable File initialDirectory,
 										  @Nullable FileChooser.ExtensionFilter... extensionFilters) {
 		return FileDialog.showOpenFileDialog(stage, initialDirectory, extensionFilters);
@@ -246,7 +245,7 @@ public final class FXUtils {
 	 *
 	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link FileDialog#showOpenDirectoryDialog(Stage, File)}
 	 */
-	@Deprecated
+	@Deprecated(forRemoval = true, since = "0.1.6")
 	public static File showOpenDirectoryDialog(@Nullable Stage stage, @Nullable File initialDirectory) {
 		return FileDialog.showOpenDirectoryDialog(stage, initialDirectory);
 	}
@@ -260,7 +259,7 @@ public final class FXUtils {
 	 *
 	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link FileDialog#showSaveDialog(Stage)}
 	 */
-	@Deprecated
+	@Deprecated(forRemoval = true, since = "0.1.6")
 	public static File showSaveDialog(@Nullable Stage stage) {
 		return FileDialog.showSaveDialog(stage);
 	}
@@ -275,7 +274,7 @@ public final class FXUtils {
 	 *
 	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link FileDialog#showSaveDialog(Stage, String)}
 	 */
-	@Deprecated
+	@Deprecated(forRemoval = true, since = "0.1.6")
 	public static File showSaveDialog(@Nullable Stage stage, @Nullable String initialFileName) {
 		return FileDialog.showSaveDialog(stage, initialFileName);
 	}
