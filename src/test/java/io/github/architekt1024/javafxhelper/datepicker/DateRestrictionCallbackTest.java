@@ -33,7 +33,7 @@ public class DateRestrictionCallbackTest extends JavafxViewTest {
 	}
 
 	@ParameterizedTest
-	@Disabled
+	@Disabled("problem with DatePicker mock")
 	@MethodSource("provideValidDates")
 	public void callValidDates(LocalDate date) {
 		// given
@@ -57,7 +57,7 @@ public class DateRestrictionCallbackTest extends JavafxViewTest {
 	}
 
 	@ParameterizedTest
-	@Disabled
+	@Disabled("problem with DatePicker mock")
 	@MethodSource("provideNotValidDates")
 	public void callNotValidDates(LocalDate date) {
 		// given
