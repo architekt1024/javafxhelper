@@ -14,7 +14,7 @@
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
 		<slf4j.version>1.8.0-alpha2</slf4j.version>
-		<junit-jupiter.version>5.5.2</junit-jupiter.version>
+		<junit-jupiter.version>5.7.0</junit-jupiter.version>
 		<javafx.version>11.0.2</javafx.version>
 
 		<sonar.projectKey>architekt1024_javafxhelper</sonar.projectKey>
@@ -80,7 +80,7 @@
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-			<version>3.3.3</version>
+			<version>3.6.28</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -88,7 +88,7 @@
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-junit-jupiter</artifactId>
-			<version>3.3.3</version>
+			<version>3.6.28</version>
 			<scope>test</scope>
 		</dependency>
 

@@ -27,7 +27,8 @@
 * Add missing _final_ keywords
 * Fix code header
 * Fix some code smells, javadocs
-* Add jacoco maven plugin
+* Add jacoco and javadocs maven plugin
+* Update junit and mockito versions
 * Other small changes
 
 # Before 0.1.8
