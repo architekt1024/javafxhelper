@@ -10,6 +10,7 @@ Clone repository and [install](#Installing) or import in your favorite IDE.
 ### Prerequisites
 * JDK 11 or newer (Oracle or OpenJDK)
 * Maven
+* Set JAVA_HOME enviroment variable
 
 ### Installing
 Install to local maven repository
