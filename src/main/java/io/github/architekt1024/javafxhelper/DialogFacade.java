@@ -23,11 +23,10 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Window;
 
-import io.github.architekt1024.javafxhelper.annotation.Nonnull;
 import io.github.architekt1024.javafxhelper.annotation.Nullable;
 
 /**
- * Create and show predefined dialogs.
+ * Create and show predefined dialogs ({@link Alert}, {@link TextInputDialog}).
  *
  * @author architekt1024
  */
@@ -36,9 +35,9 @@ public final class DialogFacade {
 	}
 
 	/**
-	 * Create new {@link Alert}.
+	 * Create new {@link Alert}. For null {@code type} must use {@code buttons} otherwise, the alert cannot be closed.
 	 *
-	 * @param type         alert type ({@link javafx.scene.control.Alert.AlertType#NONE} is not supported)
+	 * @param type         alert type, for null will be used {@link javafx.scene.control.Alert.AlertType#NONE}
 	 * @param title        dialog title
 	 * @param contentText  text to show in the dialog content area
 	 * @param headerText   text to show in the dialog header area
@@ -57,9 +56,9 @@ public final class DialogFacade {
 	}
 
 	/**
-	 * Create and show alert.
+	 * Create and show alert. For null {@code type} will be used {@link javafx.scene.control.Alert.AlertType#NONE}
 	 *
-	 * @param type         alert type ({@link javafx.scene.control.Alert.AlertType#NONE} is not supported)
+	 * @param type         alert type
 	 * @param title        dialog title
 	 * @param contentText  text to show in the dialog content area
 	 * @param headerText   text to show in the dialog header area
@@ -67,12 +66,13 @@ public final class DialogFacade {
 	 *
 	 * @return optional dialog result
 	 */
-	public static Optional<ButtonType> showDialog(@Nonnull Alert.AlertType type, @Nullable String title, @Nullable String contentText,
+	public static Optional<ButtonType> showDialog(@Nullable Alert.AlertType type, @Nullable String title, @Nullable String contentText,
 												  @Nullable String headerText, @Nullable Window parentWindow) {
-		if (type == Alert.AlertType.NONE) {
-			throw new UnsupportedOperationException("AlertType.NONE is not supported");
+
+		Alert alert = createAlert(Objects.requireNonNullElse(type, Alert.AlertType.NONE), title, contentText, headerText, parentWindow);
+		if (type == null || type == Alert.AlertType.NONE) {
+			alert.getDialogPane().getButtonTypes().add(ButtonType.OK);
 		}
-		Alert alert = createAlert(Objects.requireNonNull(type), title, contentText, headerText, parentWindow);
 		alert.initOwner(parentWindow);
 		return alert.showAndWait();
 	}

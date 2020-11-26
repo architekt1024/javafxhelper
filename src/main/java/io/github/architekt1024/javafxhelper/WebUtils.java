@@ -19,7 +19,9 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 
+import io.github.architekt1024.javafxhelper.annotation.Experimental;
 import io.github.architekt1024.javafxhelper.annotation.Nonnull;
 
 import org.apache.commons.text.StringEscapeUtils;
@@ -64,5 +66,28 @@ public final class WebUtils {
 			filtered = '\'' + filtered + '\'';
 		}
 		return function + "(" + filtered + ");";
+	}
+
+	/**
+	 * Load HTML content from string
+	 *
+	 * @param htmlText   HTML to show in the dialog content area
+	 * @param prefWidth  preferred width
+	 * @param prefHeight preferred height
+	 *
+	 * @return {@link WebView} content
+	 *
+	 * @since 0.1.8
+	 */
+	public static WebView loadContent(String htmlText, Double prefWidth, Double prefHeight) {
+		WebView webView = new WebView();
+		webView.getEngine().loadContent(htmlText);
+		if (prefWidth != null) {
+			webView.setPrefWidth(prefWidth);
+		}
+		if (prefHeight != null) {
+			webView.setPrefHeight(prefHeight);
+		}
+		return webView;
 	}
 }

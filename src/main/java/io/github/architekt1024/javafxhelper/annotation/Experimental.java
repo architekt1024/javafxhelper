@@ -22,13 +22,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Can be null. Default behavior from version 0.1.8. Will be removed in feature version.
- *
- * @deprecated deprecated from 0.1.8, removed in 0.1.11
+ * Experimental functionality. Behavior can change in any version. It can be removed without warning.
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.FIELD, ElementType.LOCAL_VARIABLE, ElementType.PARAMETER})
-@Deprecated(since = "0.1.8", forRemoval = true)
-public @interface Nullable {
+@Target({ElementType.ANNOTATION_TYPE, ElementType.FIELD, ElementType.METHOD, ElementType.TYPE, ElementType.CONSTRUCTOR})
+public @interface Experimental {
 }
