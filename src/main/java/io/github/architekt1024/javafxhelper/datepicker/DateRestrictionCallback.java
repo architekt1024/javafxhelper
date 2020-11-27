@@ -21,8 +21,6 @@ import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.util.Callback;
 
-import io.github.architekt1024.javafxhelper.annotation.Nullable;
-
 import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,7 +43,7 @@ public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 	 * @param minDate start date limit
 	 * @param maxDate end date limit
 	 */
-	public DateRestrictionCallback(@Nullable LocalDate minDate, @Nullable LocalDate maxDate) {
+	public DateRestrictionCallback(LocalDate minDate, LocalDate maxDate) {
 		if (!ObjectUtils.anyNotNull(minDate, maxDate)) {
 			LOG.warn("minDate and maxDate is null, no restriction was set");
 		}
@@ -88,7 +86,7 @@ public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 	 *
 	 * @since 0.1.6
 	 */
-	public static DateRestrictionCallback minDate(@Nullable LocalDate minDate) {
+	public static DateRestrictionCallback minDate(LocalDate minDate) {
 		return new DateRestrictionCallback(minDate, null);
 	}
 
@@ -101,7 +99,7 @@ public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 	 *
 	 * @since 0.1.6
 	 */
-	public static DateRestrictionCallback maxDate(@Nullable LocalDate maxDate) {
+	public static DateRestrictionCallback maxDate(LocalDate maxDate) {
 		return new DateRestrictionCallback(null, maxDate);
 	}
 

@@ -1,9 +1,19 @@
-# 0.1.9 (TBD next version)
+# (TBD next version)
 ## New features
 ## Deprecated or removed
 ## Other changes
 
-# 0.1.8 (SNAPSHOT yet)
+
+# 0.1.9 (SNAPSHOT yet)
+## New features
+## Deprecated or removed
+- removed deprecated API from FXUtils
+- removed usage *@Nullable* annotation
+## Other changes
+* All arguments can be null by default
+
+
+# 0.1.8
 ## New features
 + function to change [selection mode](https://openjfx.io/javadoc/11/javafx.controls/javafx/scene/control/SelectionMode.html) used in selection model for multiple
   [ListView](https://openjfx.io/javadoc/11/javafx.controls/javafx/scene/control/ListView.html),

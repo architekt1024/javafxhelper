@@ -28,7 +28,6 @@ import javafx.stage.StageStyle;
 import javafx.stage.Window;
 
 import io.github.architekt1024.javafxhelper.annotation.Nonnull;
-import io.github.architekt1024.javafxhelper.annotation.Nullable;
 
 /**
  * Create and show windows ({@link Stage})
@@ -51,7 +50,7 @@ public final class StageUtils {
 	 * @throws IOException fail load FXML file
 	 * @since 0.1.6
 	 */
-	public static void loadMainStage(@Nonnull URL fxml, @Nonnull Stage stage, @Nonnull String title, @Nullable String stylesheets) throws IOException {
+	public static void loadMainStage(@Nonnull URL fxml, @Nonnull Stage stage, @Nonnull String title, String stylesheets) throws IOException {
 		FXMLLoader loader = new FXMLLoader(fxml);
 		Parent root = loader.load();
 
@@ -203,7 +202,7 @@ public final class StageUtils {
 	 * @since 0.1.6
 	 */
 	public static <T> Stage showNonResizableStageAndWait(@Nonnull URL fxml, @Nonnull String title, @Nonnull Window parentWindow,
-														 @Nullable Consumer<T> beforeShow, @Nullable Consumer<T> afterShow) throws IOException {
+														 Consumer<T> beforeShow, Consumer<T> afterShow) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(fxml);
 		Stage stage = loadNonResizableStage(fxmlLoader, title, parentWindow);
 		if (beforeShow != null) {

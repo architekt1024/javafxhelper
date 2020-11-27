@@ -21,8 +21,6 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import io.github.architekt1024.javafxhelper.annotation.Nullable;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,7 +46,7 @@ public final class FileDialog {
 	 *
 	 * @since 0.1.6
 	 */
-	public static File showOpenFileDialog(@Nullable Stage stage) {
+	public static File showOpenFileDialog(Stage stage) {
 		return showOpenFileDialog(stage, null, null);
 	}
 
@@ -62,7 +60,7 @@ public final class FileDialog {
 	 *
 	 * @since 0.1.6
 	 */
-	public static File showOpenFileDialog(@Nullable Stage stage, @Nullable File initialDirectory) {
+	public static File showOpenFileDialog(Stage stage, File initialDirectory) {
 		FileChooser fileChooser = new FileChooser();
 		if (initialDirectory != null) {
 			fileChooser.setInitialDirectory(initialDirectory);
@@ -84,7 +82,7 @@ public final class FileDialog {
 	 *
 	 * @since 0.1.6
 	 */
-	public static File showOpenFileDialog(@Nullable Stage stage, @Nullable FileChooser.ExtensionFilter... extensionFilters) {
+	public static File showOpenFileDialog(Stage stage, FileChooser.ExtensionFilter... extensionFilters) {
 		return showOpenFileDialog(stage, null, extensionFilters);
 	}
 
@@ -100,8 +98,7 @@ public final class FileDialog {
 	 *
 	 * @since 0.1.6
 	 */
-	public static File showOpenFileDialog(@Nullable Stage stage, @Nullable File initialDirectory,
-										  @Nullable FileChooser.ExtensionFilter... extensionFilters) {
+	public static File showOpenFileDialog(Stage stage, File initialDirectory, FileChooser.ExtensionFilter... extensionFilters) {
 		final FileChooser fileChooser = new FileChooser();
 		if (initialDirectory != null) {
 			fileChooser.setInitialDirectory(initialDirectory);
@@ -126,7 +123,7 @@ public final class FileDialog {
 	 *
 	 * @since 0.1.6
 	 */
-	public static File showOpenDirectoryDialog(@Nullable Stage stage, @Nullable File initialDirectory) {
+	public static File showOpenDirectoryDialog(Stage stage, File initialDirectory) {
 		DirectoryChooser directoryChooser = new DirectoryChooser();
 		if ((initialDirectory != null)) {
 			directoryChooser.setInitialDirectory(initialDirectory);
@@ -148,7 +145,7 @@ public final class FileDialog {
 	 *
 	 * @since 0.1.6
 	 */
-	public static File showSaveDialog(@Nullable Stage stage) {
+	public static File showSaveDialog(Stage stage) {
 		FileChooser fileChooser = new FileChooser();
 		File selectedFile = fileChooser.showSaveDialog(stage);
 		if (selectedFile == null) {
@@ -167,7 +164,7 @@ public final class FileDialog {
 	 *
 	 * @since 0.1.6
 	 */
-	public static File showSaveDialog(@Nullable Stage stage, @Nullable String initialFileName) {
+	public static File showSaveDialog(Stage stage, String initialFileName) {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setInitialFileName(initialFileName);
 		File selectedFile = fileChooser.showSaveDialog(stage);

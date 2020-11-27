@@ -23,8 +23,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Window;
 
-import io.github.architekt1024.javafxhelper.annotation.Nullable;
-
 /**
  * Create and show predefined dialogs ({@link Alert}, {@link TextInputDialog}).
  *
@@ -46,8 +44,8 @@ public final class DialogFacade {
 	 *
 	 * @return created alert
 	 */
-	public static Alert createAlert(@Nullable Alert.AlertType type, @Nullable String title, @Nullable String contentText,
-									@Nullable String headerText, @Nullable Window parentWindow, @Nullable ButtonType... buttons) {
+	public static Alert createAlert(Alert.AlertType type, String title, String contentText, String headerText, Window parentWindow,
+									ButtonType... buttons) {
 		final Alert alert = new Alert(type, contentText, buttons);
 		alert.setTitle(title);
 		alert.setHeaderText(headerText);
@@ -66,8 +64,7 @@ public final class DialogFacade {
 	 *
 	 * @return optional dialog result
 	 */
-	public static Optional<ButtonType> showDialog(@Nullable Alert.AlertType type, @Nullable String title, @Nullable String contentText,
-												  @Nullable String headerText, @Nullable Window parentWindow) {
+	public static Optional<ButtonType> showDialog(Alert.AlertType type, String title, String contentText, String headerText, Window parentWindow) {
 
 		Alert alert = createAlert(Objects.requireNonNullElse(type, Alert.AlertType.NONE), title, contentText, headerText, parentWindow);
 		if (type == null || type == Alert.AlertType.NONE) {
@@ -86,7 +83,7 @@ public final class DialogFacade {
 	 *
 	 * @return optional dialog result
 	 */
-	public static Optional<ButtonType> showInfoDialog(@Nullable String title, @Nullable String contentText, @Nullable Window parentWindow) {
+	public static Optional<ButtonType> showInfoDialog(String title, String contentText, Window parentWindow) {
 		return showInfoDialog(title, contentText, null, parentWindow);
 	}
 
@@ -100,8 +97,7 @@ public final class DialogFacade {
 	 *
 	 * @return optional dialog result
 	 */
-	public static Optional<ButtonType> showInfoDialog(@Nullable String title, @Nullable String contentText, @Nullable String headerText,
-													  @Nullable Window parentWindow) {
+	public static Optional<ButtonType> showInfoDialog(String title, String contentText, String headerText, Window parentWindow) {
 		return showDialog(Alert.AlertType.INFORMATION, title, contentText, headerText, parentWindow);
 	}
 
@@ -114,7 +110,7 @@ public final class DialogFacade {
 	 *
 	 * @return optional dialog result
 	 */
-	public static Optional<ButtonType> showWarningDialog(@Nullable String title, @Nullable String contentText, @Nullable Window parentWindow) {
+	public static Optional<ButtonType> showWarningDialog(String title, String contentText, Window parentWindow) {
 		return showWarningDialog(title, contentText, null, parentWindow);
 	}
 
@@ -128,8 +124,7 @@ public final class DialogFacade {
 	 *
 	 * @return optional dialog result
 	 */
-	public static Optional<ButtonType> showWarningDialog(@Nullable String title, @Nullable String contentText, @Nullable String headerText,
-														 @Nullable Window parentWindow) {
+	public static Optional<ButtonType> showWarningDialog(String title, String contentText, String headerText, Window parentWindow) {
 		return showDialog(Alert.AlertType.WARNING, title, contentText, headerText, parentWindow);
 	}
 
@@ -142,7 +137,7 @@ public final class DialogFacade {
 	 *
 	 * @return optional dialog result
 	 */
-	public static Optional<ButtonType> showErrorDialog(@Nullable String title, @Nullable String contentText, @Nullable Window parentWindow) {
+	public static Optional<ButtonType> showErrorDialog(String title, String contentText, Window parentWindow) {
 		return showErrorDialog(title, contentText, null, parentWindow);
 	}
 
@@ -156,8 +151,7 @@ public final class DialogFacade {
 	 *
 	 * @return optional dialog result
 	 */
-	public static Optional<ButtonType> showErrorDialog(@Nullable String title, @Nullable String contentText, @Nullable String headerText,
-													   @Nullable Window parentWindow) {
+	public static Optional<ButtonType> showErrorDialog(String title, String contentText, String headerText, Window parentWindow) {
 		return showDialog(Alert.AlertType.ERROR, title, contentText, headerText, parentWindow);
 	}
 
@@ -170,7 +164,7 @@ public final class DialogFacade {
 	 *
 	 * @return optional dialog result
 	 */
-	public static Optional<ButtonType> showYesNoConfirmDialog(@Nullable String title, @Nullable String contentText, @Nullable Window parentWindow) {
+	public static Optional<ButtonType> showYesNoConfirmDialog(String title, String contentText, Window parentWindow) {
 		return showYesNoConfirmDialog(title, contentText, null, parentWindow);
 	}
 
@@ -184,8 +178,7 @@ public final class DialogFacade {
 	 *
 	 * @return optional dialog result
 	 */
-	public static Optional<ButtonType> showYesNoConfirmDialog(@Nullable String title, @Nullable String contentText, @Nullable String headerText,
-															  @Nullable Window parentWindow) {
+	public static Optional<ButtonType> showYesNoConfirmDialog(String title, String contentText, String headerText, Window parentWindow) {
 		Alert alert = createAlert(Alert.AlertType.CONFIRMATION, title, contentText, headerText, parentWindow, ButtonType.YES, ButtonType.NO);
 		return alert.showAndWait();
 	}
@@ -199,8 +192,7 @@ public final class DialogFacade {
 	 *
 	 * @return optional dialog result
 	 */
-	public static Optional<String> showTextInputDialog(@Nullable String title, @Nullable String contentText, @Nullable String headerText,
-													   @Nullable Window parentWindow, @Nullable String defaultValue) {
+	public static Optional<String> showTextInputDialog(String title, String contentText, String headerText, Window parentWindow, String defaultValue) {
 		TextInputDialog dialog = new TextInputDialog(defaultValue);
 		dialog.setTitle(title);
 		dialog.setHeaderText(headerText);
@@ -220,7 +212,7 @@ public final class DialogFacade {
 	 *
 	 * @since 0.1.4
 	 */
-	public static Optional<ButtonType> showYesNoCancelDialog(@Nullable String title, @Nullable String contentText, @Nullable Window parentWindow) {
+	public static Optional<ButtonType> showYesNoCancelDialog(String title, String contentText, Window parentWindow) {
 		return showYesNoCancelDialog(title, contentText, null, parentWindow);
 	}
 
@@ -236,10 +228,10 @@ public final class DialogFacade {
 	 *
 	 * @since 0.1.4
 	 */
-	public static Optional<ButtonType> showYesNoCancelDialog(@Nullable String title, @Nullable String contentText, @Nullable String headerText,
-															 @Nullable Window parentWindow) {
+	public static Optional<ButtonType> showYesNoCancelDialog(String title, String contentText, String headerText,
+															 Window parentWindow) {
 		Alert alert = createAlert(Alert.AlertType.CONFIRMATION, title, contentText, headerText, parentWindow, ButtonType.YES, ButtonType.NO,
-				ButtonType.CANCEL);
+			ButtonType.CANCEL);
 		return alert.showAndWait();
 	}
 }

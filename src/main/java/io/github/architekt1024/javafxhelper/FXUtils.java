@@ -24,26 +24,18 @@ import java.net.URL;
 import java.util.function.Consumer;
 
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TreeView;
 import javafx.scene.text.Font;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import javafx.stage.Window;
 
 import io.github.architekt1024.javafxhelper.annotation.Nonnull;
-import io.github.architekt1024.javafxhelper.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import io.github.architekt1024.javafxhelper.stage.FXMLController;
-import io.github.architekt1024.javafxhelper.stage.StageUtils;
 
 /**
  * Common tools.
@@ -119,166 +111,6 @@ public final class FXUtils {
 		}
 	}
 
-
-	/**
-	 * Load main stage. If controller implements {@link FXMLController}, it set stage.
-	 *
-	 * @param fxml        FXML {@link URL}
-	 * @param stage       JavaFX stage
-	 * @param title       window title
-	 * @param stylesheets stylesheet file path
-	 *
-	 * @throws IOException fail load FXML file
-	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link StageUtils#loadMainStage(URL, Stage, String, String)}
-	 */
-	@Deprecated(forRemoval = true, since = "0.1.6")
-	public static void loadMainStage(@Nonnull URL fxml, @Nonnull Stage stage, @Nonnull String title, @Nullable String stylesheets) throws IOException {
-		StageUtils.loadMainStage(fxml, stage, title, stylesheets);
-	}
-
-	/**
-	 * TODO description
-	 * If controller implements {@link FXMLController}, it set stage.
-	 *
-	 * @param fxmlLoader   fxml loader instance
-	 * @param title        window title
-	 * @param parentWindow parent window
-	 *
-	 * @return created stage
-	 *
-	 * @throws IOException fail load FXML file
-	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link StageUtils#loadNonResizableStage(FXMLLoader, String, Window)}
-	 */
-	@Deprecated(forRemoval = true, since = "0.1.6")
-	public static Stage loadNonResizableStage(@Nonnull FXMLLoader fxmlLoader, @Nonnull String title, @Nonnull Window parentWindow) throws IOException {
-		return StageUtils.loadNonResizableStage(fxmlLoader, title, parentWindow);
-	}
-
-	/**
-	 * Create modal utility window and return.
-	 *
-	 * @param fxmlLoader   fxml loader instance
-	 * @param title        window title
-	 * @param parentWindow parent window
-	 *
-	 * @return created stage
-	 *
-	 * @throws IOException fail load FXML file
-	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link StageUtils#prepareUtilityWindow(FXMLLoader, String, Window, boolean)}
-	 */
-	@Deprecated(forRemoval = true, since = "0.1.6")
-	public static Stage prepareUtilityWindow(@Nonnull FXMLLoader fxmlLoader, @Nonnull String title, @Nonnull Window parentWindow) throws IOException {
-		return StageUtils.prepareUtilityWindow(fxmlLoader, title, parentWindow, true);
-	}
-
-	/**
-	 * Show open file dialog
-	 *
-	 * @param stage the owner window of the displayed file dialog
-	 *
-	 * @return selected file or null when user cancel
-	 *
-	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link FileDialog#showOpenFileDialog(Stage)}
-	 */
-	@Deprecated(forRemoval = true, since = "0.1.6")
-	public static File showOpenFileDialog(@Nullable Stage stage) {
-		return FileDialog.showOpenFileDialog(stage);
-	}
-
-	/**
-	 * Show open file dialog
-	 *
-	 * @param stage            the owner window of the displayed file dialog
-	 * @param initialDirectory initial directory, null if not set
-	 *
-	 * @return selected file or null when user cancel
-	 *
-	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link FileDialog#showOpenFileDialog(Stage, File)}
-	 */
-	@Deprecated(forRemoval = true, since = "0.1.6")
-	public static File showOpenFileDialog(@Nullable Stage stage, @Nullable File initialDirectory) {
-		return FileDialog.showOpenFileDialog(stage, initialDirectory);
-	}
-
-
-	/**
-	 * Show open file dialog
-	 *
-	 * @param stage            the owner window of the displayed file dialog
-	 * @param extensionFilters extension filters
-	 *
-	 * @return selected file or null when user cancel
-	 *
-	 * @since 0.1.5
-	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link FileDialog#showOpenFileDialog(Stage, FileChooser.ExtensionFilter...)}
-	 */
-	@Deprecated(forRemoval = true, since = "0.1.6")
-	public static File showOpenFileDialog(@Nullable Stage stage, @Nullable FileChooser.ExtensionFilter... extensionFilters) {
-		return FileDialog.showOpenFileDialog(stage, extensionFilters);
-	}
-
-	/**
-	 * Show open file dialog
-	 *
-	 * @param stage            the owner window of the displayed file dialog
-	 * @param initialDirectory initial directory, null if not set
-	 * @param extensionFilters extension filters
-	 *
-	 * @return selected file or null when user cancel
-	 *
-	 * @since 0.1.5
-	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link FileDialog#showOpenFileDialog(Stage, File, FileChooser.ExtensionFilter...)}
-	 */
-	@Deprecated(forRemoval = true, since = "0.1.6")
-	public static File showOpenFileDialog(@Nullable Stage stage, @Nullable File initialDirectory,
-										  @Nullable FileChooser.ExtensionFilter... extensionFilters) {
-		return FileDialog.showOpenFileDialog(stage, initialDirectory, extensionFilters);
-	}
-
-	/**
-	 * Show open directory dialog
-	 *
-	 * @param stage            the owner window of the displayed file dialog
-	 * @param initialDirectory initial directory, null if not set
-	 *
-	 * @return selected directory or null when user cancel
-	 *
-	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link FileDialog#showOpenDirectoryDialog(Stage, File)}
-	 */
-	@Deprecated(forRemoval = true, since = "0.1.6")
-	public static File showOpenDirectoryDialog(@Nullable Stage stage, @Nullable File initialDirectory) {
-		return FileDialog.showOpenDirectoryDialog(stage, initialDirectory);
-	}
-
-	/**
-	 * Show save dialog
-	 *
-	 * @param stage the owner window of the displayed file dialog
-	 *
-	 * @return selected file or null when user cancel
-	 *
-	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link FileDialog#showSaveDialog(Stage)}
-	 */
-	@Deprecated(forRemoval = true, since = "0.1.6")
-	public static File showSaveDialog(@Nullable Stage stage) {
-		return FileDialog.showSaveDialog(stage);
-	}
-
-	/**
-	 * Show save dialog
-	 *
-	 * @param stage           the owner window of the displayed file dialog
-	 * @param initialFileName set initial file name
-	 *
-	 * @return selected file or null when user cancel
-	 *
-	 * @deprecated deprecated from 0.1.6, removed in 0.1.9, you should use {@link FileDialog#showSaveDialog(Stage, String)}
-	 */
-	@Deprecated(forRemoval = true, since = "0.1.6")
-	public static File showSaveDialog(@Nullable Stage stage, @Nullable String initialFileName) {
-		return FileDialog.showSaveDialog(stage, initialFileName);
-	}
-
 	/**
 	 * Load font. Return null if fileFont is null or empty. Return null if try load not supported font. For example TrueType collection (.ttc)
 	 * is supported from Java 9.
@@ -290,7 +122,7 @@ public final class FXUtils {
 	 *
 	 * @return Loaded font or null if fileFont is blank
 	 */
-	public static Font loadFont(@Nullable String fileFont, double size) {
+	public static Font loadFont(String fileFont, double size) {
 		if (StringUtils.isBlank(fileFont)) {
 			return null;
 		}

@@ -23,8 +23,6 @@ import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.TextFieldTreeCell;
 import javafx.util.StringConverter;
 
-import io.github.architekt1024.javafxhelper.annotation.Nullable;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,7 +43,7 @@ public abstract class AbstractRenameMenuTreeCell<T> extends TextFieldTreeCell<T>
 	 * @param converter
 	 * @param treeView
 	 */
-	public AbstractRenameMenuTreeCell(@Nullable StringConverter<T> converter, @Nullable TreeView<T> treeView) {
+	public AbstractRenameMenuTreeCell(StringConverter<T> converter, TreeView<T> treeView) {
 		super(converter);
 		this.treeView = treeView;
 	}

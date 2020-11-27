@@ -31,7 +31,6 @@ import javafx.stage.StageStyle;
 import javafx.stage.Window;
 
 import io.github.architekt1024.javafxhelper.annotation.Nonnull;
-import io.github.architekt1024.javafxhelper.annotation.Nullable;
 
 /**
  * Build JavaFX window ({@link Stage})
@@ -127,7 +126,7 @@ public class StageBuilder {
 	 *
 	 * @since 0.1.6
 	 */
-	public void setParentWindow(@Nullable Window parentWindow) {
+	public void setParentWindow(Window parentWindow) {
 		this.parentWindow = parentWindow;
 	}
 
@@ -201,7 +200,7 @@ public class StageBuilder {
 	 *
 	 * @since 0.1.6
 	 */
-	public void setStylesheets(@Nullable List<String> stylesheets) {
+	public void setStylesheets(List<String> stylesheets) {
 		if (stylesheets == null) {
 			this.stylesheets = Collections.emptyList();
 		} else {
