@@ -82,7 +82,7 @@ public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 	 *
 	 * @param minDate start date limit
 	 *
-	 * @return
+	 * @return date restriction callback
 	 *
 	 * @since 0.1.6
 	 */
@@ -95,7 +95,7 @@ public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 	 *
 	 * @param maxDate end date limit
 	 *
-	 * @return
+	 * @return date restriction callback
 	 *
 	 * @since 0.1.6
 	 */
@@ -106,7 +106,7 @@ public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 	/**
 	 * TODO description
 	 *
-	 * @return
+	 * @return date restriction callback
 	 *
 	 * @since 0.1.6
 	 */
@@ -117,7 +117,7 @@ public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 	/**
 	 * TODO description
 	 *
-	 * @return
+	 * @return date restriction callback
 	 *
 	 * @since 0.1.6
 	 */

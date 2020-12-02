@@ -40,8 +40,8 @@ public abstract class AbstractRenameMenuTreeCell<T> extends TextFieldTreeCell<T>
 	protected final TreeView<T> treeView;
 
 	/**
-	 * @param converter
-	 * @param treeView
+	 * @param converter string converter
+	 * @param treeView tree view item
 	 */
 	public AbstractRenameMenuTreeCell(StringConverter<T> converter, TreeView<T> treeView) {
 		super(converter);

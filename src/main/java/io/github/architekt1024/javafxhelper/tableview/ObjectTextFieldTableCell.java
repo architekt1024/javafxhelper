@@ -38,6 +38,7 @@ import javafx.util.converter.LongStringConverter;
  * <p>In FXML:<br>
  * {@code <ObjectTextFieldTableCell fx:factory="forObjectColumn"/>}
  * </p>
+ *
  * @author architekt1024
  */
 public final class ObjectTextFieldTableCell {

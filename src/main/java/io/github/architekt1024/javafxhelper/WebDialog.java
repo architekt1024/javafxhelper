@@ -27,6 +27,7 @@ import io.github.architekt1024.javafxhelper.annotation.Experimental;
 /**
  * TODO description
  *
+ * @author architekt1024
  * @see DialogFacade
  * @since 0.1.8
  */

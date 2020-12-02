@@ -11,6 +11,8 @@
 - removed usage *@Nullable* annotation
 ## Other changes
 * All arguments can be null by default
+* Update javadocs
+* Update dependency versions 
 
 
 # 0.1.8

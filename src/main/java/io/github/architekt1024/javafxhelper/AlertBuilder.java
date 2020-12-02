@@ -26,6 +26,7 @@ import javafx.stage.Window;
 /**
  * {@link Alert} builder.
  *
+ * @author architekt1024
  * @since 0.1.8
  */
 public class AlertBuilder {

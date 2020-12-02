@@ -13,22 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.architekt1024.javafxhelper.annotation;
-
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
 
 /**
- * Experimental functionality. Behavior can change in any version. It can be removed without warning.
+ * Internal annotations.
  *
  * @author architekt1024
- * @since 0.1.8
  */
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.ANNOTATION_TYPE, ElementType.FIELD, ElementType.METHOD, ElementType.TYPE, ElementType.CONSTRUCTOR})
-public @interface Experimental {
-}
+package io.github.architekt1024.javafxhelper.annotation;

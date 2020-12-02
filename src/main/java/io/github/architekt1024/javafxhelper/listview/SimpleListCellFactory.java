@@ -15,6 +15,7 @@
  */
 package io.github.architekt1024.javafxhelper.listview;
 
+import java.util.Objects;
 import java.util.function.Function;
 
 import javafx.scene.control.ListCell;
@@ -24,7 +25,7 @@ import javafx.util.Callback;
 import io.github.architekt1024.javafxhelper.annotation.Nonnull;
 
 /**
- * Set null if item is empty or null, otherwise convert item to String using converter.
+ * Cell factory for {@link ListView} using String converter. Set null if item is empty or null, otherwise convert item to String using converter.
  * <p>
  * Example usage:<br>
  * {@code exampleList.setCellFactory(new SimpleListCellFactory<>(item -> item.getA() + " - " + item.getB()));}
@@ -39,10 +40,12 @@ public class SimpleListCellFactory<T> implements Callback<ListView<T>, ListCell<
 	private final Function<T, String> converter;
 
 	/**
-	 * @param converter result to String converter
+	 * Create default simple {@link ListView} cell factory
+	 *
+	 * @param converter result to String converter, cannot be null
 	 */
-	public SimpleListCellFactory(@Nonnull Function<T, String> converter) {
-		this.converter = converter;
+	public SimpleListCellFactory(Function<T, String> converter) {
+		this.converter = Objects.requireNonNull(converter);
 	}
 
 	/**
@@ -50,7 +53,7 @@ public class SimpleListCellFactory<T> implements Callback<ListView<T>, ListCell<
 	 */
 	@Override
 	public ListCell<T> call(ListView<T> param) {
-		return new ListCell<T>() {
+		return new ListCell<>() {
 			@Override
 			protected void updateItem(T item, boolean empty) {
 				super.updateItem(item, empty);

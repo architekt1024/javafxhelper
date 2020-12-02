@@ -23,6 +23,8 @@ import java.lang.annotation.Target;
 
 /**
  * Cannot be null. Will be replaced by another solution in the future.
+ *
+ * @author architekt1024
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)

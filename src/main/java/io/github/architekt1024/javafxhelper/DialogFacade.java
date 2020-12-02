@@ -184,6 +184,8 @@ public final class DialogFacade {
 	}
 
 	/**
+	 * Create and show {@link TextInputDialog} dialog
+	 *
 	 * @param title        dialog title
 	 * @param contentText  text to show in the dialog content area
 	 * @param headerText   text to show in the dialog header area
