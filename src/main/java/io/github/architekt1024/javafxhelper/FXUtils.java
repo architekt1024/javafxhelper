@@ -18,20 +18,23 @@ package io.github.architekt1024.javafxhelper;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 import javafx.application.Platform;
+import javafx.scene.control.Control;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TreeView;
 import javafx.scene.text.Font;
-
-import io.github.architekt1024.javafxhelper.annotation.Nonnull;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -51,7 +54,7 @@ public final class FXUtils {
 	/**
 	 * Add listener to spinner to update values after editing.
 	 *
-	 * @param spinnerArr spinner array to update
+	 * @param spinnerArr spinner array to update, any arguments cannot be null
 	 */
 	public static void updateSpinnerValue(Spinner<?>... spinnerArr) {
 		for (final Spinner<?> spinner : spinnerArr) {
@@ -66,12 +69,12 @@ public final class FXUtils {
 	/**
 	 * Change selection mode used in selection model
 	 *
-	 * @param selectionMode selection mode used in selection model
-	 * @param views         list of {@link TreeView}
+	 * @param selectionMode selection mode used in selection model, should be not null
+	 * @param views         list of {@link TreeView}, cannot be null
 	 *
 	 * @since 0.1.8
 	 */
-	public static void updateSelectionMode(@Nonnull SelectionMode selectionMode, @Nonnull TreeView<?>... views) {
+	public static void updateSelectionMode(SelectionMode selectionMode, TreeView<?>... views) {
 		for (TreeView<?> treeView : views) {
 			if (treeView.getSelectionModel() != null) {
 				treeView.getSelectionModel().setSelectionMode(selectionMode);
@@ -82,12 +85,12 @@ public final class FXUtils {
 	/**
 	 * Change selection mode used in selection model
 	 *
-	 * @param selectionMode selection mode used in selection model
-	 * @param views         list of {@link ListView}
+	 * @param selectionMode selection mode used in selection model, should be not null
+	 * @param views         list of {@link ListView}, cannot be null
 	 *
 	 * @since 0.1.8
 	 */
-	public static void updateSelectionMode(@Nonnull SelectionMode selectionMode, @Nonnull ListView<?>... views) {
+	public static void updateSelectionMode(SelectionMode selectionMode, ListView<?>... views) {
 		for (ListView<?> listView : views) {
 			if (listView.getSelectionModel() != null) {
 				listView.getSelectionModel().setSelectionMode(selectionMode);
@@ -98,15 +101,35 @@ public final class FXUtils {
 	/**
 	 * Change selection mode used in selection model
 	 *
-	 * @param selectionMode selection mode used in selection model
-	 * @param views         list of {@link TableView}
+	 * @param selectionMode selection mode used in selection model, should be not null
+	 * @param views         list of {@link TableView}, cannot be null
 	 *
 	 * @since 0.1.8
 	 */
-	public static void updateSelectionMode(@Nonnull SelectionMode selectionMode, @Nonnull TableView<?>... views) {
+	public static void updateSelectionMode(SelectionMode selectionMode, TableView<?>... views) {
 		for (TableView<?> tableView : views) {
 			if (tableView.getSelectionModel() != null) {
 				tableView.getSelectionModel().setSelectionMode(selectionMode);
+			}
+		}
+	}
+
+	/**
+	 * Change selection mode used in selection model
+	 *
+	 * @param selectionMode selection mode used in selection model, should be not null
+	 * @param views         list of {@link TreeView}, {@link TableView}, {@link ListView}, cannot be null
+	 *
+	 * @since 0.1.9
+	 */
+	public static void updateSelectionMode(SelectionMode selectionMode, Control... views) {
+		for (Control view : views) {
+			try {
+				final Method getSelectionModel = view.getClass().getDeclaredMethod("getSelectionModel");
+				final MultipleSelectionModel<?> selectionModel = (MultipleSelectionModel<?>) getSelectionModel.invoke(view);
+				selectionModel.setSelectionMode(selectionMode);
+			} catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+				throw new IllegalArgumentException(e);
 			}
 		}
 	}
@@ -144,22 +167,22 @@ public final class FXUtils {
 	/**
 	 * Run file in default application.
 	 *
-	 * @param file     path to run
-	 * @param consumer exception handler
+	 * @param file     path to run, cannot be null
+	 * @param consumer exception handler, cannot be null
 	 *
 	 * @throws UnsupportedOperationException Desktop is not supported at this platform
 	 * @since 0.1.5
 	 */
-	public static void runFile(@Nonnull final String file, @Nonnull final Consumer<Exception> consumer) {
+	public static void runFile(final String file, final Consumer<Exception> consumer) {
 		if (!Desktop.isDesktopSupported()) {
 			throw new UnsupportedOperationException("Desktop is not supported");
 		}
 
 		Thread thread = new Thread(() -> {
 			try {
-				Desktop.getDesktop().open(new File(file));
+				Desktop.getDesktop().open(new File(Objects.requireNonNull(file)));
 			} catch (Exception e) {
-				Platform.runLater(() -> consumer.accept(e));
+				Platform.runLater(() -> Objects.requireNonNull(consumer).accept(e));
 			}
 		});
 		thread.start();
@@ -168,32 +191,36 @@ public final class FXUtils {
 	/**
 	 * Open url in default browser.
 	 *
-	 * @param url               url address
-	 * @param exceptionConsumer exceptions consumer
+	 * @param url               url address, cannot be blank
+	 * @param exceptionConsumer exceptions consumer, cannot be null
 	 *
 	 * @see #browse(String)
 	 * @since 0.1.8
 	 */
-	public static void browse(@Nonnull String url, @Nonnull Consumer<Exception> exceptionConsumer) {
+	public static void browse(String url, Consumer<Exception> exceptionConsumer) {
 		try {
 			browse(url);
-		} catch (IOException | URISyntaxException | UnsupportedOperationException e) {
-			exceptionConsumer.accept(e);
+		} catch (IOException | URISyntaxException | UnsupportedOperationException | IllegalArgumentException e) {
+			Objects.requireNonNull(exceptionConsumer, "exceptionConsumer cannot be null, can use method #browse(String)").accept(e);
 		}
 	}
 
 	/**
 	 * Open url in default browser
 	 *
-	 * @param url url address
+	 * @param url url address, cannot be blank
 	 *
 	 * @throws IOException                   fail to run default browser
 	 * @throws MalformedURLException         malformed URL
 	 * @throws URISyntaxException            URL cannot be parsed as {@link java.net.URI}
 	 * @throws UnsupportedOperationException Desktop is not supported at this platform
+	 * @throws IllegalArgumentException      URL is blank
 	 * @since 0.1.5
 	 */
-	public static void browse(@Nonnull String url) throws IOException, URISyntaxException {
+	public static void browse(String url) throws IOException, URISyntaxException {
+		if (StringUtils.isBlank(url)) {
+			throw new IllegalArgumentException("URL cannot be blank");
+		}
 		if (!Desktop.isDesktopSupported()) {
 			throw new UnsupportedOperationException("Desktop is not supported");
 		}
@@ -201,6 +228,6 @@ public final class FXUtils {
 		if (!desktop.isSupported(Desktop.Action.BROWSE)) {
 			throw new UnsupportedOperationException("Browse action is not supported");
 		}
-		desktop.browse(new URL(url).toURI());
+		desktop.browse(new URL(Objects.requireNonNull(url)).toURI());
 	}
 }

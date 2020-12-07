@@ -30,10 +30,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
 
-import io.github.architekt1024.javafxhelper.annotation.Nonnull;
-
 /**
- * Build JavaFX window ({@link Stage})
+ * Build JavaFX window ({@link Stage}). Default stage is non-resisable, non-modal, decorated window, without parent window.
  *
  * @author architekt1024
  * @since 0.1.6
@@ -48,14 +46,14 @@ public class StageBuilder {
 	private List<String> stylesheets;
 
 	/**
-	 * @param fxml  FXML {@link URL} For example: {@code ExampleClass.class.getResource(fxmlFile));}
-	 * @param title window title
+	 * @param fxml  FXML {@link URL} For example: {@code ExampleClass.class.getResource(fxmlFile));}, cannot be null
+	 * @param title window title, cannot be null
 	 *
 	 * @since 0.1.6
 	 */
-	public StageBuilder(@Nonnull URL fxml, @Nonnull String title) {
-		this.fxml = fxml;
-		this.title = title;
+	public StageBuilder(URL fxml, String title) {
+		this.fxml = Objects.requireNonNull(fxml);
+		this.title = Objects.requireNonNull(title);
 	}
 
 	/**
@@ -83,15 +81,8 @@ public class StageBuilder {
 		}
 		stage.setScene(scene);
 
-		setStageForFXMLController(stage, fxmlLoader);
+		StageUtils.setStageForFXMLController(stage, fxmlLoader);
 		return stage;
-	}
-
-	private static void setStageForFXMLController(@Nonnull Stage stage, @Nonnull FXMLLoader loader) {
-		if (loader.getController() instanceof FXMLController) {
-			FXMLController controller = loader.getController();
-			controller.setStage(stage);
-		}
 	}
 
 	/**
@@ -124,10 +115,13 @@ public class StageBuilder {
 	/**
 	 * @param parentWindow parent window
 	 *
+	 * @return this builder
+	 *
 	 * @since 0.1.6
 	 */
-	public void setParentWindow(Window parentWindow) {
+	public StageBuilder setParentWindow(Window parentWindow) {
 		this.parentWindow = parentWindow;
+		return this;
 	}
 
 	/**
@@ -142,10 +136,13 @@ public class StageBuilder {
 	/**
 	 * @param resizable can resizable
 	 *
+	 * @return this builder
+	 *
 	 * @since 0.1.6
 	 */
-	public void setResizable(boolean resizable) {
+	public StageBuilder setResizable(boolean resizable) {
 		this.resizable = resizable;
+		return this;
 	}
 
 	/**
@@ -160,11 +157,14 @@ public class StageBuilder {
 	/**
 	 * @param modality stage modality
 	 *
+	 * @return this builder
+	 *
 	 * @since 0.1.6
 	 */
-	public void setModality(@Nonnull Modality modality) {
+	public StageBuilder setModality(Modality modality) {
 		Objects.requireNonNull(modality, "Modality is null");
 		this.modality = modality;
+		return this;
 	}
 
 	/**
@@ -179,11 +179,14 @@ public class StageBuilder {
 	/**
 	 * @param style stage style
 	 *
+	 * @return this builder
+	 *
 	 * @since 0.1.6
 	 */
-	public void setStyle(@Nonnull StageStyle style) {
+	public StageBuilder setStyle(StageStyle style) {
 		Objects.requireNonNull(modality, "style is null");
 		this.style = style;
+		return this;
 	}
 
 	/**
@@ -198,13 +201,16 @@ public class StageBuilder {
 	/**
 	 * @param stylesheets CSS stylesheets
 	 *
+	 * @return this builder
+	 *
 	 * @since 0.1.6
 	 */
-	public void setStylesheets(List<String> stylesheets) {
+	public StageBuilder setStylesheets(List<String> stylesheets) {
 		if (stylesheets == null) {
 			this.stylesheets = Collections.emptyList();
 		} else {
 			this.stylesheets = new ArrayList<>(stylesheets);
 		}
+		return this;
 	}
 }

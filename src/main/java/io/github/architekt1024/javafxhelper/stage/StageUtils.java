@@ -136,7 +136,7 @@ public final class StageUtils {
 		return fxmlLoader.getController();
 	}
 
-	private static void setStageForFXMLController(@Nonnull Stage stage, @Nonnull FXMLLoader loader) {
+	static void setStageForFXMLController(@Nonnull Stage stage, @Nonnull FXMLLoader loader) {
 		if (loader.getController() instanceof FXMLController) {
 			FXMLController controller = loader.getController();
 			controller.setStage(stage);

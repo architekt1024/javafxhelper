@@ -22,12 +22,14 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Cannot be null. Will be replaced by another solution in the future.
+ * Cannot be null. Will be replaced by information in javadocs and {@link java.util.Objects#requireNonNull(Object)}
  *
  * @author architekt1024
+ * @deprecated deprecated from 0.1.9, removed in 0.1.12 or newer
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD, ElementType.LOCAL_VARIABLE, ElementType.PARAMETER})
+@Deprecated(since = "0.1.9")
 public @interface Nonnull {
 }

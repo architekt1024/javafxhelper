@@ -1,19 +1,22 @@
+<!--
 # (TBD next version)
 ## New features
 ## Deprecated or removed
 ## Other changes
-
+-->
 
 # 0.1.9 (SNAPSHOT yet)
 ## New features
++ add *FXUtils#updateSelectionMode(SelectionMode, Control...)* method
 ## Deprecated or removed
 - removed deprecated API from FXUtils
-- removed usage *@Nullable* annotation
+- removed usage *@Nullable* an some *@Nonnull* annotation
+- mark *@Nonnull* annotation as deprecated
 ## Other changes
 * All arguments can be null by default
 * Update javadocs
 * Update dependency versions 
-
+* Fix StageBuilder
 
 # 0.1.8
 ## New features

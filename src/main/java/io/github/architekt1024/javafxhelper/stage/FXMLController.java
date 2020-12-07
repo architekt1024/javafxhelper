@@ -18,13 +18,18 @@ package io.github.architekt1024.javafxhelper.stage;
 import javafx.stage.Stage;
 
 /**
- * TODO description
+ * Set {@link Stage} if use {@link StageUtils} or {@link StageBuilder}.
  *
  * @author architekt1024
+ * @see StageUtils
+ * @see StageBuilder
  */
 public interface FXMLController {
 
 	/**
+	 * Set stage if use {@link StageUtils} or {@link StageBuilder}. It will be run after
+	 * {@link javafx.fxml.Initializable#initialize(java.net.URL, java.util.ResourceBundle)}
+	 *
 	 * @param stage current stage
 	 */
 	void setStage(Stage stage);
