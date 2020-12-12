@@ -1,19 +1,97 @@
 # javafxhelper
 
 ![Sonar](https://github.com/architekt1024/javafxhelper/workflows/Sonar/badge.svg)
+[![Requirements Status](https://requires.io/github/architekt1024/javafxhelper/requirements.svg?branch=develop)](https://requires.io/github/architekt1024/javafxhelper/requirements/?branch=develop)
+![GitHub](https://img.shields.io/github/license/architekt1024/javafxhelper?style=plastic)
+![Lines of code](https://img.shields.io/tokei/lines/github/architekt1024/javafxhelper?style=plastic)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/architekt1024/javafxhelper?style=plastic)
 
 The aim of the project is to create reusable JavaFX components. The project is at an early stage of development.
 
 ## Getting Started
-Clone repository and [install](#Installing) or import in your favorite IDE. 
+Download last release and install.
 
 ### Prerequisites
-* JDK 11 or newer (Oracle or OpenJDK)
+* JDK 11 or newer (ex. AdoptOpenJDK)
 * Maven
-* Set JAVA_HOME enviroment variable
+* Set `JAVA_HOME` environment variable
 
 ### Installing
-Install to local maven repository
+1. Download release.
+2. Install to local maven repository including sources and javadocs
 ```
-mvn clean install
+mvn org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=javafxhelper-0.1.8.jar -Dsources=javafxhelper-0.1.8-sources.jar -Djavadoc=javafxhelper-0.1.8-javadoc.jar
 ```
+3. Add dependency in your pom.xml
+```xml
+<dependency>
+	<groupId>io.github.architekt1024</groupId>
+	<artifactId>javafxhelper</artifactId>
+	<version>0.1.8</version>
+</dependency>
+```
+4. Add to module-info.java 
+```
+requires io.github.architekt1024.javafxhelper 
+```
+
+## How to use the newer version of JavaFX and OpenJFX
+The library should work with any new Java versions.
+
+Change your pom.xml
+```xml
+<properties>
+	<javafx.version><!-- openjfx version --></javafx.version>
+</properties>
+
+<dependencies>
+	<!-- other dependencies -->
+	<dependency>
+		<groupId>io.github.architekt1024</groupId>
+		<artifactId>javafxhelper</artifactId>
+		<version>0.1.9-SNAPSHOT</version>
+		<exclusions>
+			<exclusion>
+				<artifactId>javafx-fxml</artifactId>
+				<groupId>org.openjfx</groupId>
+			</exclusion>
+			<exclusion>
+				<artifactId>javafx-swing</artifactId>
+				<groupId>org.openjfx</groupId>
+			</exclusion>
+			<exclusion>
+				<artifactId>javafx-web</artifactId>
+				<groupId>org.openjfx</groupId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+
+	<dependency>
+		<artifactId>javafx-fxml</artifactId>
+		<groupId>org.openjfx</groupId>
+		<version>${javafx.version}</version>
+	</dependency>
+	<dependency>
+		<artifactId>javafx-swing</artifactId>
+		<groupId>org.openjfx</groupId>
+		<version>${javafx.version}</version>
+	</dependency>
+	<dependency>
+		<artifactId>javafx-web</artifactId>
+		<groupId>org.openjfx</groupId>
+		<version>${javafx.version}</version>
+	</dependency>
+
+	<!-- other dependencies -->
+</dependencies>
+```
+
+## Build from sources
+1. clone repository 
+```git clone git@github.com:architekt1024/javafxhelper.git```
+2. install to local maven repository
+```mvn clean install```
+
+### Building with a newer version of Java or OpenJFX
+* Change `javafx.version` property in pom.xml
+* Change `maven.compiler.source` and `maven.compiler.target` property in pom.xml 
