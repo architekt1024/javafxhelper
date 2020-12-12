@@ -22,8 +22,6 @@ import java.util.Deque;
 import javafx.collections.FXCollections;
 import javafx.scene.control.TreeItem;
 
-import io.github.architekt1024.javafxhelper.annotation.Nonnull;
-
 /**
  * Common utils for {@link javafx.scene.control.TreeView}
  *
@@ -37,11 +35,11 @@ public final class TreeUtils {
 	/**
 	 * Sort treeItem with children.
 	 *
-	 * @param treeItem   tree item to sorting
-	 * @param comparator comparator used to sorting
+	 * @param treeItem   tree item to sorting, cannot be null
+	 * @param comparator comparator used to sorting, cannot be null
 	 * @param <V>        The type of the {@link TreeItem#getValue() value} property within {@link TreeItem}.
 	 */
-	public static <V> void sortChildren(@Nonnull TreeItem<V> treeItem, @Nonnull Comparator<TreeItem<V>> comparator) {
+	public static <V> void sortChildren(TreeItem<V> treeItem, Comparator<TreeItem<V>> comparator) {
 		Deque<TreeItem<V>> treeItemsDeque = new ArrayDeque<>();
 		treeItemsDeque.push(treeItem);
 

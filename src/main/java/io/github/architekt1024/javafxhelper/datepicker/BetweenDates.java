@@ -22,8 +22,6 @@ import java.util.function.Function;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.control.DatePicker;
 
-import io.github.architekt1024.javafxhelper.annotation.Nonnull;
-
 /**
  * TODO description
  *
@@ -38,9 +36,7 @@ public final class BetweenDates {
 
 	/**
 	 * TODO description
-	 * <p>Example usage:<br>
-	 * TODO
-	 * </p>
+	 * <p>Example usage: {@code BetweenDates.simple(startDate, endDate);} </p>
 	 *
 	 * @param startDate {@link DatePicker}, cannot be null
 	 * @param endDate   {@link DatePicker}, cannot be null

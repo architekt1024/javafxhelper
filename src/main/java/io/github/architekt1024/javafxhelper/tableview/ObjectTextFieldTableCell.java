@@ -48,7 +48,7 @@ public final class ObjectTextFieldTableCell {
 	/**
 	 * Create and return default CellFactory for String. Alias for {@link TextFieldTableCell#forTableColumn()}
 	 *
-	 * @param <S> model class for data in TableView
+	 * @param <S> model class for data in {@link javafx.scene.control.TableView}
 	 *
 	 * @return default CellFactory for Integer
 	 */
@@ -59,7 +59,7 @@ public final class ObjectTextFieldTableCell {
 	/**
 	 * Create and return default CellFactory for Integer
 	 *
-	 * @param <S> model class for data in TableView
+	 * @param <S> model class for data in {@link javafx.scene.control.TableView}
 	 *
 	 * @return default CellFactory for Integer
 	 */
@@ -70,7 +70,7 @@ public final class ObjectTextFieldTableCell {
 	/**
 	 * Create and return default CellFactory for Long
 	 *
-	 * @param <S> model class for data in TableView
+	 * @param <S> model class for data in {@link javafx.scene.control.TableView}
 	 *
 	 * @return default CellFactory for Long
 	 */
@@ -81,7 +81,7 @@ public final class ObjectTextFieldTableCell {
 	/**
 	 * Create and return default CellFactory for Float
 	 *
-	 * @param <S> model class for data in TableView
+	 * @param <S> model class for data in {@link javafx.scene.control.TableView}
 	 *
 	 * @return default CellFactory for Float
 	 */
@@ -92,7 +92,7 @@ public final class ObjectTextFieldTableCell {
 	/**
 	 * Create and return default CellFactory for Double
 	 *
-	 * @param <S> model class for data in TableView
+	 * @param <S> model class for data in {@link javafx.scene.control.TableView}
 	 *
 	 * @return default CellFactory for Double
 	 */
@@ -103,7 +103,7 @@ public final class ObjectTextFieldTableCell {
 	/**
 	 * Create and return default CellFactory for Boolean
 	 *
-	 * @param <S> model class for data in TableView
+	 * @param <S> model class for data in {@link javafx.scene.control.TableView}
 	 *
 	 * @return default CellFactory for Boolean
 	 */
@@ -112,16 +112,16 @@ public final class ObjectTextFieldTableCell {
 	}
 
 	/**
-	 * Create and return default CellFactory for Object. Base on {@link Object#toString()}
+	 * Create and return default CellFactory for Object. String converter base on {@link Object#toString()}
 	 *
-	 * @param <S> model class for data in TableView
+	 * @param <S> model class for data in {@link javafx.scene.control.TableView}
 	 *
 	 * @return default CellFactory for Boolean
 	 *
 	 * @since 0.1.6
 	 */
 	public static <S> Callback<TableColumn<S, Object>, TableCell<S, Object>> forObjectColumn() {
-		return TextFieldTableCell.forTableColumn(new StringConverter<Object>() {
+		return TextFieldTableCell.forTableColumn(new StringConverter<>() {
 			@Override
 			public String toString(Object object) {
 				return object.toString();

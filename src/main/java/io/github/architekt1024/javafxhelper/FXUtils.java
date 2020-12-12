@@ -70,13 +70,13 @@ public final class FXUtils {
 	 * Change selection mode used in selection model
 	 *
 	 * @param selectionMode selection mode used in selection model, should be not null
-	 * @param views         list of {@link TreeView}, cannot be null
+	 * @param views         list of {@link TreeView}
 	 *
 	 * @since 0.1.8
 	 */
 	public static void updateSelectionMode(SelectionMode selectionMode, TreeView<?>... views) {
 		for (TreeView<?> treeView : views) {
-			if (treeView.getSelectionModel() != null) {
+			if (treeView != null && treeView.getSelectionModel() != null) {
 				treeView.getSelectionModel().setSelectionMode(selectionMode);
 			}
 		}
@@ -86,13 +86,13 @@ public final class FXUtils {
 	 * Change selection mode used in selection model
 	 *
 	 * @param selectionMode selection mode used in selection model, should be not null
-	 * @param views         list of {@link ListView}, cannot be null
+	 * @param views         list of {@link ListView}
 	 *
 	 * @since 0.1.8
 	 */
 	public static void updateSelectionMode(SelectionMode selectionMode, ListView<?>... views) {
 		for (ListView<?> listView : views) {
-			if (listView.getSelectionModel() != null) {
+			if (listView != null && listView.getSelectionModel() != null) {
 				listView.getSelectionModel().setSelectionMode(selectionMode);
 			}
 		}
@@ -102,34 +102,37 @@ public final class FXUtils {
 	 * Change selection mode used in selection model
 	 *
 	 * @param selectionMode selection mode used in selection model, should be not null
-	 * @param views         list of {@link TableView}, cannot be null
+	 * @param views         list of {@link TableView}
 	 *
 	 * @since 0.1.8
 	 */
 	public static void updateSelectionMode(SelectionMode selectionMode, TableView<?>... views) {
 		for (TableView<?> tableView : views) {
-			if (tableView.getSelectionModel() != null) {
+			if (tableView != null && tableView.getSelectionModel() != null) {
 				tableView.getSelectionModel().setSelectionMode(selectionMode);
 			}
 		}
 	}
 
+
 	/**
 	 * Change selection mode used in selection model
 	 *
 	 * @param selectionMode selection mode used in selection model, should be not null
-	 * @param views         list of {@link TreeView}, {@link TableView}, {@link ListView}, cannot be null
+	 * @param views         list of {@link TreeView}, {@link TableView}, {@link ListView}
 	 *
 	 * @since 0.1.9
 	 */
 	public static void updateSelectionMode(SelectionMode selectionMode, Control... views) {
 		for (Control view : views) {
-			try {
-				final Method getSelectionModel = view.getClass().getDeclaredMethod("getSelectionModel");
-				final MultipleSelectionModel<?> selectionModel = (MultipleSelectionModel<?>) getSelectionModel.invoke(view);
-				selectionModel.setSelectionMode(selectionMode);
-			} catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-				throw new IllegalArgumentException(e);
+			if (view != null) {
+				try {
+					final Method getSelectionModel = view.getClass().getDeclaredMethod("getSelectionModel");
+					final MultipleSelectionModel<?> selectionModel = (MultipleSelectionModel<?>) getSelectionModel.invoke(view);
+					selectionModel.setSelectionMode(selectionMode);
+				} catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+					throw new IllegalArgumentException(e);
+				}
 			}
 		}
 	}

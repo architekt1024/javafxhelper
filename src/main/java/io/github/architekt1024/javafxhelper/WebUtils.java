@@ -21,9 +21,6 @@ import java.util.stream.Collectors;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
-import io.github.architekt1024.javafxhelper.annotation.Experimental;
-import io.github.architekt1024.javafxhelper.annotation.Nonnull;
-
 import org.apache.commons.text.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,7 +37,7 @@ public final class WebUtils {
 	private WebUtils() {
 	}
 
-	private static Object executeScript(@Nonnull final WebEngine webEngine, @Nonnull final String script) {
+	private static Object executeScript(final WebEngine webEngine, final String script) {
 		LOG.debug(script);
 		return webEngine.executeScript(script);
 	}
@@ -48,17 +45,17 @@ public final class WebUtils {
 	/**
 	 * Run JavaScript function on web engine. Escape arguments.
 	 *
-	 * @param webEngine WebEngine instance
-	 * @param function  JavaScript function name
-	 * @param args      JavaScript function args
+	 * @param webEngine WebEngine instance, cannot be null
+	 * @param function  JavaScript function name, cannot be null
+	 * @param args      JavaScript function args, cannot be null
 	 *
 	 * @return result of {@link WebEngine#executeScript(String)}
 	 */
-	public static Object executeScript(@Nonnull final WebEngine webEngine, @Nonnull final String function, @Nonnull final String... args) {
+	public static Object executeScript(final WebEngine webEngine, final String function, final String... args) {
 		return executeScript(webEngine, prepareScript(function, args));
 	}
 
-	static String prepareScript(@Nonnull String function, @Nonnull String... args) {
+	static String prepareScript(String function, String... args) {
 		String filtered = Arrays.stream(args)
 				.map(StringEscapeUtils::escapeEcmaScript)
 				.collect(Collectors.joining("', '"));

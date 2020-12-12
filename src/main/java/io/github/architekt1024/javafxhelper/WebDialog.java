@@ -80,6 +80,4 @@ public final class WebDialog {
 			.setButtons(buttons)
 			.build();
 	}
-
-
 }

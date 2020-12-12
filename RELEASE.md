@@ -5,7 +5,7 @@
 ## Other changes
 -->
 
-# 0.1.9 (SNAPSHOT yet)
+# 0.1.9 (SNAPSHOT)
 ## New features
 + add *FXUtils#updateSelectionMode(SelectionMode, Control...)* method
 ## Deprecated or removed
