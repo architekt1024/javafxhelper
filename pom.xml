@@ -198,7 +198,7 @@
 						<goals>
 							<goal>spotbugs</goal>
 						</goals>
-						<phase>package</phase>
+						<phase>compile</phase>
 					</execution>
 				</executions>
 			</plugin>
