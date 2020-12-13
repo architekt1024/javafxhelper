@@ -5,12 +5,18 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<name>javafxhelper</name>
-
 	<scm>
 		<connection>scm:git:https://github.com/architekt1024/javafxhelper.git</connection>
 		<url>https://github.com/architekt1024/javafxhelper</url>
 	</scm>
+
+	<licenses>
+		<license>
+			<name>Apache-2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>manual</distribution>
+		</license>
+	</licenses>
 
 	<groupId>io.github.architekt1024</groupId>
 	<artifactId>javafxhelper</artifactId>
@@ -176,6 +182,23 @@
 						<goals>
 							<goal>report</goal>
 						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>com.github.spotbugs</groupId>
+				<artifactId>spotbugs-maven-plugin</artifactId>
+				<version>4.1.4</version>
+				<configuration>
+					<xmlOutput>true</xmlOutput>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>spotbugs</goal>
+						</goals>
+						<phase>package</phase>
 					</execution>
 				</executions>
 			</plugin>
