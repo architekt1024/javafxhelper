@@ -5,6 +5,7 @@
 ![GitHub](https://img.shields.io/github/license/architekt1024/javafxhelper?style=plastic)
 ![Lines of code](https://img.shields.io/tokei/lines/github/architekt1024/javafxhelper?style=plastic)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/architekt1024/javafxhelper?style=plastic)
+![GitHub Release Date](https://img.shields.io/github/release-date/architekt1024/javafxhelper?style=plastic)
 
 The aim of the project is to create reusable JavaFX components. The project is at an early stage of development.
 
@@ -93,5 +94,5 @@ Change your pom.xml
 ```mvn clean install```
 
 ### Building with a newer version of Java or OpenJFX
-* Change `javafx.version` property in pom.xml
-* Change `maven.compiler.source` and `maven.compiler.target` property in pom.xml 
+* Update OpenJFX version: Change `javafx.version` property in `pom.xml` file
+* Update Java version: Change `maven.compiler.source` and `maven.compiler.target` property in `pom.xml` file 
