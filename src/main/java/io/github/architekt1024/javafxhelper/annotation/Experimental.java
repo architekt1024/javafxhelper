@@ -22,7 +22,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Experimental functionality. Behavior can change in any version. It can be removed without warning.
+ * Experimental functionality. Behavior can change in any version. It can be removed without warning. Use in a production environment is not recommended.
  *
  * @author architekt1024
  * @since 0.1.8

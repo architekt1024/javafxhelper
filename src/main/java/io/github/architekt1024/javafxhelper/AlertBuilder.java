@@ -41,14 +41,27 @@ public class AlertBuilder {
 	private ButtonType[] buttons;
 	private Boolean resizable;
 
+	/**
+	 * Alert without type
+	 */
 	public AlertBuilder() {
 		this(Alert.AlertType.NONE);
 	}
 
+	/**
+	 * Alert with specified type
+	 *
+	 * @param alertType alert type
+	 */
 	public AlertBuilder(Alert.AlertType alertType) {
 		this.alertType = alertType;
 	}
 
+	/**
+	 * Build the alert.
+	 *
+	 * @return new alert
+	 */
 	public Alert build() {
 		final Alert alert = new Alert(alertType, contentText, buttons);
 		alert.setTitle(title);
@@ -64,6 +77,8 @@ public class AlertBuilder {
 	}
 
 	/**
+	 * Build alert and wait for user.
+	 *
 	 * @return optional button clicked by user
 	 */
 	public Optional<ButtonType> buildAndShow() {
