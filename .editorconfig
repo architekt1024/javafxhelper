@@ -18,3 +18,5 @@ ij_java_for_brace_force = always
 ij_java_if_brace_force = always
 ij_java_while_brace_force = always
 ij_java_do_while_brace_force = always
+ij_java_doc_add_blank_line_after_param_comments = true
+ij_java_doc_add_blank_line_after_return = true
