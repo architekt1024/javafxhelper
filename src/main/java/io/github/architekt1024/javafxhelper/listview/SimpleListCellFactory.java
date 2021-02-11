@@ -22,8 +22,6 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
 
-import io.github.architekt1024.javafxhelper.annotation.Nonnull;
-
 /**
  * Cell factory for {@link ListView} using String converter. Set null if item is empty or null, otherwise convert item to String using converter.
  * <p>

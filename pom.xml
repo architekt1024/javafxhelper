@@ -6,8 +6,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<scm>
-		<connection>scm:git:https://github.com/architekt1024/javafxhelper.git</connection>
-		<url>https://github.com/architekt1024/javafxhelper</url>
+		<connection>scm:git:git://github.com/architekt1024/javafxhelper.git</connection>
+		<url>https://github.com/architekt1024/javafxhelper/tree/master</url>
+		<developerConnection>scm:git:ssh://github.com:architekt1024/javafxhelper.git</developerConnection>
 	</scm>
 
 	<licenses>
@@ -26,8 +27,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
-		<slf4j.version>1.8.0-alpha2</slf4j.version>
-		<junit-jupiter.version>5.7.0</junit-jupiter.version>
+		<slf4j.version>1.8.0-beta4</slf4j.version>
+		<junit-jupiter.version>5.7.1</junit-jupiter.version>
 		<javafx.version>11.0.2</javafx.version>
 
 		<sonar.projectKey>architekt1024_javafxhelper</sonar.projectKey>
@@ -82,13 +83,13 @@
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-			<version>3.6.28</version>
+			<version>3.7.7</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-junit-jupiter</artifactId>
-			<version>3.6.28</version>
+			<version>3.7.7</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -164,6 +165,8 @@
 				<version>3.8.1</version>
 				<configuration>
 					<release>${maven.compiler.source}</release>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>false</showDeprecation>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -189,7 +192,7 @@
 			<plugin>
 				<groupId>com.github.spotbugs</groupId>
 				<artifactId>spotbugs-maven-plugin</artifactId>
-				<version>4.1.4</version>
+				<version>4.2.0</version>
 				<configuration>
 					<xmlOutput>true</xmlOutput>
 				</configuration>

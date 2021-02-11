@@ -17,6 +17,7 @@ package io.github.architekt1024.javafxhelper.stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 import javafx.fxml.FXMLLoader;
@@ -42,26 +43,26 @@ public final class StageUtils {
 	/**
 	 * Load main stage. If controller implements {@link FXMLController}, it set stage.
 	 *
-	 * @param fxml        {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}
-	 * @param stage       JavaFX stage
-	 * @param title       window title
+	 * @param fxml        {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}, cannot be null
+	 * @param stage       JavaFX stage, cannot be null
+	 * @param title       window title, cannot be null
 	 * @param stylesheets stylesheet file path
 	 *
 	 * @throws IOException fail load FXML file
 	 * @since 0.1.6
 	 */
-	public static void loadMainStage(@Nonnull URL fxml, @Nonnull Stage stage, @Nonnull String title, String stylesheets) throws IOException {
-		FXMLLoader loader = new FXMLLoader(fxml);
+	public static void loadMainStage(URL fxml, Stage stage, String title, String stylesheets) throws IOException {
+		FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(fxml));
 		Parent root = loader.load();
 
-		setStageForFXMLController(stage, loader);
+		setStageForFXMLController(Objects.requireNonNull(stage), loader);
 
 		Scene scene = new Scene(root);
 		if (stylesheets != null) {
 			scene.getStylesheets().add(stylesheets);
 		}
 
-		stage.setTitle(title);
+		stage.setTitle(Objects.requireNonNull(title));
 		stage.setScene(scene);
 
 		stage.show();
@@ -80,7 +81,7 @@ public final class StageUtils {
 	 * @throws IOException fail load FXML file
 	 * @since 0.1.6
 	 */
-	public static Stage prepareUtilityWindow(@Nonnull FXMLLoader fxml, @Nonnull String title, @Nonnull Window parentWindow, boolean modal) throws IOException {
+	public static Stage prepareUtilityWindow(@Nonnull FXMLLoader fxml, @Nonnull String title, Window parentWindow, boolean modal) throws IOException {
 		Stage stage = loadNonResizableStage(fxml, title, parentWindow);
 		stage.initStyle(StageStyle.UTILITY);
 		if (modal) {
@@ -106,7 +107,7 @@ public final class StageUtils {
 	 * @throws IOException fail load FXML file
 	 * @since 0.1.6
 	 */
-	public static <T> T showUtilityWindow(@Nonnull URL fxml, @Nonnull String title, @Nonnull Window parentWindow, boolean modal) throws IOException {
+	public static <T> T showUtilityWindow(@Nonnull URL fxml, @Nonnull String title, Window parentWindow, boolean modal) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(fxml);
 		Stage stage1 = prepareUtilityWindow(fxmlLoader, title, parentWindow, modal);
 		setStageForFXMLController(stage1, fxmlLoader);
@@ -128,7 +129,7 @@ public final class StageUtils {
 	 * @throws IOException fail load FXML file
 	 * @since 0.1.6
 	 */
-	public static <T> T showAndWaitUtilityWindow(@Nonnull URL fxml, @Nonnull String title, @Nonnull Window parentWindow, boolean modal) throws IOException {
+	public static <T> T showAndWaitUtilityWindow(@Nonnull URL fxml, @Nonnull String title, Window parentWindow, boolean modal) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(fxml);
 		Stage stage1 = prepareUtilityWindow(fxmlLoader, title, parentWindow, modal);
 		setStageForFXMLController(stage1, fxmlLoader);
@@ -136,7 +137,7 @@ public final class StageUtils {
 		return fxmlLoader.getController();
 	}
 
-	static void setStageForFXMLController(@Nonnull Stage stage, @Nonnull FXMLLoader loader) {
+	static void setStageForFXMLController(Stage stage, @Nonnull FXMLLoader loader) {
 		if (loader.getController() instanceof FXMLController) {
 			FXMLController controller = loader.getController();
 			controller.setStage(stage);
@@ -156,15 +157,15 @@ public final class StageUtils {
 	 * @throws IOException fail load FXML file
 	 * @since 0.1.6
 	 */
-	public static Stage loadNonResizableStage(@Nonnull FXMLLoader fxmlLoader, @Nonnull String title, @Nonnull Window parentWindow) throws IOException {
-		Parent root1 = fxmlLoader.load();
-		Stage stage1 = new Stage();
-		stage1.setResizable(false);
-		stage1.setTitle(title);
-		stage1.setScene(new Scene(root1));
-		stage1.initOwner(parentWindow);
-		setStageForFXMLController(stage1, fxmlLoader);
-		return stage1;
+	public static Stage loadNonResizableStage(@Nonnull FXMLLoader fxmlLoader, @Nonnull String title, Window parentWindow) throws IOException {
+		Parent root = fxmlLoader.load();
+		Stage stage = new Stage();
+		stage.setResizable(false);
+		stage.setTitle(title);
+		stage.setScene(new Scene(root));
+		stage.initOwner(parentWindow);
+		setStageForFXMLController(stage, fxmlLoader);
+		return stage;
 	}
 
 	/**
@@ -179,7 +180,7 @@ public final class StageUtils {
 	 * @throws IOException fail load FXML file
 	 * @since 0.1.6
 	 */
-	public static Stage showNonResizableStage(@Nonnull URL fxml, @Nonnull String title, @Nonnull Window parentWindow) throws IOException {
+	public static Stage showNonResizableStage(@Nonnull URL fxml, @Nonnull String title, Window parentWindow) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(fxml);
 		Stage stage = loadNonResizableStage(fxmlLoader, title, parentWindow);
 		stage.show();
@@ -201,7 +202,7 @@ public final class StageUtils {
 	 * @throws IOException fail load FXML file
 	 * @since 0.1.6
 	 */
-	public static <T> Stage showNonResizableStageAndWait(@Nonnull URL fxml, @Nonnull String title, @Nonnull Window parentWindow,
+	public static <T> Stage showNonResizableStageAndWait(@Nonnull URL fxml, @Nonnull String title, Window parentWindow,
 														 Consumer<T> beforeShow, Consumer<T> afterShow) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(fxml);
 		Stage stage = loadNonResizableStage(fxmlLoader, title, parentWindow);
