@@ -5,11 +5,9 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<scm>
-		<connection>scm:git:git://github.com/architekt1024/javafxhelper.git</connection>
-		<url>https://github.com/architekt1024/javafxhelper/tree/master</url>
-		<developerConnection>scm:git:ssh://github.com:architekt1024/javafxhelper.git</developerConnection>
-	</scm>
+	<groupId>io.github.architekt1024</groupId>
+	<artifactId>javafxhelper</artifactId>
+	<version>0.1.9-SNAPSHOT</version>
 
 	<licenses>
 		<license>
@@ -19,9 +17,11 @@
 		</license>
 	</licenses>
 
-	<groupId>io.github.architekt1024</groupId>
-	<artifactId>javafxhelper</artifactId>
-	<version>0.1.9-SNAPSHOT</version>
+	<scm>
+		<connection>scm:git:git://github.com/architekt1024/javafxhelper.git</connection>
+		<url>https://github.com/architekt1024/javafxhelper/tree/master</url>
+		<developerConnection>scm:git:ssh://github.com:architekt1024/javafxhelper.git</developerConnection>
+	</scm>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

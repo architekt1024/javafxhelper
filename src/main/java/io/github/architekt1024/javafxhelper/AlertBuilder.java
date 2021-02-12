@@ -15,6 +15,7 @@
  */
 package io.github.architekt1024.javafxhelper;
 
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -133,11 +134,11 @@ public class AlertBuilder {
 	}
 
 	public ButtonType[] getButtons() {
-		return buttons;
+		return Arrays.copyOf(buttons, buttons.length);
 	}
 
 	public AlertBuilder setButtons(ButtonType... buttons) {
-		this.buttons = buttons;
+		this.buttons = Arrays.copyOf(buttons, buttons.length);
 		return this;
 	}
 
