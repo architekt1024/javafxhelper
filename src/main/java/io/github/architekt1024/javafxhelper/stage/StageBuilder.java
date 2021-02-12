@@ -40,7 +40,7 @@ public class StageBuilder {
 	private final URL fxml;
 	private final String title;
 	private Window parentWindow;
-	private boolean resizable;
+	private boolean resizable = true;
 	private Modality modality = Modality.NONE;
 	private StageStyle style = StageStyle.DECORATED;
 	private List<String> stylesheets;

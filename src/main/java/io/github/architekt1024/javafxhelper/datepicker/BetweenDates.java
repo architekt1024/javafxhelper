@@ -29,8 +29,6 @@ import javafx.scene.control.DatePicker;
  * @since 0.1.6
  */
 public final class BetweenDates {
-
-
 	private BetweenDates() {
 	}
 

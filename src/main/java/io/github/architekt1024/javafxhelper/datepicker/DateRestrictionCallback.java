@@ -56,7 +56,7 @@ public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 	 */
 	@Override
 	public DateCell call(DatePicker param) {
-		return new DateRestrictionCell();
+		return new DateRestrictionCell(minDate, maxDate);
 	}
 
 	/**
@@ -125,7 +125,15 @@ public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 		return new DateRestrictionCallback(null, LocalDate.now());
 	}
 
-	private class DateRestrictionCell extends DateCell {
+	private static class DateRestrictionCell extends DateCell {
+		private final LocalDate minDate;
+		private final LocalDate maxDate;
+
+		public DateRestrictionCell(LocalDate minDate, LocalDate maxDate) {
+			this.minDate = minDate;
+			this.maxDate = maxDate;
+		}
+
 		@Override
 		public void updateItem(LocalDate item, boolean empty) {
 			super.updateItem(item, empty);
