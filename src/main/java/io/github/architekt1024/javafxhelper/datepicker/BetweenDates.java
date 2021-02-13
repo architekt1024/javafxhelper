@@ -33,8 +33,7 @@ public final class BetweenDates {
 	}
 
 	/**
-	 * TODO description
-	 * <p>Example usage: {@code BetweenDates.simple(startDate, endDate);} </p>
+	 * Allows you to select a date range. Introduces restrictions for {@link DatePicker} pair: end date cannot be earlier than start date.
 	 *
 	 * @param startDate {@link DatePicker}, cannot be null
 	 * @param endDate   {@link DatePicker}, cannot be null
