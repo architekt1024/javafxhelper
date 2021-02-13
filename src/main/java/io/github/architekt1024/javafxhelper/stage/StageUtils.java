@@ -80,7 +80,9 @@ public final class StageUtils {
 	 *
 	 * @throws IOException fail load FXML file
 	 * @since 0.1.6
+	 * @deprecated 0.1.9, will be removed in 0.1.12
 	 */
+	@Deprecated(since = "0.1.9")
 	public static Stage prepareUtilityWindow(@Nonnull FXMLLoader fxml, @Nonnull String title, Window parentWindow, boolean modal) throws IOException {
 		Stage stage = loadNonResizableStage(fxml, title, parentWindow);
 		stage.initStyle(StageStyle.UTILITY);
@@ -89,6 +91,27 @@ public final class StageUtils {
 		} else {
 			stage.initModality(Modality.NONE);
 		}
+		setStageForFXMLController(stage, fxml);
+		return stage;
+	}
+
+	/**
+	 * Create utility window and return.
+	 *
+	 * @param fxml         fxml loader instance
+	 * @param title        window title
+	 * @param parentWindow parent window
+	 * @param modality     modality type
+	 *
+	 * @return created stage
+	 *
+	 * @throws IOException fail load FXML file
+	 * @since 0.1.9
+	 */
+	public static Stage prepareUtilityWindow(@Nonnull FXMLLoader fxml, @Nonnull String title, Window parentWindow, Modality modality) throws IOException {
+		Stage stage = loadNonResizableStage(fxml, title, parentWindow);
+		stage.initStyle(StageStyle.UTILITY);
+		stage.initModality(Objects.requireNonNullElse(modality, Modality.NONE));
 		setStageForFXMLController(stage, fxml);
 		return stage;
 	}
@@ -106,12 +129,36 @@ public final class StageUtils {
 	 *
 	 * @throws IOException fail load FXML file
 	 * @since 0.1.6
+	 * @deprecated 0.1.9, will be removed in 0.1.12
 	 */
+	@Deprecated(since = "0.1.9")
 	public static <T> T showUtilityWindow(@Nonnull URL fxml, @Nonnull String title, Window parentWindow, boolean modal) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(fxml);
 		Stage stage1 = prepareUtilityWindow(fxmlLoader, title, parentWindow, modal);
 		setStageForFXMLController(stage1, fxmlLoader);
 		stage1.show();
+		return fxmlLoader.getController();
+	}
+
+	/**
+	 * Create and show utility window. If controller implements {@link FXMLController}, it set stage.
+	 *
+	 * @param fxml         {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}
+	 * @param title        window title
+	 * @param parentWindow parent window
+	 * @param modality     modality type
+	 * @param <T>          controller class
+	 *
+	 * @return stage controller or null if not set
+	 *
+	 * @throws IOException fail load FXML file
+	 * @since 0.1.9
+	 */
+	public static <T> T showUtilityWindow(@Nonnull URL fxml, @Nonnull String title, Window parentWindow, Modality modality) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(fxml);
+		Stage stage = prepareUtilityWindow(fxmlLoader, title, parentWindow, modality);
+		setStageForFXMLController(stage, fxmlLoader);
+		stage.show();
 		return fxmlLoader.getController();
 	}
 
@@ -128,10 +175,34 @@ public final class StageUtils {
 	 *
 	 * @throws IOException fail load FXML file
 	 * @since 0.1.6
+	 * @deprecated 0.1.9, will be removed in (TBD)
 	 */
+	@Deprecated(since = "0.1.9")
 	public static <T> T showAndWaitUtilityWindow(@Nonnull URL fxml, @Nonnull String title, Window parentWindow, boolean modal) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(fxml);
 		Stage stage1 = prepareUtilityWindow(fxmlLoader, title, parentWindow, modal);
+		setStageForFXMLController(stage1, fxmlLoader);
+		stage1.showAndWait();
+		return fxmlLoader.getController();
+	}
+
+	/**
+	 * Create and show utility window. Wait for close. If controller implements {@link FXMLController}, it set stage.
+	 *
+	 * @param fxml         {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}
+	 * @param title        window title
+	 * @param parentWindow parent window
+	 * @param modality     modality type
+	 * @param <T>          controller class
+	 *
+	 * @return stage controller or null if not set
+	 *
+	 * @throws IOException fail load FXML file
+	 * @since 0.1.9
+	 */
+	public static <T> T showAndWaitUtilityWindow(@Nonnull URL fxml, @Nonnull String title, Window parentWindow, Modality modality) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(fxml);
+		Stage stage1 = prepareUtilityWindow(fxmlLoader, title, parentWindow, modality);
 		setStageForFXMLController(stage1, fxmlLoader);
 		stage1.showAndWait();
 		return fxmlLoader.getController();
@@ -148,7 +219,7 @@ public final class StageUtils {
 	 * TODO description
 	 * If controller implements {@link FXMLController}, it set stage.
 	 *
-	 * @param fxmlLoader   fxml loader instance
+	 * @param fxmlLoader   fxml loader instance, cannot be null
 	 * @param title        window title
 	 * @param parentWindow parent window
 	 *
@@ -157,7 +228,7 @@ public final class StageUtils {
 	 * @throws IOException fail load FXML file
 	 * @since 0.1.6
 	 */
-	public static Stage loadNonResizableStage(@Nonnull FXMLLoader fxmlLoader, @Nonnull String title, Window parentWindow) throws IOException {
+	public static Stage loadNonResizableStage(FXMLLoader fxmlLoader, @Nonnull String title, Window parentWindow) throws IOException {
 		Parent root = fxmlLoader.load();
 		Stage stage = new Stage();
 		stage.setResizable(false);
