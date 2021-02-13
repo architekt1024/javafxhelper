@@ -25,7 +25,7 @@ import java.lang.annotation.Target;
  * Cannot be null. Will be replaced by information in javadocs and {@link java.util.Objects#requireNonNull(Object)}
  *
  * @author architekt1024
- * @deprecated deprecated from 0.1.9, removed in 0.1.12 or newer
+ * @deprecated deprecated from 0.1.9, will be removed in 0.1.12 or newer
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)

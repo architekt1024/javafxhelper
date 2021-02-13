@@ -8,16 +8,18 @@
 # 0.1.9 (SNAPSHOT)
 ## New features
 + add *FXUtils#updateSelectionMode(SelectionMode, Control...)* method
++ show utility window support modality *StageUtils*
 ## Deprecated or removed
 - removed deprecated API from *FXUtils*
 - removed usage *@Nullable* an some *@Nonnull* annotation
 - mark *@Nonnull* annotation as deprecated
 ## Other changes
-* All arguments can be null by default
+* All arguments can be null by default, unless otherwise stated (except @Nonnull annotation)
 * Update javadocs
 * Update dependency versions
 * Fix *StageBuilder*
 * Fix *ObjectTextFieldTableCell*
+* Fix Code Smells
 
 # 0.1.8
 ## New features
