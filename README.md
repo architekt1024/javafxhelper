@@ -1,9 +1,8 @@
 # javafxhelper
 
-[//]: # (![Sonar]&#40;https://github.com/architekt1024/javafxhelper/workflows/Sonar/badge.svg&#41;)
-
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=architekt1024_javafxhelper&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=architekt1024_javafxhelper)
 ![GitHub](https://img.shields.io/github/license/architekt1024/javafxhelper?style=plastic)
-![Lines of code](https://img.shields.io/tokei/lines/github/architekt1024/javafxhelper?style=plastic)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=architekt1024_javafxhelper&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=architekt1024_javafxhelper)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/architekt1024/javafxhelper?style=plastic)
 ![GitHub Release Date](https://img.shields.io/github/release-date/architekt1024/javafxhelper?style=plastic)
 
