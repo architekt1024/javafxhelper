@@ -5,7 +5,12 @@
 ## Other changes
 -->
 
-# 0.1.9 (SNAPSHOT)
+# 0.1.10 (TBD)
+## New features
+## Deprecated or removed
+## Other changes
+
+# 0.1.9
 ## New features
 + add *FXUtils#updateSelectionMode(SelectionMode, Control...)* method
 + show utility window support modality *StageUtils*

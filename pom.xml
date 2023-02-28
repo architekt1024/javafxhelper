@@ -7,7 +7,7 @@
 
 	<groupId>io.github.architekt1024</groupId>
 	<artifactId>javafxhelper</artifactId>
-	<version>0.1.9-SNAPSHOT</version>
+	<version>0.1.9</version>
 
 	<licenses>
 		<license>
