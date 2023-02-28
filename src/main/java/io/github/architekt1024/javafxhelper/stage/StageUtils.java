@@ -44,7 +44,7 @@ public final class StageUtils {
 	 * Load main stage. If controller implements {@link FXMLController}, it set stage.
 	 *
 	 * @param fxml        {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}, cannot be null
-	 * @param stage       JavaFX stage, cannot be null
+	 * @param stage       JavaFX primary stage, cannot be null
 	 * @param title       window title, cannot be null
 	 * @param stylesheets stylesheet file path
 	 *
