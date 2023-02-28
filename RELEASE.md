@@ -20,6 +20,7 @@
 * Fix *StageBuilder*
 * Fix *ObjectTextFieldTableCell*
 * Fix Code Smells
+* Cleanup _datepicker_ package
 
 # 0.1.8
 ## New features

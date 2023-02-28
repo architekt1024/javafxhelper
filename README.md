@@ -1,7 +1,7 @@
 # javafxhelper
 
-![Sonar](https://github.com/architekt1024/javafxhelper/workflows/Sonar/badge.svg)
-[![Requirements Status](https://requires.io/github/architekt1024/javafxhelper/requirements.svg?branch=develop)](https://requires.io/github/architekt1024/javafxhelper/requirements/?branch=develop)
+[//]: # (![Sonar]&#40;https://github.com/architekt1024/javafxhelper/workflows/Sonar/badge.svg&#41;)
+
 ![GitHub](https://img.shields.io/github/license/architekt1024/javafxhelper?style=plastic)
 ![Lines of code](https://img.shields.io/tokei/lines/github/architekt1024/javafxhelper?style=plastic)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/architekt1024/javafxhelper?style=plastic)
@@ -31,9 +31,9 @@ mvn org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=java
 	<version>0.1.8</version>
 </dependency>
 ```
-4. Add to module-info.java 
+4. Add to module-info.java
 ```
-requires io.github.architekt1024.javafxhelper 
+requires io.github.architekt1024.javafxhelper
 ```
 
 ## How to use the newer version of JavaFX and OpenJFX
@@ -88,11 +88,11 @@ Change your pom.xml
 ```
 
 ## Build from sources
-1. clone repository 
+1. clone repository
 ```git clone git@github.com:architekt1024/javafxhelper.git```
 2. install to local maven repository
 ```mvn clean install```
 
 ### Building with a newer version of Java or OpenJFX
 * Update OpenJFX version: Change `javafx.version` property in `pom.xml` file
-* Update Java version: Change `maven.compiler.source` and `maven.compiler.target` property in `pom.xml` file 
+* Update Java version: Change `maven.compiler.source` and `maven.compiler.target` property in `pom.xml` file
