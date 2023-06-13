@@ -17,7 +17,6 @@ package io.github.architekt1024.javafxhelper;
 
 import java.io.File;
 
-import io.github.architekt1024.javafxhelper.internal.InternalUtils;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -36,7 +35,6 @@ public final class FileDialog {
 	private static final String CANCEL_CLICKED_MSG = "cancel clicked";
 
 	private FileDialog() {
-		InternalUtils.utilsClassConstructor();
 	}
 
 	/**

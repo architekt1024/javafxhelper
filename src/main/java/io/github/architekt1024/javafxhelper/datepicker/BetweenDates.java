@@ -19,7 +19,6 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.function.Function;
 
-import io.github.architekt1024.javafxhelper.internal.InternalUtils;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.control.DatePicker;
 
@@ -31,7 +30,6 @@ import javafx.scene.control.DatePicker;
  */
 public final class BetweenDates {
 	private BetweenDates() {
-		InternalUtils.utilsClassConstructor();
 	}
 
 	/**

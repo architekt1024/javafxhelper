@@ -15,7 +15,6 @@
  */
 package io.github.architekt1024.javafxhelper.tableview;
 
-import io.github.architekt1024.javafxhelper.internal.InternalUtils;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -48,7 +47,6 @@ import javafx.util.converter.LongStringConverter;
  */
 public final class ObjectTextFieldTableCell {
 	private ObjectTextFieldTableCell() {
-		InternalUtils.utilsClassConstructor();
 	}
 
 	/**

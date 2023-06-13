@@ -15,7 +15,6 @@
  */
 package io.github.architekt1024.javafxhelper;
 
-import io.github.architekt1024.javafxhelper.internal.InternalUtils;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
@@ -31,7 +30,6 @@ import java.util.Optional;
  */
 public final class DialogFacade {
 	private DialogFacade() {
-		InternalUtils.utilsClassConstructor();
 	}
 
 	/**

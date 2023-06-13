@@ -26,7 +26,6 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.function.Consumer;
 
-import io.github.architekt1024.javafxhelper.internal.InternalUtils;
 import javafx.application.Platform;
 import javafx.scene.control.Control;
 import javafx.scene.control.ListView;
@@ -51,7 +50,6 @@ public final class FXUtils {
 	private static final Logger LOG = LoggerFactory.getLogger(FXUtils.class);
 
 	private FXUtils() {
-		InternalUtils.utilsClassConstructor();
 	}
 
 	/**
