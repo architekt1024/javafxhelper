@@ -11,7 +11,8 @@
 + add *StageBuilder#addStylesheet(String)* method
 + add *StageUtils#showNonResizableStageAndWait(URL, String, Window, Consumer<T>)*
 + add *ReadOnlyStringConverter* and *SimpleStringConverter* class
-+ add *DialogFasade#showTextInputDialog(String title, String contentText, String headerText, Window parentWindow)*
++ add *DialogFacade#showTextInputDialog(String title, String contentText, Window parentWindow)*
++ add *DialogFacade#showTextInputDialog(String title, String contentText, String headerText, Window parentWindow)*
 + add *PropertiesUtils* class
 ## Deprecated or removed
 - method *StageUtils#showNonResizableStageAndWait(URL, String, Window, Consumer<T>, Consumer<T>)* is deprecated

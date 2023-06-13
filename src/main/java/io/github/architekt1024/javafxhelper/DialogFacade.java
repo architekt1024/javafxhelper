@@ -15,14 +15,14 @@
  */
 package io.github.architekt1024.javafxhelper;
 
-import java.util.Objects;
-import java.util.Optional;
-
 import io.github.architekt1024.javafxhelper.internal.InternalUtils;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Window;
+
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Create and show predefined dialogs ({@link Alert}, {@link TextInputDialog}).
@@ -190,6 +190,19 @@ public final class DialogFacade {
 	 *
 	 * @param title        dialog title
 	 * @param contentText  text to show in the dialog content area
+	 * @param parentWindow specifies the owner {@link Window} for this dialog, or null for a top-level, unowned dialog
+	 *
+	 * @return An {@link Optional} that contains the dialog result
+	 */
+	public static Optional<String> showTextInputDialog(String title, String contentText, Window parentWindow) {
+		return showTextInputDialog(title, contentText, null, parentWindow);
+	}
+
+	/**
+	 * Create and show {@link TextInputDialog} dialog without default value
+	 *
+	 * @param title        dialog title
+	 * @param contentText  text to show in the dialog content area
 	 * @param headerText   text to show in the dialog header area
 	 * @param parentWindow specifies the owner {@link Window} for this dialog, or null for a top-level, unowned dialog
 	 *
@@ -213,7 +226,9 @@ public final class DialogFacade {
 	public static Optional<String> showTextInputDialog(String title, String contentText, String headerText, Window parentWindow, String defaultValue) {
 		TextInputDialog dialog = new TextInputDialog(defaultValue);
 		dialog.setTitle(title);
-		dialog.setHeaderText(headerText);
+		if (headerText != null) {
+			dialog.setHeaderText(headerText);
+		}
 		dialog.setContentText(contentText);
 		dialog.initOwner(parentWindow);
 		return dialog.showAndWait();
