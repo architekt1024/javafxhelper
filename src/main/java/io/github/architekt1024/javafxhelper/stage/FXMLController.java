@@ -18,7 +18,7 @@ package io.github.architekt1024.javafxhelper.stage;
 import javafx.stage.Stage;
 
 /**
- * Set {@link Stage} if use {@link StageUtils} or {@link StageBuilder}.
+ * Set {@link Stage} when use {@link StageUtils} or {@link StageBuilder}.
  *
  * @author architekt1024
  * @see StageUtils
@@ -27,7 +27,7 @@ import javafx.stage.Stage;
 public interface FXMLController {
 
 	/**
-	 * Set stage if use {@link StageUtils} or {@link StageBuilder}. It will be run after
+	 * Set stage when use {@link StageUtils} or {@link StageBuilder}. It will be run after
 	 * {@link javafx.fxml.Initializable#initialize(java.net.URL, java.util.ResourceBundle)}
 	 *
 	 * @param stage current stage

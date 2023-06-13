@@ -29,9 +29,10 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
+import org.jetbrains.annotations.NotNull;
 
 /**
- * Build JavaFX window ({@link Stage}). Default stage is non-resisable, non-modal, decorated window, without parent window.
+ * Build JavaFX window ({@link Stage}). Default stage is resizable, non-modal, decorated, without parent window.
  *
  * @author architekt1024
  * @since 0.1.6
@@ -43,7 +44,7 @@ public class StageBuilder {
 	private boolean resizable = true;
 	private Modality modality = Modality.NONE;
 	private StageStyle style = StageStyle.DECORATED;
-	private List<String> stylesheets;
+	private List<String> stylesheets = new ArrayList<>();
 
 	/**
 	 * @param fxml  FXML {@link URL} For example: {@code ExampleClass.class.getResource(fxmlFile));}, cannot be null
@@ -51,7 +52,7 @@ public class StageBuilder {
 	 *
 	 * @since 0.1.6
 	 */
-	public StageBuilder(URL fxml, String title) {
+	public StageBuilder(@NotNull URL fxml, @NotNull String title) {
 		this.fxml = Objects.requireNonNull(fxml);
 		this.title = Objects.requireNonNull(title);
 	}
@@ -76,9 +77,7 @@ public class StageBuilder {
 		stage.initStyle(style);
 
 		Scene scene = new Scene(parent);
-		if (stylesheets != null) {
-			scene.getStylesheets().addAll(stylesheets);
-		}
+		scene.getStylesheets().addAll(stylesheets);
 		stage.setScene(scene);
 
 		StageUtils.setStageForFXMLController(stage, fxmlLoader);
@@ -211,6 +210,20 @@ public class StageBuilder {
 		} else {
 			this.stylesheets = new ArrayList<>(stylesheets);
 		}
+		return this;
+	}
+
+	/**
+	 * Add CSS stylesheet
+	 *
+	 * @param stylesheet CSS stylesheets
+	 *
+	 * @return this builder
+	 *
+	 * @since 0.1.10
+	 */
+	public StageBuilder addStylesheet(String stylesheet) {
+		this.stylesheets.add(stylesheet);
 		return this;
 	}
 }

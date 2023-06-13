@@ -22,10 +22,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Cannot be null. Will be replaced by information in javadocs and {@link java.util.Objects#requireNonNull(Object)}
+ * Cannot be null. Will be replaced by {@link org.jetbrains.annotations.NotNull}
  *
  * @author architekt1024
- * @deprecated deprecated from 0.1.9, will be removed in 0.1.12 or newer
+ *
+ * @deprecated deprecated from 0.1.9, will be removed in 0.1.12
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)

@@ -36,7 +36,11 @@ import javafx.util.converter.LongStringConverter;
  * {@code longColumn.setCellFactory(ObjectTextFieldTableCell.forLongColumn());}<br>
  * </p>
  * <p>In FXML:<br>
- * {@code <ObjectTextFieldTableCell fx:factory="forObjectColumn"/>}
+ * {@code
+ * <cellFactory>
+ *     <ObjectTextFieldTableCell fx:factory="forObjectColumn"/>
+ * </cellFactory>
+ * }
  * </p>
  *
  * @author architekt1024

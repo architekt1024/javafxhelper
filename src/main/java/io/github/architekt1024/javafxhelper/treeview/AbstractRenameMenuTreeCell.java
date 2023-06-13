@@ -43,7 +43,7 @@ public abstract class AbstractRenameMenuTreeCell<T> extends TextFieldTreeCell<T>
 	 * @param converter string converter
 	 * @param treeView tree view item
 	 */
-	public AbstractRenameMenuTreeCell(StringConverter<T> converter, TreeView<T> treeView) {
+	protected AbstractRenameMenuTreeCell(StringConverter<T> converter, TreeView<T> treeView) {
 		super(converter);
 		this.treeView = treeView;
 	}
@@ -142,7 +142,7 @@ public abstract class AbstractRenameMenuTreeCell<T> extends TextFieldTreeCell<T>
 	}
 
 	/**
-	 * Create "remove" {@link MenuItem}.
+	 * Create "remove" {@link MenuItem}. Root element cannot be removed.
 	 *
 	 * @param label display text
 	 *

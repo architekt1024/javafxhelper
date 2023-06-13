@@ -1,0 +1,54 @@
+/*
+ * Copyright 2020 architekt1024
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package io.github.architekt1024.javafxhelper.listview;
+
+import java.util.function.Function;
+
+/**
+ * TODO description
+ * Example use:
+ * {@code myList.setConverter(new ReadOnlyStringConverter<>(SomeObject::getName, s-> new SomeObject(s)));}
+ *
+ * @param <T>
+ *
+ * @author architekt1024
+ * @since 0.1.10
+ */
+public class SimpleStringConverter<T> extends ReadOnlyStringConverter<T> {
+	private final Function<String, T> fromString;
+
+	/**
+	 * TODO description
+	 *
+	 * @param toString
+	 * @param fromString
+	 *
+	 * @since 0.1.10
+	 */
+	public SimpleStringConverter(Function<T, String> toString, Function<String, T> fromString) {
+		super(toString);
+		this.fromString = fromString;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public T fromString(String string) {
+		return fromString.apply(string);
+	}
+}

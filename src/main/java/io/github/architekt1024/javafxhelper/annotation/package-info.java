@@ -19,4 +19,5 @@
  *
  * @author architekt1024
  */
+@Deprecated
 package io.github.architekt1024.javafxhelper.annotation;

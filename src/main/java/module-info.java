@@ -25,10 +25,14 @@ module io.github.architekt1024.javafxhelper {
 
 	requires org.slf4j;
 
+	requires org.jetbrains.annotations;
+	opens io.github.architekt1024.javafxhelper to org.jetbrains.annotations;
+
 	//jars
 	requires org.apache.commons.lang3;
 	requires org.apache.commons.text;
 
+	//exports
 	exports io.github.architekt1024.javafxhelper;
 	exports io.github.architekt1024.javafxhelper.datepicker;
 	exports io.github.architekt1024.javafxhelper.listview;

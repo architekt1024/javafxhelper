@@ -37,6 +37,7 @@ import javafx.scene.control.TreeView;
 import javafx.scene.text.Font;
 
 import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -176,7 +177,7 @@ public final class FXUtils {
 	 * @throws UnsupportedOperationException Desktop is not supported at this platform
 	 * @since 0.1.5
 	 */
-	public static void runFile(final String file, final Consumer<Exception> consumer) {
+	public static void runFile(@NotNull final String file, @NotNull final Consumer<Exception> consumer) {
 		if (!Desktop.isDesktopSupported()) {
 			throw new UnsupportedOperationException("Desktop is not supported");
 		}
@@ -200,7 +201,7 @@ public final class FXUtils {
 	 * @see #browse(String)
 	 * @since 0.1.8
 	 */
-	public static void browse(String url, Consumer<Exception> exceptionConsumer) {
+	public static void browse(@NotNull String url, @NotNull Consumer<Exception> exceptionConsumer) {
 		try {
 			browse(url);
 		} catch (IOException | URISyntaxException | UnsupportedOperationException | IllegalArgumentException e) {
@@ -220,7 +221,7 @@ public final class FXUtils {
 	 * @throws IllegalArgumentException      URL is blank
 	 * @since 0.1.5
 	 */
-	public static void browse(String url) throws IOException, URISyntaxException {
+	public static void browse(@NotNull String url) throws IOException, URISyntaxException {
 		if (StringUtils.isBlank(url)) {
 			throw new IllegalArgumentException("URL cannot be blank");
 		}

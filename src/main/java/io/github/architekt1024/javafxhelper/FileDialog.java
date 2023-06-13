@@ -47,7 +47,7 @@ public final class FileDialog {
 	 * @since 0.1.6
 	 */
 	public static File showOpenFileDialog(Stage stage) {
-		return showOpenFileDialog(stage, null, null);
+		return showOpenFileDialog(stage, (File) null);
 	}
 
 	/**
@@ -61,15 +61,7 @@ public final class FileDialog {
 	 * @since 0.1.6
 	 */
 	public static File showOpenFileDialog(Stage stage, File initialDirectory) {
-		FileChooser fileChooser = new FileChooser();
-		if (initialDirectory != null) {
-			fileChooser.setInitialDirectory(initialDirectory);
-		}
-		File selectedFile = fileChooser.showOpenDialog(stage);
-		if (selectedFile == null) {
-			LOG.debug(CANCEL_CLICKED_MSG);
-		}
-		return selectedFile;
+		return showOpenFileDialog(stage, initialDirectory, (FileChooser.ExtensionFilter) null);
 	}
 
 	/**

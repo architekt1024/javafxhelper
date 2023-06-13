@@ -22,10 +22,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Experimental functionality. Behavior can change in any version. It can be removed without warning. Use in a production environment is not recommended.
+ * Experimental functionality. May be unstable. Use in a production environment is not recommended.
  *
  * @author architekt1024
  * @since 0.1.8
+ * @deprecated Should use {@link org.jetbrains.annotations.ApiStatus.Experimental}. 0.1.10 will be removed in 0.1.13
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)

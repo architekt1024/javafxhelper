@@ -22,7 +22,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Can be null. Default behavior from version 0.1.8.
+ * Can be null. Default behavior from version 0.1.8. Will be replaced by {@link org.jetbrains.annotations.Nullable}
  *
  * @author architekt1024
  * @deprecated deprecated from 0.1.8, will be removed in 0.1.11

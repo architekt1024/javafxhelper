@@ -7,8 +7,15 @@
 
 # 0.1.10 (TBD)
 ## New features
++ use JetBrains Java Annotations
++ add *addStylesheet(String)* method
++ add *StageUtils#showNonResizableStageAndWait(URL, String, Window, Consumer<T>)*
++ add *ReadOnlyStringConverter* and *SimpleStringConverter* class
 ## Deprecated or removed
+- method *StageUtils#showNonResizableStageAndWait(URL, String, Window, Consumer<T>, Consumer<T>)* is deprecated
 ## Other changes
+* Update build plugins and dependencies versions
+* Minor update javadocs
 
 # 0.1.9
 ## New features
