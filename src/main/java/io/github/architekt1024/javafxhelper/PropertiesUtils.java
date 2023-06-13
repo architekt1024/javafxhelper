@@ -16,8 +16,6 @@
 
 package io.github.architekt1024.javafxhelper;
 
-import io.github.architekt1024.javafxhelper.internal.InternalUtils;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -35,7 +33,6 @@ import java.util.Properties;
 public final class PropertiesUtils {
 
 	private PropertiesUtils() {
-		InternalUtils.utilsClassConstructor();
 	}
 
 	/**
