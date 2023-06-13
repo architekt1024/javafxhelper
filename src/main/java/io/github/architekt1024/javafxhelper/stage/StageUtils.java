@@ -20,6 +20,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.function.Consumer;
 
+import io.github.architekt1024.javafxhelper.internal.InternalUtils;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -39,6 +40,7 @@ import org.jetbrains.annotations.Nullable;
  */
 public final class StageUtils {
 	private StageUtils() {
+		InternalUtils.utilsClassConstructor();
 	}
 
 	/**

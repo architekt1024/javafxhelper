@@ -19,6 +19,7 @@ import java.util.ArrayDeque;
 import java.util.Comparator;
 import java.util.Deque;
 
+import io.github.architekt1024.javafxhelper.internal.InternalUtils;
 import javafx.collections.FXCollections;
 import javafx.scene.control.TreeItem;
 
@@ -30,6 +31,7 @@ import javafx.scene.control.TreeItem;
  */
 public final class TreeUtils {
 	private TreeUtils() {
+		InternalUtils.utilsClassConstructor();
 	}
 
 	/**

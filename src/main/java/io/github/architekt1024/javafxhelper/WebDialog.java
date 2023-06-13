@@ -18,6 +18,7 @@ package io.github.architekt1024.javafxhelper;
 
 import java.util.Optional;
 
+import io.github.architekt1024.javafxhelper.internal.InternalUtils;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Window;
@@ -34,6 +35,7 @@ import org.jetbrains.annotations.ApiStatus;
 @ApiStatus.Experimental
 public final class WebDialog {
 	private WebDialog() {
+		InternalUtils.utilsClassConstructor();
 	}
 
 	/**

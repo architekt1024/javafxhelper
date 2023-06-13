@@ -16,6 +16,7 @@
 ## Other changes
 * Update build plugins and dependencies versions
 * Minor update javadocs
+* Constructors in utils class throws *AssertionError* when invoked
 
 # 0.1.9
 ## New features

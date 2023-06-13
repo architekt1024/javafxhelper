@@ -18,6 +18,7 @@ package io.github.architekt1024.javafxhelper;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+import io.github.architekt1024.javafxhelper.internal.InternalUtils;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
@@ -35,6 +36,7 @@ public final class WebUtils {
 	private static final Logger LOG = LoggerFactory.getLogger(WebUtils.class);
 
 	private WebUtils() {
+		InternalUtils.utilsClassConstructor();
 	}
 
 	private static Object executeScript(final WebEngine webEngine, final String script) {
