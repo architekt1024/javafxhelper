@@ -64,7 +64,7 @@ public final class DialogFacade {
 	 * @param headerText   text to show in the dialog header area
 	 * @param parentWindow specifies the owner {@link Window} for this dialog, or null for a top-level, unowned dialog
 	 *
-	 * @return optional dialog result
+	 * @return An {@link Optional} that contains the dialog result
 	 */
 	public static Optional<ButtonType> showDialog(Alert.AlertType type, String title, String contentText, String headerText, Window parentWindow) {
 
@@ -83,7 +83,7 @@ public final class DialogFacade {
 	 * @param contentText  text to show in the dialog content area
 	 * @param parentWindow specifies the owner {@link Window} for this dialog, or null for a top-level, unowned dialog
 	 *
-	 * @return optional dialog result
+	 * @return An {@link Optional} that contains the dialog result
 	 */
 	public static Optional<ButtonType> showInfoDialog(String title, String contentText, Window parentWindow) {
 		return showInfoDialog(title, contentText, null, parentWindow);
@@ -97,7 +97,7 @@ public final class DialogFacade {
 	 * @param headerText   text to show in the dialog header area
 	 * @param parentWindow specifies the owner {@link Window} for this dialog, or null for a top-level, unowned dialog
 	 *
-	 * @return optional dialog result
+	 * @return An {@link Optional} that contains the dialog result
 	 */
 	public static Optional<ButtonType> showInfoDialog(String title, String contentText, String headerText, Window parentWindow) {
 		return showDialog(Alert.AlertType.INFORMATION, title, contentText, headerText, parentWindow);
@@ -110,7 +110,7 @@ public final class DialogFacade {
 	 * @param contentText  text to show in the dialog content area
 	 * @param parentWindow specifies the owner {@link Window} for this dialog, or null for a top-level, unowned dialog
 	 *
-	 * @return optional dialog result
+	 * @return An {@link Optional} that contains the dialog result
 	 */
 	public static Optional<ButtonType> showWarningDialog(String title, String contentText, Window parentWindow) {
 		return showWarningDialog(title, contentText, null, parentWindow);
@@ -124,7 +124,7 @@ public final class DialogFacade {
 	 * @param headerText   text to show in the dialog header area
 	 * @param parentWindow specifies the owner {@link Window} for this dialog, or null for a top-level, unowned dialog
 	 *
-	 * @return optional dialog result
+	 * @return An {@link Optional} that contains the dialog result
 	 */
 	public static Optional<ButtonType> showWarningDialog(String title, String contentText, String headerText, Window parentWindow) {
 		return showDialog(Alert.AlertType.WARNING, title, contentText, headerText, parentWindow);
@@ -137,7 +137,7 @@ public final class DialogFacade {
 	 * @param contentText  text to show in the dialog content area
 	 * @param parentWindow specifies the owner {@link Window} for this dialog, or null for a top-level, unowned dialog
 	 *
-	 * @return optional dialog result
+	 * @return An {@link Optional} that contains the dialog result
 	 */
 	public static Optional<ButtonType> showErrorDialog(String title, String contentText, Window parentWindow) {
 		return showErrorDialog(title, contentText, null, parentWindow);
@@ -151,7 +151,7 @@ public final class DialogFacade {
 	 * @param headerText   text to show in the dialog header area
 	 * @param parentWindow specifies the owner {@link Window} for this dialog, or null for a top-level, unowned dialog
 	 *
-	 * @return optional dialog result
+	 * @return An {@link Optional} that contains the dialog result
 	 */
 	public static Optional<ButtonType> showErrorDialog(String title, String contentText, String headerText, Window parentWindow) {
 		return showDialog(Alert.AlertType.ERROR, title, contentText, headerText, parentWindow);
@@ -164,7 +164,7 @@ public final class DialogFacade {
 	 * @param contentText  text to show in the dialog content area
 	 * @param parentWindow specifies the owner {@link Window} for this dialog, or null for a top-level, unowned dialog
 	 *
-	 * @return optional dialog result
+	 * @return An {@link Optional} that contains the dialog result
 	 */
 	public static Optional<ButtonType> showYesNoConfirmDialog(String title, String contentText, Window parentWindow) {
 		return showYesNoConfirmDialog(title, contentText, null, parentWindow);
@@ -178,11 +178,25 @@ public final class DialogFacade {
 	 * @param headerText   text to show in the dialog header area
 	 * @param parentWindow specifies the owner {@link Window} for this dialog, or null for a top-level, unowned dialog
 	 *
-	 * @return optional dialog result
+	 * @return An {@link Optional} that contains the dialog result
 	 */
 	public static Optional<ButtonType> showYesNoConfirmDialog(String title, String contentText, String headerText, Window parentWindow) {
 		Alert alert = createAlert(Alert.AlertType.CONFIRMATION, title, contentText, headerText, parentWindow, ButtonType.YES, ButtonType.NO);
 		return alert.showAndWait();
+	}
+
+	/**
+	 * Create and show {@link TextInputDialog} dialog without default value
+	 *
+	 * @param title        dialog title
+	 * @param contentText  text to show in the dialog content area
+	 * @param headerText   text to show in the dialog header area
+	 * @param parentWindow specifies the owner {@link Window} for this dialog, or null for a top-level, unowned dialog
+	 *
+	 * @return An {@link Optional} that contains the dialog result
+	 */
+	public static Optional<String> showTextInputDialog(String title, String contentText, String headerText, Window parentWindow) {
+		return showTextInputDialog(title, contentText, headerText, parentWindow, "");
 	}
 
 	/**
@@ -194,7 +208,7 @@ public final class DialogFacade {
 	 * @param parentWindow specifies the owner {@link Window} for this dialog, or null for a top-level, unowned dialog
 	 * @param defaultValue default value entered into the dialog
 	 *
-	 * @return optional dialog result
+	 * @return An {@link Optional} that contains the dialog result
 	 */
 	public static Optional<String> showTextInputDialog(String title, String contentText, String headerText, Window parentWindow, String defaultValue) {
 		TextInputDialog dialog = new TextInputDialog(defaultValue);
@@ -212,7 +226,7 @@ public final class DialogFacade {
 	 * @param contentText  text to show in the dialog content area
 	 * @param parentWindow specifies the owner {@link Window} for this dialog, or null for a top-level, unowned dialog
 	 *
-	 * @return optional dialog result
+	 * @return An {@link Optional} that contains the dialog result
 	 *
 	 * @since 0.1.4
 	 */
@@ -228,7 +242,7 @@ public final class DialogFacade {
 	 * @param headerText   text to show in the dialog header area
 	 * @param parentWindow specifies the owner {@link Window} for this dialog, or null for a top-level, unowned dialog
 	 *
-	 * @return optional dialog result
+	 * @return An {@link Optional} that contains the dialog result
 	 *
 	 * @since 0.1.4
 	 */

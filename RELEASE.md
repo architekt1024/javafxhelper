@@ -8,9 +8,11 @@
 # 0.1.10 (TBD)
 ## New features
 + use JetBrains Java Annotations
-+ add *addStylesheet(String)* method
++ add *StageBuilder#addStylesheet(String)* method
 + add *StageUtils#showNonResizableStageAndWait(URL, String, Window, Consumer<T>)*
 + add *ReadOnlyStringConverter* and *SimpleStringConverter* class
++ add *DialogFasade#showTextInputDialog(String title, String contentText, String headerText, Window parentWindow)*
++ add *PropertiesUtils* class
 ## Deprecated or removed
 - method *StageUtils#showNonResizableStageAndWait(URL, String, Window, Consumer<T>, Consumer<T>)* is deprecated
 ## Other changes
@@ -33,7 +35,7 @@
 * Fix *StageBuilder*
 * Fix *ObjectTextFieldTableCell*
 * Fix Code Smells
-* Cleanup _datepicker_ package
+* Cleanup *datepicker* package
 
 # 0.1.8
 ## New features
