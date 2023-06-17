@@ -26,10 +26,11 @@ import java.lang.annotation.Target;
  *
  * @author architekt1024
  * @since 0.1.8
- * @deprecated Should use {@link org.jetbrains.annotations.ApiStatus.Experimental}. 0.1.10 will be removed in 0.1.13
+ * @deprecated You should use {@link org.jetbrains.annotations.ApiStatus.Experimental}. 0.1.10 will be removed in 0.1.13
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.ANNOTATION_TYPE, ElementType.FIELD, ElementType.METHOD, ElementType.TYPE, ElementType.CONSTRUCTOR})
+@Deprecated(since = "0.1.10")
 public @interface Experimental {
 }

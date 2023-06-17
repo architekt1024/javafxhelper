@@ -181,9 +181,9 @@ public final class StageUtils {
 	@Deprecated(since = "0.1.9")
 	public static <T> T showAndWaitUtilityWindow(@NotNull URL fxml, @NotNull String title, Window parentWindow, boolean modal) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(fxml);
-		Stage stage1 = prepareUtilityWindow(fxmlLoader, title, parentWindow, modal);
-		setStageForFXMLController(stage1, fxmlLoader);
-		stage1.showAndWait();
+		Stage stage = prepareUtilityWindow(fxmlLoader, title, parentWindow, modal);
+		setStageForFXMLController(stage, fxmlLoader);
+		stage.showAndWait();
 		return fxmlLoader.getController();
 	}
 
@@ -204,9 +204,9 @@ public final class StageUtils {
 	public static <T> T showAndWaitUtilityWindow(@NotNull URL fxml, @NotNull String title, Window parentWindow, @Nullable Modality modality)
 		throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(fxml);
-		Stage stage1 = prepareUtilityWindow(fxmlLoader, title, parentWindow, modality);
-		setStageForFXMLController(stage1, fxmlLoader);
-		stage1.showAndWait();
+		Stage stage = prepareUtilityWindow(fxmlLoader, title, parentWindow, modality);
+		setStageForFXMLController(stage, fxmlLoader);
+		stage.showAndWait();
 		return fxmlLoader.getController();
 	}
 

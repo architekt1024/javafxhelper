@@ -8,14 +8,17 @@
 # 0.1.10 (TBD)
 ## New features
 + use JetBrains Java Annotations
-+ add *StageBuilder#addStylesheet(String)* method
-+ add *StageUtils#showNonResizableStageAndWait(URL, String, Window, Consumer<T>)*
-+ add *ReadOnlyStringConverter* and *SimpleStringConverter* class
-+ add *DialogFacade#showTextInputDialog(String title, String contentText, Window parentWindow)*
-+ add *DialogFacade#showTextInputDialog(String title, String contentText, String headerText, Window parentWindow)*
-+ add *PropertiesUtils* class
++ new *StageBuilder#addStylesheet(String)* method
++ new *StageUtils#showNonResizableStageAndWait(URL, String, Window, Consumer<T>)*
++ new *ReadOnlyStringConverter* and *SimpleStringConverter* class
++ new *DialogFacade#showTextInputDialog(String title, String headerText, Window parentWindow)*
++ new *DialogFacade#showTextInputDialog(String title, String contentText, String headerText, Window parentWindow)*
++ new *PropertiesUtils* class
++ new *DialogService* class similar to *DialogFacade* but you need to instantiate and provide parent window and title
 ## Deprecated or removed
 - method *StageUtils#showNonResizableStageAndWait(URL, String, Window, Consumer<T>, Consumer<T>)* is deprecated
+- experimental *WebDialog* class
+- *DialogFacade#createAlert* is deprecated
 ## Other changes
 * Update build plugins and dependencies versions
 * Minor update javadocs

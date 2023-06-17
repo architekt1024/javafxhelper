@@ -15,10 +15,12 @@
  */
 package io.github.architekt1024.javafxhelper;
 
+import io.github.architekt1024.javafxhelper.dialog.DialogService;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Window;
+import org.jetbrains.annotations.ApiStatus;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -27,8 +29,10 @@ import java.util.Optional;
  * Create and show predefined dialogs ({@link Alert}, {@link TextInputDialog}).
  *
  * @author architekt1024
+ * @see DialogService
  */
 public final class DialogFacade {
+
 	private DialogFacade() {
 	}
 
@@ -43,14 +47,21 @@ public final class DialogFacade {
 	 * @param buttons      types of buttons that the alert should contain
 	 *
 	 * @return created alert
+	 *
+	 * @deprecated deprecated 0.1.10, will be removed in 0.1.13 Should use {{@link AlertBuilder}}
 	 */
+	@ApiStatus.ScheduledForRemoval(inVersion = "0.1.13")
+	@Deprecated(since = "0.1.10") //internal use in 0.1.13
 	public static Alert createAlert(Alert.AlertType type, String title, String contentText, String headerText, Window parentWindow,
 									ButtonType... buttons) {
-		final Alert alert = new Alert(type, contentText, buttons);
-		alert.setTitle(title);
-		alert.setHeaderText(headerText);
-		alert.initOwner(parentWindow);
-		return alert;
+		return new AlertBuilder()
+			.setAlertType(type)
+			.setTitle(title)
+			.setContentText(contentText)
+			.setHeaderText(headerText)
+			.setParentWindow(parentWindow)
+			.setButtons(buttons)
+			.build();
 	}
 
 	/**
@@ -65,12 +76,10 @@ public final class DialogFacade {
 	 * @return An {@link Optional} that contains the dialog result
 	 */
 	public static Optional<ButtonType> showDialog(Alert.AlertType type, String title, String contentText, String headerText, Window parentWindow) {
-
 		Alert alert = createAlert(Objects.requireNonNullElse(type, Alert.AlertType.NONE), title, contentText, headerText, parentWindow);
 		if (type == null || type == Alert.AlertType.NONE) {
 			alert.getDialogPane().getButtonTypes().add(ButtonType.OK);
 		}
-		alert.initOwner(parentWindow);
 		return alert.showAndWait();
 	}
 
@@ -179,7 +188,7 @@ public final class DialogFacade {
 	 * @return An {@link Optional} that contains the dialog result
 	 */
 	public static Optional<ButtonType> showYesNoConfirmDialog(String title, String contentText, String headerText, Window parentWindow) {
-		Alert alert = createAlert(Alert.AlertType.CONFIRMATION, title, contentText, headerText, parentWindow, ButtonType.YES, ButtonType.NO);
+		Alert alert = createAlert(Alert.AlertType.CONFIRMATION, title, contentText, headerText, parentWindow, Buttons.YES_NO);
 		return alert.showAndWait();
 	}
 
@@ -187,13 +196,15 @@ public final class DialogFacade {
 	 * Create and show {@link TextInputDialog} dialog without default value
 	 *
 	 * @param title        dialog title
-	 * @param contentText  text to show in the dialog content area
+	 * @param headerText   text to show in the dialog header area
 	 * @param parentWindow specifies the owner {@link Window} for this dialog, or null for a top-level, unowned dialog
 	 *
 	 * @return An {@link Optional} that contains the dialog result
+	 *
+	 * @since 0.1.10
 	 */
-	public static Optional<String> showTextInputDialog(String title, String contentText, Window parentWindow) {
-		return showTextInputDialog(title, contentText, null, parentWindow);
+	public static Optional<String> showTextInputDialog(String title, String headerText, Window parentWindow) {
+		return showTextInputDialog(title, "", headerText, parentWindow);
 	}
 
 	/**
@@ -205,6 +216,8 @@ public final class DialogFacade {
 	 * @param parentWindow specifies the owner {@link Window} for this dialog, or null for a top-level, unowned dialog
 	 *
 	 * @return An {@link Optional} that contains the dialog result
+	 *
+	 * @since 0.1.10
 	 */
 	public static Optional<String> showTextInputDialog(String title, String contentText, String headerText, Window parentWindow) {
 		return showTextInputDialog(title, contentText, headerText, parentWindow, "");
@@ -261,8 +274,19 @@ public final class DialogFacade {
 	 */
 	public static Optional<ButtonType> showYesNoCancelDialog(String title, String contentText, String headerText,
 															 Window parentWindow) {
-		Alert alert = createAlert(Alert.AlertType.CONFIRMATION, title, contentText, headerText, parentWindow, ButtonType.YES, ButtonType.NO,
-			ButtonType.CANCEL);
+		Alert alert = createAlert(Alert.AlertType.CONFIRMATION, title, contentText, headerText, parentWindow, Buttons.YES_NO_CANCEL);
 		return alert.showAndWait();
+	}
+
+	/**
+	 * @since 0.1.10
+	 */
+	public static class Buttons {
+		public static final ButtonType[] YES_NO = {ButtonType.YES, ButtonType.NO};
+		public static final ButtonType[] YES_NO_CANCEL = {ButtonType.YES, ButtonType.NO, ButtonType.CANCEL};
+		public static final ButtonType[] OK_CANCEL = {ButtonType.OK, ButtonType.CANCEL};
+		private Buttons() {
+		}
+
 	}
 }
