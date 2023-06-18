@@ -25,6 +25,9 @@ import javafx.stage.Window;
 
 import java.util.Optional;
 
+import static io.github.architekt1024.javafxhelper.DialogFacade.Buttons.YES_NO;
+import static io.github.architekt1024.javafxhelper.DialogFacade.Buttons.YES_NO_CANCEL;
+
 
 /**
  * Create and show predefined dialogs ({@link Alert}, {@link TextInputDialog}).
@@ -195,7 +198,7 @@ public class DialogService {
 			.setContentText(contentText)
 			.setHeaderText(headerText)
 			.setParentWindow(parentWindow)
-			.setButtons(ButtonType.YES, ButtonType.NO)
+			.setButtons(YES_NO)
 			.build();
 		return alert.showAndWait();
 	}
@@ -272,7 +275,7 @@ public class DialogService {
 			.setContentText(contentText)
 			.setHeaderText(headerText)
 			.setParentWindow(parentWindow)
-			.setButtons(ButtonType.YES, ButtonType.NO)
+			.setButtons(YES_NO_CANCEL)
 			.buildAndShow();
 	}
 }

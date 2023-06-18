@@ -22,6 +22,16 @@ import javafx.util.Callback;
 /**
  * TODO description. Syntactic sugar<br>
  * <br>
+ * Create new class:
+ * <pre>{@code
+ * public class ElementTreeCellCallback implements TreeCellCallback<Item> {
+ *    @Override
+ *    public TreeCell<Item> call(TreeView<Item> treeView) {
+ * 		return new ElementTreeCell(treeView);
+ *    }
+ * }
+ * }</pre>
+ * <br>
  * Class usage in FXML:
  * <pre>{@code
  * <TreeView fx:id="mainTree" editable="true" prefHeight="200.0" prefWidth="200.0">
