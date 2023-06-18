@@ -29,6 +29,8 @@ import java.util.Optional;
  *
  * @author architekt1024
  * @since 0.1.8
+ * @see DialogFacade
+ * @see io.github.architekt1024.javafxhelper.dialog.DialogService
  */
 public class AlertBuilder {
 	private Alert.AlertType alertType;

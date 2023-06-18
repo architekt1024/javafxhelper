@@ -30,6 +30,7 @@ import java.util.Optional;
  *
  * @author architekt1024
  * @see DialogService
+ * @see AlertBuilder
  */
 public final class DialogFacade {
 
@@ -285,6 +286,7 @@ public final class DialogFacade {
 		public static final ButtonType[] YES_NO = {ButtonType.YES, ButtonType.NO};
 		public static final ButtonType[] YES_NO_CANCEL = {ButtonType.YES, ButtonType.NO, ButtonType.CANCEL};
 		public static final ButtonType[] OK_CANCEL = {ButtonType.OK, ButtonType.CANCEL};
+
 		private Buttons() {
 		}
 

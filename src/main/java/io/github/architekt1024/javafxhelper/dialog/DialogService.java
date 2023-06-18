@@ -29,7 +29,9 @@ import java.util.Optional;
 /**
  * Create and show predefined dialogs ({@link Alert}, {@link TextInputDialog}).
  *
+ * @author architekt1024
  * @see DialogFacade
+ * @see AlertBuilder
  * @since 0.1.10
  */
 public class DialogService {
@@ -145,6 +147,16 @@ public class DialogService {
 
 	/**
 	 * Create and show {@link javafx.scene.control.Alert.AlertType#CONFIRMATION} dialog with Yes/No buttons.
+	 * <p></p>
+	 * Example usage: <pre>{@code
+	 * dialogService.showYesNoConfirmDialog(name).ifPresent(buttonType -> {
+	 *     if (ButtonType.YES.equals(buttonType)) {
+	 * 	     //action when user click YES
+	 *     } else {
+	 * 	     //action when user click NO
+	 *     }
+	 * });
+	 * }</pre>
 	 *
 	 * @param contentText text to show in the dialog content area
 	 *
@@ -158,6 +170,16 @@ public class DialogService {
 
 	/**
 	 * Create and show {@link javafx.scene.control.Alert.AlertType#CONFIRMATION} dialog with Yes/No buttons.
+	 * <p></p>
+	 * Example usage: <pre>{@code
+	 * dialogService.showYesNoConfirmDialog(name).ifPresent(buttonType -> {
+	 *     if (ButtonType.YES.equals(buttonType)) {
+	 * 	     //action when user click YES
+	 *     } else {
+	 * 	     //action when user click NO
+	 *     }
+	 * });
+	 * }</pre>
 	 *
 	 * @param contentText text to show in the dialog content area
 	 * @param headerText  text to show in the dialog header area
@@ -188,7 +210,7 @@ public class DialogService {
 	 * @since 0.1.10
 	 */
 	public Optional<String> showTextInputDialog(String headerText) {
-		return showTextInputDialog(title, "", headerText);
+		return showTextInputDialog("", headerText);
 	}
 
 	/**
