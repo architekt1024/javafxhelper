@@ -25,10 +25,9 @@ import javafx.util.Callback;
  * Create new class:
  * <pre>{@code
  * public class ElementTreeCellCallback implements TreeCellCallback<Item> {
- *    @Override
- *    public TreeCell<Item> call(TreeView<Item> treeView) {
- * 		return new ElementTreeCell(treeView);
- *    }
+ *  public TreeCell<Item> call(TreeView<Item> treeView) {
+ * 	   return new ElementTreeCell(treeView);
+ *   }
  * }
  * }</pre>
  * <br>
