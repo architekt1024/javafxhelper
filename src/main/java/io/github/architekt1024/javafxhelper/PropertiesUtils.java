@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
- * TODO description
+ * Utils to load and save {@link Properties} using file
  *
  * @author architekt1024
  * @since 0.1.10

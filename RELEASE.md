@@ -14,7 +14,8 @@
 + new *DialogFacade#showTextInputDialog(String title, String headerText, Window parentWindow)*
 + new *DialogFacade#showTextInputDialog(String title, String contentText, String headerText, Window parentWindow)*
 + new *PropertiesUtils* class
-+ new *DialogService* class similar to *DialogFacade* but you need to instantiate and provide parent window and title
++ new *DialogService* class similar to *DialogFacade*, but you need to instantiate and provide parent window and title
++ new *EntryMapTableRecord* experimental class
 ## Deprecated or removed
 - method *StageUtils#showNonResizableStageAndWait(URL, String, Window, Consumer<T>, Consumer<T>)* is deprecated
 - experimental *WebDialog* class
