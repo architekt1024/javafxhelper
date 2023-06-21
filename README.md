@@ -20,14 +20,14 @@ Download last release and install.
 1. Download release.
 2. Install to local maven repository including sources and javadocs
 ```
-mvn org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=javafxhelper-0.1.8.jar -Dsources=javafxhelper-0.1.8-sources.jar -Djavadoc=javafxhelper-0.1.8-javadoc.jar
+mvn org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=javafxhelper-0.1.10.jar -Dsources=javafxhelper-0.1.10-sources.jar -Djavadoc=javafxhelper-0.1.10-javadoc.jar
 ```
 3. Add dependency in your pom.xml
 ```xml
 <dependency>
 	<groupId>io.github.architekt1024</groupId>
 	<artifactId>javafxhelper</artifactId>
-	<version>0.1.8</version>
+	<version>0.1.10</version>
 </dependency>
 ```
 4. Add to module-info.java
@@ -49,7 +49,7 @@ Change your pom.xml
 	<dependency>
 		<groupId>io.github.architekt1024</groupId>
 		<artifactId>javafxhelper</artifactId>
-		<version>0.1.9-SNAPSHOT</version>
+		<version>0.1.10</version>
 		<exclusions>
 			<exclusion>
 				<artifactId>javafx-fxml</artifactId>

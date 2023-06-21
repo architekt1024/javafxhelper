@@ -5,7 +5,12 @@
 ## Other changes
 -->
 
-# 0.1.10 (TBD)
+# 0.1.11 (TBD)
+## New features
+## Deprecated or removed
+## Other changes
+
+# 0.1.10
 ## New features
 + use JetBrains Java Annotations
 + new *StageBuilder#addStylesheet(String)* method
