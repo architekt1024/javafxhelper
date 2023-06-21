@@ -35,13 +35,12 @@ import javafx.util.converter.LongStringConverter;
  * integerColumn.setCellFactory(ObjectTextFieldTableCell.forIntegerColumn());
  * longColumn.setCellFactory(ObjectTextFieldTableCell.forLongColumn());
  * }</pre>
- * <p>In FXML:<br>
+ * <p>In FXML:</p>
  * <pre>{@code
  * <cellFactory>
  *     <ObjectTextFieldTableCell fx:factory="forObjectColumn"/>
  * </cellFactory>
  * }</pre>
- * </p>
  *
  * @author architekt1024
  */
