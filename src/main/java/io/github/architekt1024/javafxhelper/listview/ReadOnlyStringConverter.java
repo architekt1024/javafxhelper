@@ -21,9 +21,11 @@ import javafx.util.StringConverter;
 import java.util.function.Function;
 
 /**
- * TODO description
+ * <p>TODO description</p>
  * Example use:
- * {@code myList.setConverter(new ReadOnlyStringConverter<>(SomeObject::getName));}
+ * <pre>{@code
+ * myList.setConverter(new ReadOnlyStringConverter<>(SomeObject::getName));
+ * }</pre>
  *
  * @param <T>
  *
@@ -60,6 +62,6 @@ public class ReadOnlyStringConverter<T> extends StringConverter<T> {
 	 */
 	@Override
 	public T fromString(String string) {
-		throw new UnsupportedOperationException("List is read-only");
+		throw new UnsupportedOperationException("Object is read-only");
 	}
 }

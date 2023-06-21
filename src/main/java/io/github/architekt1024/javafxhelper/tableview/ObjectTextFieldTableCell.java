@@ -31,16 +31,16 @@ import javafx.util.converter.LongStringConverter;
  * Default String converters.
  * <p>TODO description</p>
  * <p>Example usage:</p>
- * <p>
- * {@code integerColumn.setCellFactory(ObjectTextFieldTableCell.forIntegerColumn());}<br>
- * {@code longColumn.setCellFactory(ObjectTextFieldTableCell.forLongColumn());}<br>
- * </p>
+ * <pre>{@code
+ * integerColumn.setCellFactory(ObjectTextFieldTableCell.forIntegerColumn());
+ * longColumn.setCellFactory(ObjectTextFieldTableCell.forLongColumn());
+ * }</pre>
  * <p>In FXML:<br>
- * {@code
+ * <pre>{@code
  * <cellFactory>
  *     <ObjectTextFieldTableCell fx:factory="forObjectColumn"/>
  * </cellFactory>
- * }
+ * }</pre>
  * </p>
  *
  * @author architekt1024

@@ -21,7 +21,7 @@ import java.util.function.Function;
 /**
  * TODO description
  * Example use:
- * {@code myList.setConverter(new ReadOnlyStringConverter<>(SomeObject::getName, s-> new SomeObject(s)));}
+ * <pre>{@code myList.setConverter(new SimpleStringConverter<>(SomeObject::getName, s -> new SomeObject(s)));}</pre>
  *
  * @param <T>
  *
