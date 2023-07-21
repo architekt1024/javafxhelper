@@ -47,6 +47,20 @@ public final class StageUtils {
 	 * @param fxml        {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}, cannot be null
 	 * @param stage       JavaFX primary stage, cannot be null
 	 * @param title       window title, cannot be null
+	 *
+	 * @throws IOException fail load FXML file
+	 * @since 0.1.11
+	 */
+	public static void loadMainStage(URL fxml, Stage stage, String title) throws IOException {
+		loadMainStage(fxml, stage, title, null);
+	}
+
+	/**
+	 * Load main stage. If controller implements {@link FXMLController}, it set stage.
+	 *
+	 * @param fxml        {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}, cannot be null
+	 * @param stage       JavaFX primary stage, cannot be null
+	 * @param title       window title, cannot be null
 	 * @param stylesheets stylesheet file path
 	 *
 	 * @throws IOException fail load FXML file
@@ -230,7 +244,7 @@ public final class StageUtils {
 	 * @throws IOException fail load FXML file
 	 * @since 0.1.6
 	 */
-	public static Stage loadNonResizableStage(FXMLLoader fxmlLoader, @NotNull String title, Window parentWindow) throws IOException {
+	public static Stage loadNonResizableStage(@NotNull FXMLLoader fxmlLoader, @NotNull String title, Window parentWindow) throws IOException {
 		Parent root = fxmlLoader.load();
 		Stage stage = new Stage();
 		stage.setResizable(false);
@@ -253,7 +267,7 @@ public final class StageUtils {
 	 * @throws IOException fail load FXML file
 	 * @since 0.1.6
 	 */
-	public static Stage showNonResizableStage(URL fxml, String title, @Nullable Window parentWindow) throws IOException {
+	public static Stage showNonResizableStage(@NotNull URL fxml, String title, @Nullable Window parentWindow) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(fxml));
 		Stage stage = loadNonResizableStage(fxmlLoader, Objects.requireNonNull(title), parentWindow);
 		stage.show();

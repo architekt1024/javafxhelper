@@ -16,6 +16,9 @@
 package io.github.architekt1024.javafxhelper;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
@@ -96,7 +99,9 @@ public final class FileDialog {
 			fileChooser.setInitialDirectory(initialDirectory);
 		}
 		if (extensionFilters != null) {
-			fileChooser.getExtensionFilters().addAll(extensionFilters);
+			fileChooser.getExtensionFilters().addAll(Arrays.stream(extensionFilters)
+				.filter(Objects::nonNull)
+				.collect(Collectors.toList()));
 		}
 		final File selectedFile = fileChooser.showOpenDialog(stage);
 		if (selectedFile == null) {

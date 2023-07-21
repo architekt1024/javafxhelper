@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -45,6 +46,7 @@ public class StageBuilder {
 	private Modality modality = Modality.NONE;
 	private StageStyle style = StageStyle.DECORATED;
 	private List<String> stylesheets = new ArrayList<>();
+	private ResourceBundle resources;
 
 	/**
 	 * @param fxml  FXML {@link URL} For example: {@code ExampleClass.class.getResource(fxmlFile));}, cannot be null
@@ -66,7 +68,7 @@ public class StageBuilder {
 	 * @since 0.1.6
 	 */
 	public Stage build() throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(fxml);
+		FXMLLoader fxmlLoader = new FXMLLoader(fxml, resources);
 
 		Parent parent = fxmlLoader.load();
 		Stage stage = new Stage();
@@ -224,6 +226,27 @@ public class StageBuilder {
 	 */
 	public StageBuilder addStylesheet(String stylesheet) {
 		this.stylesheets.add(stylesheet);
+		return this;
+	}
+
+	/**
+	 * @return resource bundle
+	 *
+	 * @since 0.1.11
+	 */
+	public ResourceBundle getResources() {
+		return resources;
+	}
+
+	/**
+	 * @param resources resource bundle
+	 *
+	 * @return this builder
+	 *
+	 * @since 0.1.11
+	 */
+	public StageBuilder setResources(ResourceBundle resources) {
+		this.resources = resources;
 		return this;
 	}
 }

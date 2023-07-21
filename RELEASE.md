@@ -7,8 +7,13 @@
 
 # 0.1.11 (TBD)
 ## New features
++ add resources param to *StageBuilder*
++ new method *StageUtils#loadMainStage* without stylesheet
 ## Deprecated or removed
 ## Other changes
+* rename *EntryMapTableRecord* to *PairTableRecord*
+* update slf4j to 2.0.7 and other plugins versions
+* bugfix *FileDialog#showOpenFileDialog* methods throw NullPointerException because *extensionFilters* is null
 
 # 0.1.10
 ## New features
