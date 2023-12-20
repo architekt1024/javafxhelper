@@ -27,7 +27,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TreeUtilsTest {
+class TreeUtilsTest {
 	private TreeItem<String> root;
 	private Comparator<TreeItem<String>> comparator;
 
@@ -60,7 +60,7 @@ public class TreeUtilsTest {
 	}
 
 	@Test
-	public void sortChildren() {
+	void sortChildren() {
 		TreeUtils.sortChildren(root, comparator);
 		testResult(root.getChildren());
 	}

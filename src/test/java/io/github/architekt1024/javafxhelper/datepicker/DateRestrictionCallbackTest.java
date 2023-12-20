@@ -35,7 +35,7 @@ public class DateRestrictionCallbackTest extends JavafxViewTest {
 	@ParameterizedTest
 	@Disabled("problem with DatePicker mock")
 	@MethodSource("provideValidDates")
-	public void callValidDates(LocalDate date) {
+	void callValidDates(LocalDate date) {
 		// given
 		DatePicker datePickerMock = mock(DatePicker.class); //TODO fix me
 		DateCell cell = dateRestrictionCallback.call(datePickerMock);
@@ -59,7 +59,7 @@ public class DateRestrictionCallbackTest extends JavafxViewTest {
 	@ParameterizedTest
 	@Disabled("problem with DatePicker mock")
 	@MethodSource("provideNotValidDates")
-	public void callNotValidDates(LocalDate date) {
+	void callNotValidDates(LocalDate date) {
 		// given
 		DatePicker datePickerMock = mock(DatePicker.class); //TODO fix me
 		DateCell cell = dateRestrictionCallback.call(datePickerMock);
@@ -81,7 +81,7 @@ public class DateRestrictionCallbackTest extends JavafxViewTest {
 	}
 
 	@Test
-	public void minDate() {
+	void minDate() {
 		//when
 		DateRestrictionCallback callback = DateRestrictionCallback.minDate(MIN_DATE);
 
@@ -91,7 +91,7 @@ public class DateRestrictionCallbackTest extends JavafxViewTest {
 	}
 
 	@Test
-	public void maxDate() {
+	void maxDate() {
 		//when
 		DateRestrictionCallback callback = DateRestrictionCallback.maxDate(MAX_DATE);
 
@@ -101,7 +101,7 @@ public class DateRestrictionCallbackTest extends JavafxViewTest {
 	}
 
 	@Test
-	public void feature() {
+	void feature() {
 		//when
 		DateRestrictionCallback callback = DateRestrictionCallback.feature();
 
@@ -111,7 +111,7 @@ public class DateRestrictionCallbackTest extends JavafxViewTest {
 	}
 
 	@Test
-	public void past() {
+	void past() {
 		//when
 		DateRestrictionCallback callback = DateRestrictionCallback.past();
 
