@@ -10,6 +10,7 @@
 + add resources param to *StageBuilder*
 + new method *StageUtils#loadMainStage* without stylesheet
 + methods in *FileDialog* return *Optional* (only in dialog sub-package)
++ add modality in *AlertBuilder*
 ## Deprecated or removed
 - *WebUtils* is deprecated. Moved to *web* subpackage
 - *FileDialog* is deprecated. Moved to *dialog* subpackage
@@ -18,6 +19,7 @@
 * rename *EntryMapTableRecord* to *PairTableRecord*
 * update slf4j to 2.0.7 and other plugins versions
 * bugfix *FileDialog#showOpenFileDialog* methods throw NullPointerException because *extensionFilters* is null
+* bugfix parent window not work for *AlertBuilder*
 
 # 0.1.10
 ## New features

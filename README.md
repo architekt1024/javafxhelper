@@ -87,9 +87,9 @@ Change your pom.xml
 ```
 
 ## Build from sources
-1. clone repository
+1. Clone repository
 ```git clone git@github.com:architekt1024/javafxhelper.git```
-2. install to local maven repository
+2. Install to local maven repository
 ```mvn clean install```
 
 ### Building with a newer version of Java or OpenJFX

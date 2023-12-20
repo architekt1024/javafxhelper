@@ -19,6 +19,7 @@ import io.github.architekt1024.javafxhelper.web.WebUtils;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.web.WebView;
+import javafx.stage.Modality;
 import javafx.stage.Window;
 
 import java.util.Arrays;
@@ -54,6 +55,7 @@ public class AlertBuilder {
 	private Window parentWindow;
 	private ButtonType[] buttons;
 	private Boolean resizable;
+	private Modality modality;
 
 	/**
 	 * Alert without type
@@ -92,6 +94,12 @@ public class AlertBuilder {
 		if (htmlText != null) {
 			final WebView webView = WebUtils.loadContent(htmlText, prefWidth, prefHeight);
 			alert.getDialogPane().setContent(webView);
+		}
+		if (parentWindow != null) {
+			alert.initOwner(parentWindow);
+		}
+		if (modality != null) {
+			alert.initModality(modality);
 		}
 		return alert;
 	}
@@ -316,6 +324,28 @@ public class AlertBuilder {
 	 */
 	public AlertBuilder setResizable(Boolean resizable) {
 		this.resizable = resizable;
+		return this;
+	}
+
+
+	/**
+	 * @return
+	 *
+	 * @since 0.1.11
+	 */
+	public Modality getModality() {
+		return modality;
+	}
+
+	/**
+	 * @param modality
+	 *
+	 * @return this builder
+	 *
+	 * @since 0.1.11
+	 */
+	public AlertBuilder setModality(Modality modality) {
+		this.modality = modality;
 		return this;
 	}
 }
