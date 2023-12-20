@@ -13,29 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.architekt1024.javafxhelper;
+package io.github.architekt1024.javafxhelper.dialog;
 
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.jetbrains.annotations.ApiStatus;
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
  * Show open/save file dialogs.
  *
  * @author architekt1024
- * @since 0.1.6
- * @deprecated 0.1.11 will be removed in 0.1.13, moved to {@link io.github.architekt1024.javafxhelper.dialog.FileDialog}
+ * @since 0.1.11
  */
-@Deprecated(since = "0.1.11")
-@ApiStatus.ScheduledForRemoval(inVersion = "0.1.13")
 public final class FileDialog {
 	private static final Logger LOG = LoggerFactory.getLogger(FileDialog.class);
 	private static final String CANCEL_CLICKED_MSG = "cancel clicked";
@@ -48,11 +46,11 @@ public final class FileDialog {
 	 *
 	 * @param stage the owner window of the displayed file dialog
 	 *
-	 * @return selected file or null when user cancel
+	 * @return optional selected file
 	 *
-	 * @since 0.1.6
+	 * @since 0.1.11
 	 */
-	public static File showOpenFileDialog(Stage stage) {
+	public static Optional<File> showOpenFileDialog(@Nullable Stage stage) {
 		return showOpenFileDialog(stage, (File) null);
 	}
 
@@ -62,11 +60,11 @@ public final class FileDialog {
 	 * @param stage            the owner window of the displayed file dialog
 	 * @param initialDirectory initial directory, null if not set
 	 *
-	 * @return selected file or null when user cancel
+	 * @return optional selected file
 	 *
-	 * @since 0.1.6
+	 * @since 0.1.11
 	 */
-	public static File showOpenFileDialog(Stage stage, File initialDirectory) {
+	public static Optional<File> showOpenFileDialog(@Nullable Stage stage, @Nullable File initialDirectory) {
 		return showOpenFileDialog(stage, initialDirectory, (FileChooser.ExtensionFilter) null);
 	}
 
@@ -76,11 +74,11 @@ public final class FileDialog {
 	 * @param stage            the owner window of the displayed file dialog
 	 * @param extensionFilters extension filters
 	 *
-	 * @return selected file or null when user cancel
+	 * @return optional selected file
 	 *
-	 * @since 0.1.6
+	 * @since 0.1.11
 	 */
-	public static File showOpenFileDialog(Stage stage, FileChooser.ExtensionFilter... extensionFilters) {
+	public static Optional<File> showOpenFileDialog(@Nullable Stage stage, @Nullable FileChooser.ExtensionFilter... extensionFilters) {
 		return showOpenFileDialog(stage, null, extensionFilters);
 	}
 
@@ -92,11 +90,11 @@ public final class FileDialog {
 	 * @param initialDirectory initial directory, null if not set
 	 * @param extensionFilters extension filters
 	 *
-	 * @return selected file or null when user cancel
+	 * @return optional selected file
 	 *
-	 * @since 0.1.6
+	 * @since 0.1.11
 	 */
-	public static File showOpenFileDialog(Stage stage, File initialDirectory, FileChooser.ExtensionFilter... extensionFilters) {
+	public static Optional<File> showOpenFileDialog(@Nullable Stage stage, @Nullable File initialDirectory, @Nullable FileChooser.ExtensionFilter... extensionFilters) {
 		final FileChooser fileChooser = new FileChooser();
 		if (initialDirectory != null) {
 			fileChooser.setInitialDirectory(initialDirectory);
@@ -110,7 +108,7 @@ public final class FileDialog {
 		if (selectedFile == null) {
 			LOG.debug(CANCEL_CLICKED_MSG);
 		}
-		return selectedFile;
+		return Optional.ofNullable(selectedFile);
 	}
 
 	/**
@@ -121,9 +119,9 @@ public final class FileDialog {
 	 *
 	 * @return selected directory or null when user cancel
 	 *
-	 * @since 0.1.6
+	 * @since 0.1.11
 	 */
-	public static File showOpenDirectoryDialog(Stage stage, File initialDirectory) {
+	public static Optional<File> showOpenDirectoryDialog(@Nullable Stage stage, @Nullable File initialDirectory) {
 		DirectoryChooser directoryChooser = new DirectoryChooser();
 		if ((initialDirectory != null)) {
 			directoryChooser.setInitialDirectory(initialDirectory);
@@ -133,7 +131,7 @@ public final class FileDialog {
 		if (selectedDirectory == null) {
 			LOG.debug(CANCEL_CLICKED_MSG);
 		}
-		return selectedDirectory;
+		return Optional.ofNullable(selectedDirectory);
 	}
 
 	/**
@@ -141,17 +139,17 @@ public final class FileDialog {
 	 *
 	 * @param stage the owner window of the displayed file dialog
 	 *
-	 * @return selected file or null when user cancel
+	 * @return optional selected file
 	 *
-	 * @since 0.1.6
+	 * @since 0.1.11
 	 */
-	public static File showSaveDialog(Stage stage) {
+	public static Optional<File> showSaveDialog(@Nullable Stage stage) {
 		FileChooser fileChooser = new FileChooser();
 		File selectedFile = fileChooser.showSaveDialog(stage);
 		if (selectedFile == null) {
 			LOG.debug(CANCEL_CLICKED_MSG);
 		}
-		return selectedFile;
+		return Optional.ofNullable(selectedFile);
 	}
 
 	/**
@@ -160,17 +158,17 @@ public final class FileDialog {
 	 * @param stage           the owner window of the displayed file dialog
 	 * @param initialFileName set initial file name
 	 *
-	 * @return selected file or null when user cancel
+	 * @return optional selected file
 	 *
-	 * @since 0.1.6
+	 * @since 0.1.11
 	 */
-	public static File showSaveDialog(Stage stage, String initialFileName) {
+	public static Optional<File> showSaveDialog(@Nullable Stage stage, @Nullable String initialFileName) {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setInitialFileName(initialFileName);
 		File selectedFile = fileChooser.showSaveDialog(stage);
 		if (selectedFile == null) {
 			LOG.debug(CANCEL_CLICKED_MSG);
 		}
-		return selectedFile;
+		return Optional.ofNullable(selectedFile);
 	}
 }

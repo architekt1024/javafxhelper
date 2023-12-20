@@ -15,6 +15,7 @@
  */
 package io.github.architekt1024.javafxhelper;
 
+import io.github.architekt1024.javafxhelper.web.WebUtils;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.web.WebView;
@@ -26,11 +27,21 @@ import java.util.Optional;
 
 /**
  * {@link Alert} builder.
+ * Example:
+ * <pre>
+ * Alert alert = new AlertBuilder()
+ *         .setAlertType(Alert.AlertType.CONFIRMATION)
+ *         .setTitle("Title")
+ *         .setContentText("Content text")
+ *         .setParentWindow(stage)
+ *         .setButtons(ButtonType.OK)
+ *         .build();
+ * </pre>
  *
  * @author architekt1024
- * @since 0.1.8
  * @see DialogFacade
  * @see io.github.architekt1024.javafxhelper.dialog.DialogService
+ * @since 0.1.8
  */
 public class AlertBuilder {
 	private Alert.AlertType alertType;
@@ -86,9 +97,9 @@ public class AlertBuilder {
 	}
 
 	/**
-	 * Build alert and wait for user.
+	 * Build alert and wait for user response (in other words, brings up a blocking dialog, with the returned value the users input).
 	 *
-	 * @return optional button clicked by user
+	 * @return {@link Optional} button clicked by user
 	 *
 	 * @since 0.1.8
 	 */
@@ -108,7 +119,7 @@ public class AlertBuilder {
 	/**
 	 * @param alertType
 	 *
-	 * @return
+	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */
@@ -129,7 +140,7 @@ public class AlertBuilder {
 	/**
 	 * @param title
 	 *
-	 * @return
+	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */
@@ -150,7 +161,7 @@ public class AlertBuilder {
 	/**
 	 * @param contentText
 	 *
-	 * @return
+	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */
@@ -172,7 +183,7 @@ public class AlertBuilder {
 	/**
 	 * @param headerText
 	 *
-	 * @return
+	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */
@@ -182,7 +193,7 @@ public class AlertBuilder {
 	}
 
 	/**
-	 * @return
+	 * @return alert parent window
 	 *
 	 * @since 0.1.8
 	 */
@@ -191,9 +202,9 @@ public class AlertBuilder {
 	}
 
 	/**
-	 * @param parentWindow
+	 * @param parentWindow alert parent window
 	 *
-	 * @return
+	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */
@@ -214,7 +225,7 @@ public class AlertBuilder {
 	/**
 	 * @param buttons
 	 *
-	 * @return
+	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */
@@ -235,7 +246,7 @@ public class AlertBuilder {
 	/**
 	 * @param htmlText
 	 *
-	 * @return
+	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */
@@ -257,7 +268,7 @@ public class AlertBuilder {
 	/**
 	 * @param prefWidth
 	 *
-	 * @return
+	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */
@@ -278,7 +289,7 @@ public class AlertBuilder {
 	/**
 	 * @param prefHeight
 	 *
-	 * @return
+	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */
@@ -299,7 +310,7 @@ public class AlertBuilder {
 	/**
 	 * @param resizable
 	 *
-	 * @return
+	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */

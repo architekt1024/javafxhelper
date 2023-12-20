@@ -9,7 +9,11 @@
 ## New features
 + add resources param to *StageBuilder*
 + new method *StageUtils#loadMainStage* without stylesheet
++ methods in *FileDialog* return *Optional* (only in dialog sub-package)
 ## Deprecated or removed
+- *WebUtils* is deprecated. Moved to *web* subpackage
+- *FileDialog* is deprecated. Moved to *dialog* subpackage
+- internal *@Nullable* annotation is removed
 ## Other changes
 * rename *EntryMapTableRecord* to *PairTableRecord*
 * update slf4j to 2.0.7 and other plugins versions

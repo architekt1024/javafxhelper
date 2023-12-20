@@ -13,12 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.architekt1024.javafxhelper;
+package io.github.architekt1024.javafxhelper.web;
 
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import org.apache.commons.text.StringEscapeUtils;
-import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
@@ -31,11 +30,8 @@ import java.util.stream.Collectors;
  * Provides utilities for {@link WebEngine}.
  *
  * @author architekt1024
- * @since 0.1.4
- * @deprecated 0.1.11 will be removed in 0.1.13, moved to {@link io.github.architekt1024.javafxhelper.web.WebUtils}
+ * @since 0.1.11
  */
-@Deprecated(since = "0.1.11")
-@ApiStatus.ScheduledForRemoval(inVersion = "0.1.13")
 public final class WebUtils {
 	private static final Logger LOG = LoggerFactory.getLogger(WebUtils.class);
 
@@ -55,6 +51,8 @@ public final class WebUtils {
 	 * @param args      JavaScript function args, cannot be null
 	 *
 	 * @return result of {@link WebEngine#executeScript(String)}
+	 *
+	 * @since 0.1.11
 	 */
 	public static Object executeScript(@NotNull final WebEngine webEngine, @NotNull final String function, @NotNull final String... args) {
 		return executeScript(webEngine, prepareScript(function, args));
@@ -79,7 +77,7 @@ public final class WebUtils {
 	 *
 	 * @return {@link WebView} content
 	 *
-	 * @since 0.1.8
+	 * @since 0.1.11
 	 */
 	public static WebView loadContent(@NotNull String htmlText, @Nullable Double prefWidth, @Nullable Double prefHeight) {
 		WebView webView = new WebView();

@@ -15,6 +15,8 @@
  */
 package io.github.architekt1024.javafxhelper.annotation;
 
+import org.jetbrains.annotations.ApiStatus;
+
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -32,5 +34,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.ANNOTATION_TYPE, ElementType.FIELD, ElementType.METHOD, ElementType.TYPE, ElementType.CONSTRUCTOR})
 @Deprecated(since = "0.1.10")
+@ApiStatus.ScheduledForRemoval(inVersion = "0.1.13")
 public @interface Experimental {
 }

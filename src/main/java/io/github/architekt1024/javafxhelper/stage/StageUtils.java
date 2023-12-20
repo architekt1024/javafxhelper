@@ -15,11 +15,6 @@
  */
 package io.github.architekt1024.javafxhelper.stage;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.Objects;
-import java.util.function.Consumer;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -27,9 +22,13 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
-
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.Objects;
+import java.util.function.Consumer;
 
 /**
  * Create and show windows ({@link Stage})
@@ -44,14 +43,14 @@ public final class StageUtils {
 	/**
 	 * Load main stage. If controller implements {@link FXMLController}, it set stage.
 	 *
-	 * @param fxml        {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}, cannot be null
-	 * @param stage       JavaFX primary stage, cannot be null
-	 * @param title       window title, cannot be null
+	 * @param fxml  {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}, cannot be null
+	 * @param stage JavaFX primary stage, cannot be null
+	 * @param title window title, cannot be null
 	 *
 	 * @throws IOException fail load FXML file
 	 * @since 0.1.11
 	 */
-	public static void loadMainStage(URL fxml, Stage stage, String title) throws IOException {
+	public static void loadMainStage(@NotNull URL fxml, @NotNull Stage stage, @NotNull String title) throws IOException {
 		loadMainStage(fxml, stage, title, null);
 	}
 
@@ -66,7 +65,7 @@ public final class StageUtils {
 	 * @throws IOException fail load FXML file
 	 * @since 0.1.6
 	 */
-	public static void loadMainStage(URL fxml, Stage stage, String title, String stylesheets) throws IOException {
+	public static void loadMainStage(@NotNull URL fxml, @NotNull Stage stage, @NotNull String title, @Nullable String stylesheets) throws IOException {
 		FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(fxml));
 		Parent root = loader.load();
 
@@ -189,8 +188,9 @@ public final class StageUtils {
 	 * @return stage controller or null if not set
 	 *
 	 * @throws IOException fail load FXML file
+	 * @see #showAndWaitUtilityWindow(URL, String, Window, Modality)
 	 * @since 0.1.6
-	 * @deprecated 0.1.9, will be removed in (TBD)
+	 * @deprecated 0.1.9, will be removed in 0.1.12
 	 */
 	@Deprecated(since = "0.1.9")
 	public static <T> T showAndWaitUtilityWindow(@NotNull URL fxml, @NotNull String title, Window parentWindow, boolean modal) throws IOException {
