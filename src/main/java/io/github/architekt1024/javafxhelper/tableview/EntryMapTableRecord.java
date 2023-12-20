@@ -18,6 +18,7 @@ package io.github.architekt1024.javafxhelper.tableview;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.ApiStatus;
 
@@ -62,6 +63,7 @@ import org.jetbrains.annotations.ApiStatus;
  * @deprecated 0.1.11 will be removed in 0.1.13, use {@link PairTableRecord}
  */
 @ApiStatus.Experimental
+@ApiStatus.ScheduledForRemoval(inVersion = "0.1.13")
 @Deprecated(since = "0.1.11")
 public class EntryMapTableRecord {
 	protected final StringProperty key = new SimpleStringProperty();

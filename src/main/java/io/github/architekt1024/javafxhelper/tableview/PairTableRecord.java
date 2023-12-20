@@ -18,6 +18,7 @@ package io.github.architekt1024.javafxhelper.tableview;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+
 import org.apache.commons.lang3.tuple.Pair;
 
 /**

@@ -15,17 +15,18 @@
  */
 package io.github.architekt1024.javafxhelper;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+
 import org.apache.commons.text.StringEscapeUtils;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Arrays;
-import java.util.stream.Collectors;
 
 /**
  * Provides utilities for {@link WebEngine}.

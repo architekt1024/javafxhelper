@@ -30,7 +30,7 @@ mvn org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=java
 	<version>0.1.10</version>
 </dependency>
 ```
-4. Add to module-info.java
+4. Add to your module-info.java (only if you use modules)
 ```
 requires io.github.architekt1024.javafxhelper
 ```

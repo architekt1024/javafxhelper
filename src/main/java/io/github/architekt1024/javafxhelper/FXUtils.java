@@ -37,6 +37,7 @@ import javafx.scene.control.TreeView;
 import javafx.scene.text.Font;
 
 import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,7 +61,7 @@ public final class FXUtils {
 	public static void updateSpinnerValue(Spinner<?>... spinnerArr) {
 		for (final Spinner<?> spinner : spinnerArr) {
 			spinner.focusedProperty().addListener((observable, oldValue, newValue) -> {
-				if (!newValue) {
+				if (Boolean.FALSE.equals(newValue)) {
 					spinner.increment(0);
 				}
 			});
@@ -176,8 +177,24 @@ public final class FXUtils {
 	 *
 	 * @throws UnsupportedOperationException Desktop is not supported at this platform
 	 * @since 0.1.5
+	 * @deprecated 0.1.11, will be removed in 0.2.0
 	 */
+	@Deprecated(since = "0.1.11")
+	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static void runFile(@NotNull final String file, @NotNull final Consumer<Exception> consumer) {
+		openFile(file, consumer);
+	}
+
+	/**
+	 * Open file in default application.
+	 *
+	 * @param file     path to run, cannot be null
+	 * @param consumer exception handler, cannot be null
+	 *
+	 * @throws UnsupportedOperationException Desktop is not supported at this platform
+	 * @since 0.1.11
+	 */
+	public static void openFile(@NotNull final String file, @NotNull final Consumer<Exception> consumer) {
 		if (!Desktop.isDesktopSupported()) {
 			throw new UnsupportedOperationException("Desktop is not supported");
 		}

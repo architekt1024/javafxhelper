@@ -15,11 +15,15 @@
 - *WebUtils* is deprecated. Moved to *web* subpackage
 - *FileDialog* is deprecated. Moved to *dialog* subpackage
 - internal *@Nullable* annotation is removed
+- *FXUtils#runFile* is renamed to *FXUtils#openFile*
 ## Other changes
 * rename *EntryMapTableRecord* to *PairTableRecord*
 * update slf4j to 2.0.7 and other plugins versions
 * bugfix *FileDialog#showOpenFileDialog* methods throw NullPointerException because *extensionFilters* is null
 * bugfix parent window not work for *AlertBuilder*
+* bugfix cannot close alert created by *AlertBuilder*
+* code style fix and other minor bugfixes
+* add missing annotations
 
 # 0.1.10
 ## New features

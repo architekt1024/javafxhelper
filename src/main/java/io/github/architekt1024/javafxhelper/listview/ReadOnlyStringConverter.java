@@ -16,9 +16,9 @@
 
 package io.github.architekt1024.javafxhelper.listview;
 
-import javafx.util.StringConverter;
-
 import java.util.function.Function;
+
+import javafx.util.StringConverter;
 
 /**
  * <p>TODO description</p>

@@ -15,16 +15,17 @@
  */
 package io.github.architekt1024.javafxhelper;
 
-import io.github.architekt1024.javafxhelper.web.WebUtils;
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.Optional;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.web.WebView;
 import javafx.stage.Modality;
 import javafx.stage.Window;
 
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Optional;
+import io.github.architekt1024.javafxhelper.web.WebUtils;
 
 /**
  * {@link Alert} builder.
@@ -101,6 +102,8 @@ public class AlertBuilder {
 		if (modality != null) {
 			alert.initModality(modality);
 		}
+		final Window window = alert.getDialogPane().getScene().getWindow();
+		window.setOnCloseRequest(event -> window.hide());
 		return alert;
 	}
 

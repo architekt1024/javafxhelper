@@ -22,6 +22,8 @@ import java.util.function.Function;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.control.DatePicker;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * TODO description
  *
@@ -40,7 +42,7 @@ public final class BetweenDates {
 	 *
 	 * @since 0.1.6
 	 */
-	public static void simple(final DatePicker startDate, final DatePicker endDate) {
+	public static void simple(@NotNull final DatePicker startDate, @NotNull final DatePicker endDate) {
 		startDate.valueProperty().addListener(changeListener(Objects.requireNonNull(endDate), DateRestrictionCallback::minDate));
 		endDate.valueProperty().addListener(changeListener(Objects.requireNonNull(startDate), DateRestrictionCallback::maxDate));
 	}

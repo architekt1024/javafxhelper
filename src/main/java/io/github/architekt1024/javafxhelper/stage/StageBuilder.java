@@ -30,7 +30,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
+
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Build JavaFX window ({@link Stage}). Default stage is resizable, non-modal, decorated, without parent window.
@@ -162,7 +164,7 @@ public class StageBuilder {
 	 *
 	 * @since 0.1.6
 	 */
-	public StageBuilder setModality(Modality modality) {
+	public StageBuilder setModality(@NotNull Modality modality) {
 		Objects.requireNonNull(modality, "Modality is null");
 		this.modality = modality;
 		return this;
@@ -206,7 +208,7 @@ public class StageBuilder {
 	 *
 	 * @since 0.1.6
 	 */
-	public StageBuilder setStylesheets(List<String> stylesheets) {
+	public StageBuilder setStylesheets(@Nullable List<String> stylesheets) {
 		if (stylesheets == null) {
 			this.stylesheets = Collections.emptyList();
 		} else {
@@ -224,8 +226,10 @@ public class StageBuilder {
 	 *
 	 * @since 0.1.10
 	 */
-	public StageBuilder addStylesheet(String stylesheet) {
-		this.stylesheets.add(stylesheet);
+	public StageBuilder addStylesheet(@Nullable String stylesheet) {
+		if (stylesheets != null) {
+			this.stylesheets.add(stylesheet);
+		}
 		return this;
 	}
 

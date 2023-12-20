@@ -22,6 +22,8 @@ import java.util.Deque;
 import javafx.collections.FXCollections;
 import javafx.scene.control.TreeItem;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Common utils for {@link javafx.scene.control.TreeView}
  *
@@ -39,7 +41,7 @@ public final class TreeUtils {
 	 * @param comparator comparator used to sorting, cannot be null
 	 * @param <V>        The type of the {@link TreeItem#getValue() value} property within {@link TreeItem}.
 	 */
-	public static <V> void sortChildren(TreeItem<V> treeItem, Comparator<TreeItem<V>> comparator) {
+	public static <V> void sortChildren(@NotNull TreeItem<V> treeItem, @NotNull Comparator<TreeItem<V>> comparator) {
 		Deque<TreeItem<V>> treeItemsDeque = new ArrayDeque<>();
 		treeItemsDeque.push(treeItem);
 
