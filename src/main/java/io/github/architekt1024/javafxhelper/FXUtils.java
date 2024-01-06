@@ -176,7 +176,7 @@ public final class FXUtils {
 	 * @param consumer exception handler, cannot be null
 	 *
 	 * @throws UnsupportedOperationException Desktop is not supported at this platform
-	 * @see #openFile(String, Consumer)
+	 * @see io.github.architekt1024.javafxhelper.utils.DesktopUtils#openFile(String, Consumer)
 	 * @since 0.1.5
 	 * @deprecated 0.1.11, will be removed in 0.2.0
 	 */
@@ -186,16 +186,8 @@ public final class FXUtils {
 		openFile(file, consumer);
 	}
 
-	/**
-	 * Open file in default application.
-	 *
-	 * @param file     path to run, cannot be null
-	 * @param consumer exception handler, cannot be null
-	 *
-	 * @throws UnsupportedOperationException Desktop is not supported at this platform
-	 * @since 0.1.11
-	 */
-	public static void openFile(@NotNull final String file, @NotNull final Consumer<Exception> consumer) {
+	@Deprecated(since = "0.1.11")
+	private static void openFile(@NotNull final String file, @NotNull final Consumer<Exception> consumer) {
 		if (!Desktop.isDesktopSupported()) {
 			throw new UnsupportedOperationException("Desktop is not supported");
 		}
@@ -217,8 +209,12 @@ public final class FXUtils {
 	 * @param exceptionConsumer exceptions consumer, cannot be null
 	 *
 	 * @see #browse(String)
+	 * @see io.github.architekt1024.javafxhelper.utils.DesktopUtils#browse(String, Consumer)
 	 * @since 0.1.8
+	 * @deprecated 0.1.11, will be removed in 0.2.0
 	 */
+	@Deprecated(since = "0.1.11")
+	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static void browse(@NotNull String url, @NotNull Consumer<Exception> exceptionConsumer) {
 		try {
 			browse(url);
@@ -238,8 +234,12 @@ public final class FXUtils {
 	 * @throws UnsupportedOperationException Desktop is not supported at this platform
 	 * @throws IllegalArgumentException      URL is blank
 	 * @see #browse(String, Consumer)
+	 * @see io.github.architekt1024.javafxhelper.utils.DesktopUtils#browse(String)
 	 * @since 0.1.5
+	 * @deprecated 0.1.11, will be removed in 0.2.0
 	 */
+	@Deprecated(since = "0.1.11")
+	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static void browse(@NotNull String url) throws IOException, URISyntaxException {
 		if (StringUtils.isBlank(url)) {
 			throw new IllegalArgumentException("URL cannot be blank");

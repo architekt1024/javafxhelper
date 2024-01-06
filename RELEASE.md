@@ -16,7 +16,9 @@
 - *WebUtils* is deprecated. Moved to *utils* subpackage
 - *FileDialog* is deprecated. Moved to *dialog* subpackage
 - internal *@Nullable* annotation is removed
-- *FXUtils#runFile* is renamed to *FXUtils#openFile*
+- *FXUtils#runFile* is moved to *utils.DesktopUtils#openFile*
+- *FXUtils#browse* is moved to *utils.DesktopUtils#browse*
+- *PropertiesUtils* is moved to *utils* subpackage
 ## Other changes
 * rename *EntryMapTableRecord* to *PairTableRecord*
 * update slf4j to 2.0.7 and other plugins versions

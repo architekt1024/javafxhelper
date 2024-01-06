@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.architekt1024.javafxhelper;
+package io.github.architekt1024.javafxhelper.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,18 +24,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Properties;
 
-import org.jetbrains.annotations.ApiStatus;
-
 /**
  * Utils to load and save {@link Properties} using file
  *
  * @author architekt1024
- * @see io.github.architekt1024.javafxhelper.utils.PropertiesUtils
- * @since 0.1.10
- * @deprecated 0.1.11, will be removed in 0.2.0
+ * @since 0.1.11
  */
-@Deprecated(since = "0.1.11")
-@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 public final class PropertiesUtils {
 
 	private PropertiesUtils() {
@@ -49,12 +43,8 @@ public final class PropertiesUtils {
 	 * @return
 	 *
 	 * @throws IOException error read from file
-	 * @see io.github.architekt1024.javafxhelper.utils.PropertiesUtils#loadProperties(String)
-	 * @since 0.1.10
-	 * @deprecated 0.1.11, will be removed in 0.2.0
+	 * @since 0.1.11
 	 */
-	@Deprecated(since = "0.1.11")
-	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static Properties loadProperties(String fileName) throws IOException {
 		File file = new File(fileName);
 		Properties properties = new Properties();
@@ -73,12 +63,8 @@ public final class PropertiesUtils {
 	 * @param properties
 	 *
 	 * @throws IOException error save to file
-	 * @see io.github.architekt1024.javafxhelper.utils.PropertiesUtils#saveProperties(String, Properties)
-	 * @since 0.1.10
-	 * @deprecated 0.1.11, will be removed in 0.2.0
+	 * @since 0.1.11
 	 */
-	@Deprecated(since = "0.1.11")
-	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static void saveProperties(String fileName, Properties properties) throws IOException {
 		try (FileWriter fileWriter = new FileWriter(fileName)) {
 			properties.store(fileWriter, null);
@@ -93,12 +79,8 @@ public final class PropertiesUtils {
 	 * @return
 	 *
 	 * @throws IOException error read from file
-	 * @see io.github.architekt1024.javafxhelper.utils.PropertiesUtils#loadProperties(String)
-	 * @since 0.1.10
-	 * @deprecated 0.1.11, will be removed in 0.2.0
+	 * @since 0.1.11
 	 */
-	@Deprecated(since = "0.1.11")
-	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static Properties loadPropertiesXML(String fileName) throws IOException {
 		File file = new File(fileName);
 		Properties properties = new Properties();
@@ -117,12 +99,8 @@ public final class PropertiesUtils {
 	 * @param properties
 	 *
 	 * @throws IOException error read from file
-	 * @see io.github.architekt1024.javafxhelper.utils.PropertiesUtils#saveProperties(String, Properties)
-	 * @since 0.1.10
-	 * @deprecated 0.1.11, will be removed in 0.2.0
+	 * @since 0.1.11
 	 */
-	@Deprecated(since = "0.1.11")
-	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static void savePropertiesXML(String fileName, Properties properties) throws IOException {
 		try (FileOutputStream fileOutputStream = new FileOutputStream(fileName)) {
 			properties.storeToXML(fileOutputStream, null);
