@@ -34,10 +34,11 @@ module io.github.architekt1024.javafxhelper {
 
 	//exports
 	exports io.github.architekt1024.javafxhelper;
-	exports io.github.architekt1024.javafxhelper.dialog;
 	exports io.github.architekt1024.javafxhelper.datepicker;
+	exports io.github.architekt1024.javafxhelper.dialog;
 	exports io.github.architekt1024.javafxhelper.listview;
 	exports io.github.architekt1024.javafxhelper.stage;
 	exports io.github.architekt1024.javafxhelper.tableview;
 	exports io.github.architekt1024.javafxhelper.treeview;
+	exports io.github.architekt1024.javafxhelper.utils;
 }
