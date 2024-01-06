@@ -25,7 +25,7 @@ import javafx.scene.web.WebView;
 import javafx.stage.Modality;
 import javafx.stage.Window;
 
-import io.github.architekt1024.javafxhelper.web.WebUtils;
+import io.github.architekt1024.javafxhelper.utils.WebUtils;
 
 /**
  * {@link Alert} builder.
