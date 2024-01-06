@@ -176,6 +176,7 @@ public final class FXUtils {
 	 * @param consumer exception handler, cannot be null
 	 *
 	 * @throws UnsupportedOperationException Desktop is not supported at this platform
+	 * @see #openFile(String, Consumer)
 	 * @since 0.1.5
 	 * @deprecated 0.1.11, will be removed in 0.2.0
 	 */
@@ -236,6 +237,7 @@ public final class FXUtils {
 	 * @throws URISyntaxException            URL cannot be parsed as {@link java.net.URI}
 	 * @throws UnsupportedOperationException Desktop is not supported at this platform
 	 * @throws IllegalArgumentException      URL is blank
+	 * @see #browse(String, Consumer)
 	 * @since 0.1.5
 	 */
 	public static void browse(@NotNull String url) throws IOException, URISyntaxException {
@@ -249,6 +251,6 @@ public final class FXUtils {
 		if (!desktop.isSupported(Desktop.Action.BROWSE)) {
 			throw new UnsupportedOperationException("Browse action is not supported");
 		}
-		desktop.browse(new URL(Objects.requireNonNull(url)).toURI());
+		desktop.browse(new URL(url).toURI());
 	}
 }

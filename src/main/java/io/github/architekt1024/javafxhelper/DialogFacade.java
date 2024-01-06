@@ -53,7 +53,7 @@ public final class DialogFacade {
 	 * @deprecated deprecated 0.1.10, will be removed in 0.1.13 Should use {{@link AlertBuilder}}
 	 */
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.1.13")
-	@Deprecated(since = "0.1.10") //internal use in 0.1.13
+	@Deprecated(since = "0.1.10")
 	public static Alert createAlert(Alert.AlertType type, String title, String contentText, String headerText, Window parentWindow,
 									ButtonType... buttons) {
 		return new AlertBuilder()
@@ -78,7 +78,12 @@ public final class DialogFacade {
 	 * @return An {@link Optional} that contains the dialog result
 	 */
 	public static Optional<ButtonType> showDialog(Alert.AlertType type, String title, String contentText, String headerText, Window parentWindow) {
-		Alert alert = createAlert(Objects.requireNonNullElse(type, Alert.AlertType.NONE), title, contentText, headerText, parentWindow);
+		Alert alert = new AlertBuilder(Objects.requireNonNullElse(type, Alert.AlertType.NONE))
+			.setTitle(title)
+			.setContentText(contentText)
+			.setHeaderText(headerText)
+			.setParentWindow(parentWindow)
+			.build();
 		if (type == null || type == Alert.AlertType.NONE) {
 			alert.getDialogPane().getButtonTypes().add(ButtonType.OK);
 		}
@@ -190,8 +195,14 @@ public final class DialogFacade {
 	 * @return An {@link Optional} that contains the dialog result
 	 */
 	public static Optional<ButtonType> showYesNoConfirmDialog(String title, String contentText, String headerText, Window parentWindow) {
-		Alert alert = createAlert(Alert.AlertType.CONFIRMATION, title, contentText, headerText, parentWindow, Buttons.YES_NO);
-		return alert.showAndWait();
+		return new AlertBuilder(Alert.AlertType.CONFIRMATION)
+			.setTitle(title)
+			.setContentText(contentText)
+			.setHeaderText(headerText)
+			.setParentWindow(parentWindow)
+			.setButtons(Buttons.YES_NO)
+			.build()
+			.showAndWait();
 	}
 
 	/**
@@ -274,10 +285,14 @@ public final class DialogFacade {
 	 *
 	 * @since 0.1.4
 	 */
-	public static Optional<ButtonType> showYesNoCancelDialog(String title, String contentText, String headerText,
-															 Window parentWindow) {
-		Alert alert = createAlert(Alert.AlertType.CONFIRMATION, title, contentText, headerText, parentWindow, Buttons.YES_NO_CANCEL);
-		return alert.showAndWait();
+	public static Optional<ButtonType> showYesNoCancelDialog(String title, String contentText, String headerText, Window parentWindow) {
+		return new AlertBuilder(Alert.AlertType.CONFIRMATION)
+			.setTitle(title)
+			.setContentText(contentText)
+			.setHeaderText(headerText)
+			.setParentWindow(parentWindow)
+			.setButtons(Buttons.YES_NO_CANCEL)
+			.buildAndShow();
 	}
 
 	/**

@@ -27,12 +27,12 @@ import org.jetbrains.annotations.ApiStatus;
  * <p>Example usage</p>
  * <p>In FXML:</p>
  * <pre>{@code
- * <TableView layoutX="52.0" layoutY="49.0" prefHeight="311.0" prefWidth="353.0" editable="true">
+ * <TableView ...>
  * 	<items>
  * 		<FXCollections fx:id="tableItems" fx:factory="observableArrayList"/>
  * 	</items>
  * 	<columns>
- * 		<TableColumn prefWidth="110.0" text="Name">
+ * 		<TableColumn prefWidth="..." text="Name">
  * 			<cellValueFactory>
  * 				<PropertyValueFactory property="key"/>
  * 			</cellValueFactory>
@@ -40,7 +40,7 @@ import org.jetbrains.annotations.ApiStatus;
  * 				<TextFieldTableCell fx:factory="forTableColumn"/>
  * 			</cellFactory>
  * 		</TableColumn>
- * 		<TableColumn prefWidth="110.0" text="Value">
+ * 		<TableColumn prefWidth="..." text="Value">
  * 			<cellValueFactory>
  * 				<PropertyValueFactory property="value"/>
  * 			</cellValueFactory>
@@ -55,7 +55,7 @@ import org.jetbrains.annotations.ApiStatus;
  *
  * <pre>
  * {@literal @FXML}
- * private ObservableList&lt;EntryMapTableRecord&gt; tableItems;
+ *  private ObservableList&lt;EntryMapTableRecord&gt; tableItems;
  * </pre>
  *
  * @author architekt1024
@@ -89,7 +89,7 @@ public class EntryMapTableRecord {
 	}
 
 	/**
-	 * Create  new table record based on {@link Pair}
+	 * Create new table record based on {@link Pair}
 	 *
 	 * @param pair
 	 *
