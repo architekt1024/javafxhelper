@@ -11,8 +11,9 @@
 + new method *StageUtils#loadMainStage* without stylesheet
 + methods in *FileDialog* return *Optional* (only in dialog sub-package)
 + add modality in *AlertBuilder*
++ add *DesktopUtils* in *utils* subpackage
 ## Deprecated or removed
-- *WebUtils* is deprecated. Moved to *web* subpackage
+- *WebUtils* is deprecated. Moved to *utils* subpackage
 - *FileDialog* is deprecated. Moved to *dialog* subpackage
 - internal *@Nullable* annotation is removed
 - *FXUtils#runFile* is renamed to *FXUtils#openFile*

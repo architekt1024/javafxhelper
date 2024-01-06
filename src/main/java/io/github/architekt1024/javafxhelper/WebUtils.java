@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author architekt1024
  * @since 0.1.4
- * @deprecated 0.1.11 will be removed in 0.1.13, moved to {@link io.github.architekt1024.javafxhelper.web.WebUtils}
+ * @deprecated 0.1.11 will be removed in 0.1.13, moved to {@link io.github.architekt1024.javafxhelper.utils.WebUtils}
  */
 @Deprecated(since = "0.1.11")
 @ApiStatus.ScheduledForRemoval(inVersion = "0.1.13")
