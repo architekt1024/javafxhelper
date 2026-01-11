@@ -90,34 +90,6 @@ public final class StageUtils {
 	 * @param fxml         fxml loader instance
 	 * @param title        window title
 	 * @param parentWindow parent window
-	 * @param modal        create modal window
-	 *
-	 * @return created stage
-	 *
-	 * @throws IOException fail load FXML file
-	 * @since 0.1.6
-	 * @deprecated 0.1.9, will be removed in 0.1.12, should use {@link #prepareUtilityWindow(FXMLLoader, String, Window, Modality)}
-	 */
-	@Deprecated(since = "0.1.9")
-	@ApiStatus.ScheduledForRemoval(inVersion = "0.1.12")
-	public static Stage prepareUtilityWindow(@NotNull FXMLLoader fxml, @NotNull String title, @Nullable Window parentWindow, boolean modal) throws IOException {
-		Stage stage = loadNonResizableStage(fxml, title, parentWindow);
-		stage.initStyle(StageStyle.UTILITY);
-		if (modal) {
-			stage.initModality(Modality.APPLICATION_MODAL);
-		} else {
-			stage.initModality(Modality.NONE);
-		}
-		setStageForFXMLController(stage, fxml);
-		return stage;
-	}
-
-	/**
-	 * Create utility window and return.
-	 *
-	 * @param fxml         fxml loader instance
-	 * @param title        window title
-	 * @param parentWindow parent window
 	 * @param modality     modality type, {@link Modality#NONE} will be used if null
 	 *
 	 * @return created stage
@@ -140,31 +112,6 @@ public final class StageUtils {
 	 * @param fxml         {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}
 	 * @param title        window title
 	 * @param parentWindow parent window
-	 * @param modal        create modal window
-	 * @param <T>          controller class
-	 *
-	 * @return stage controller or null if not set
-	 *
-	 * @throws IOException fail load FXML file
-	 * @since 0.1.6
-	 * @deprecated 0.1.9, will be removed in 0.1.12
-	 */
-	@Deprecated(since = "0.1.9")
-	@ApiStatus.ScheduledForRemoval(inVersion = "0.1.12")
-	public static <T> T showUtilityWindow(@NotNull URL fxml, @NotNull String title, @Nullable Window parentWindow, boolean modal) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(fxml);
-		Stage stage = prepareUtilityWindow(fxmlLoader, title, parentWindow, modal);
-		setStageForFXMLController(stage, fxmlLoader);
-		stage.show();
-		return fxmlLoader.getController();
-	}
-
-	/**
-	 * Create and show utility window. If controller implements {@link FXMLController}, it set stage.
-	 *
-	 * @param fxml         {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}
-	 * @param title        window title
-	 * @param parentWindow parent window
 	 * @param modality     modality type, {@link Modality#NONE} will be used if null
 	 * @param <T>          controller class
 	 *
@@ -178,32 +125,6 @@ public final class StageUtils {
 		Stage stage = prepareUtilityWindow(fxmlLoader, title, parentWindow, modality);
 		setStageForFXMLController(stage, fxmlLoader);
 		stage.show();
-		return fxmlLoader.getController();
-	}
-
-	/**
-	 * Create and show utility window. Wait for close. If controller implements {@link FXMLController}, it set stage.
-	 *
-	 * @param fxml         {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}
-	 * @param title        window title
-	 * @param parentWindow parent window
-	 * @param modal        if create modal window
-	 * @param <T>          controller class
-	 *
-	 * @return stage controller or null if not set
-	 *
-	 * @throws IOException fail load FXML file
-	 * @see #showAndWaitUtilityWindow(URL, String, Window, Modality)
-	 * @since 0.1.6
-	 * @deprecated 0.1.9, will be removed in 0.1.12
-	 */
-	@Deprecated(since = "0.1.9")
-	@ApiStatus.ScheduledForRemoval(inVersion = "0.1.12")
-	public static <T> T showAndWaitUtilityWindow(@NotNull URL fxml, @NotNull String title, @Nullable Window parentWindow, boolean modal) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(fxml);
-		Stage stage = prepareUtilityWindow(fxmlLoader, title, parentWindow, modal);
-		setStageForFXMLController(stage, fxmlLoader);
-		stage.showAndWait();
 		return fxmlLoader.getController();
 	}
 
@@ -296,7 +217,7 @@ public final class StageUtils {
 	 * @since 0.1.6
 	 * @deprecated deprecated from 0.1.10 will be removed in 0.1.13
 	 */
-	@Deprecated(since = "0.1.10")
+	@Deprecated(since = "0.1.10", forRemoval = true)
 	public static <T> Stage showNonResizableStageAndWait(@NotNull URL fxml, @NotNull String title, @Nullable Window parentWindow,
 														 @Nullable Consumer<T> beforeShow, @Nullable Consumer<T> afterShow) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(fxml);

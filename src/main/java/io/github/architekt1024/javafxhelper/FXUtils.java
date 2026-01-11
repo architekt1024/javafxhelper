@@ -186,7 +186,18 @@ public final class FXUtils {
 		openFile(file, consumer);
 	}
 
+	/**
+	 * Run file in default application.
+	 *
+	 * @param file     path to run, cannot be null
+	 * @param consumer exception handler, cannot be null
+	 *
+	 * @throws UnsupportedOperationException Desktop is not supported at this platform
+	 * @see io.github.architekt1024.javafxhelper.utils.DesktopUtils#openFile(String, Consumer)
+	 * @deprecated 0.1.11, will be removed in 0.2.0
+	 */
 	@Deprecated(since = "0.1.11")
+	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	private static void openFile(@NotNull final String file, @NotNull final Consumer<Exception> consumer) {
 		if (!Desktop.isDesktopSupported()) {
 			throw new UnsupportedOperationException("Desktop is not supported");

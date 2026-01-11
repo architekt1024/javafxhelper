@@ -5,6 +5,14 @@
 ## Other changes
 -->
 
+# 0.1.12 (TBD)
+## New features
++ add *forRemoval* param in *@Deprecated* annotation
+## Deprecated or removed
+- removed *Nonnull* annotation
+- removed *prepareUtilityWindow*, *showAndWaitUtilityWindow*, *showAndWaitUtilityWindow* from *StageUtils* class
+## Other changes
+
 # 0.1.11
 Upgrade to Java 17
 ## New features

@@ -33,7 +33,7 @@ import org.jetbrains.annotations.ApiStatus;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.ANNOTATION_TYPE, ElementType.FIELD, ElementType.METHOD, ElementType.TYPE, ElementType.CONSTRUCTOR})
-@Deprecated(since = "0.1.10")
+@Deprecated(since = "0.1.10", forRemoval = true)
 @ApiStatus.ScheduledForRemoval(inVersion = "0.1.13")
 public @interface Experimental {
 }

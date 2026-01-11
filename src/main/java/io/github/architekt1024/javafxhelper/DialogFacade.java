@@ -53,7 +53,7 @@ public final class DialogFacade {
 	 * @deprecated deprecated 0.1.10, will be removed in 0.1.13 Should use {{@link AlertBuilder}}
 	 */
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.1.13")
-	@Deprecated(since = "0.1.10")
+	@Deprecated(since = "0.1.10", forRemoval = true)
 	public static Alert createAlert(Alert.AlertType type, String title, String contentText, String headerText, Window parentWindow,
 									ButtonType... buttons) {
 		return new AlertBuilder()

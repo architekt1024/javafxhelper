@@ -32,7 +32,7 @@ import org.jetbrains.annotations.ApiStatus;
  * @author architekt1024
  * @see io.github.architekt1024.javafxhelper.utils.PropertiesUtils
  * @since 0.1.10
- * @deprecated 0.1.11, will be removed in 0.2.0
+ * @deprecated 0.1.11, will be removed in 0.2.0, moved to {@link io.github.architekt1024.javafxhelper.utils.PropertiesUtils}
  */
 @Deprecated(since = "0.1.11")
 @ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")

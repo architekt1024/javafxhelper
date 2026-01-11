@@ -37,6 +37,7 @@ import static io.github.architekt1024.javafxhelper.DialogFacade.Buttons.YES_NO_C
  * @see AlertBuilder
  * @since 0.1.10
  */
+@SuppressWarnings("ClassCanBeRecord")
 public class DialogService {
 	private final Window parentWindow;
 	private final String title;

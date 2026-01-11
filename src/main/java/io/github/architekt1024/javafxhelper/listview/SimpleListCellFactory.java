@@ -34,6 +34,7 @@ import javafx.util.Callback;
  * @author architekt1024
  * @since 0.1.5
  */
+@SuppressWarnings("ClassCanBeRecord")
 public class SimpleListCellFactory<T> implements Callback<ListView<T>, ListCell<T>> {
 	private final Function<T, String> converter;
 

@@ -35,7 +35,7 @@ import org.slf4j.LoggerFactory;
  * @since 0.1.6
  * @deprecated 0.1.11 will be removed in 0.1.13, moved to {@link io.github.architekt1024.javafxhelper.dialog.FileDialog}
  */
-@Deprecated(since = "0.1.11")
+@Deprecated(since = "0.1.11", forRemoval = true)
 @ApiStatus.ScheduledForRemoval(inVersion = "0.1.13")
 public final class FileDialog {
 	private static final Logger LOG = LoggerFactory.getLogger(FileDialog.class);
