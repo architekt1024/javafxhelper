@@ -33,7 +33,7 @@ class TreeUtilsTest {
 
 	@SuppressWarnings("unchecked")
 	@BeforeEach
-	public void setUp() {
+	void setUp() {
 
 		comparator = (o1, o2) -> o1.getValue().compareToIgnoreCase(o2.getValue());
 

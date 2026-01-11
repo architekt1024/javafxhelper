@@ -266,8 +266,8 @@
 						<artifactId>dependency-check-maven</artifactId>
 						<version>12.2.0</version>
 						<configuration>
-<!--							<apiKey></apiKey>-->
-							<cveValidForHours>192</cveValidForHours>
+							<nvdApiKeyEnvironmentVariable>NVD_API_KEY</nvdApiKeyEnvironmentVariable>
+							<nvdValidForHours>192</nvdValidForHours>
 							<formats>HTML,XML</formats>
 						</configuration>
 						<executions>

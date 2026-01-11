@@ -64,7 +64,7 @@ import org.jetbrains.annotations.ApiStatus;
  */
 @ApiStatus.Experimental
 @ApiStatus.ScheduledForRemoval(inVersion = "0.1.13")
-@Deprecated(since = "0.1.11", n = true)
+@Deprecated(since = "0.1.11", forRemoval = true)
 public class EntryMapTableRecord {
 	protected final StringProperty key = new SimpleStringProperty();
 	protected final StringProperty value = new SimpleStringProperty();
