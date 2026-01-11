@@ -5,7 +5,7 @@
 ## Other changes
 -->
 
-# 0.1.11 (TBD)
+# 0.1.11
 Upgrade to Java 17
 ## New features
 + add resources param to *StageBuilder*
