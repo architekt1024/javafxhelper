@@ -6,6 +6,7 @@
 -->
 
 # 0.1.11 (TBD)
+Upgrade to Java 17
 ## New features
 + add resources param to *StageBuilder*
 + new method *StageUtils#loadMainStage* without stylesheet
@@ -27,6 +28,8 @@
 * bugfix cannot close alert created by *AlertBuilder*
 * code style fix and other minor bugfixes
 * add missing annotations
+* update dependency versions
+* update build plugins versions
 
 # 0.1.10
 ## New features

@@ -123,9 +123,27 @@ public final class FileDialog {
 	 * @since 0.1.11
 	 */
 	public static Optional<File> showOpenDirectoryDialog(@Nullable Stage stage, @Nullable File initialDirectory) {
+		return showOpenDirectoryDialog(stage, initialDirectory, null);
+	}
+
+	/**
+	 * Show open directory dialog
+	 *
+	 * @param stage            the owner window of the displayed file dialog
+	 * @param initialDirectory initial directory, null if not set
+	 * @param title            dialog title, null if not set
+	 *
+	 * @return selected directory or null when user cancel
+	 *
+	 * @since 0.1.11
+	 */
+	public static Optional<File> showOpenDirectoryDialog(@Nullable Stage stage, @Nullable File initialDirectory, @Nullable String title) {
 		DirectoryChooser directoryChooser = new DirectoryChooser();
 		if ((initialDirectory != null)) {
 			directoryChooser.setInitialDirectory(initialDirectory);
+		}
+		if (title != null) {
+			directoryChooser.setTitle(title);
 		}
 
 		File selectedDirectory = directoryChooser.showDialog(stage);
