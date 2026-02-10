@@ -27,6 +27,8 @@ import javafx.stage.Window;
 
 import io.github.architekt1024.javafxhelper.utils.WebUtils;
 
+import org.jetbrains.annotations.Nullable;
+
 /**
  * {@link Alert} builder.
  * Example:
@@ -74,7 +76,7 @@ public class AlertBuilder {
 	 *
 	 * @since 0.1.8
 	 */
-	public AlertBuilder(Alert.AlertType alertType) {
+	public AlertBuilder(@Nullable Alert.AlertType alertType) {
 		this.alertType = alertType;
 	}
 
@@ -119,6 +121,8 @@ public class AlertBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @return
 	 *
 	 * @since 0.1.8
@@ -128,13 +132,15 @@ public class AlertBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @param alertType
 	 *
 	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */
-	public AlertBuilder setAlertType(Alert.AlertType alertType) {
+	public AlertBuilder setAlertType(@Nullable Alert.AlertType alertType) {
 		this.alertType = Objects.requireNonNullElse(alertType, Alert.AlertType.NONE);
 		return this;
 	}
@@ -149,18 +155,22 @@ public class AlertBuilder {
 	}
 
 	/**
-	 * @param title
+	 * TODO description
+	 *
+	 * @param title alert title
 	 *
 	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */
-	public AlertBuilder setTitle(String title) {
+	public AlertBuilder setTitle(@Nullable String title) {
 		this.title = title;
 		return this;
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @return
 	 *
 	 * @since 0.1.8
@@ -176,7 +186,7 @@ public class AlertBuilder {
 	 *
 	 * @since 0.1.8
 	 */
-	public AlertBuilder setContentText(String contentText) {
+	public AlertBuilder setContentText(@Nullable String contentText) {
 		this.htmlText = null;
 		this.contentText = contentText;
 		return this;
@@ -198,12 +208,14 @@ public class AlertBuilder {
 	 *
 	 * @since 0.1.8
 	 */
-	public AlertBuilder setHeaderText(String headerText) {
+	public AlertBuilder setHeaderText(@Nullable String headerText) {
 		this.headerText = headerText;
 		return this;
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @return alert parent window
 	 *
 	 * @since 0.1.8
@@ -213,18 +225,22 @@ public class AlertBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @param parentWindow alert parent window
 	 *
 	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */
-	public AlertBuilder setParentWindow(Window parentWindow) {
+	public AlertBuilder setParentWindow(@Nullable Window parentWindow) {
 		this.parentWindow = parentWindow;
 		return this;
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @return
 	 *
 	 * @since 0.1.8
@@ -234,18 +250,22 @@ public class AlertBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @param buttons
 	 *
 	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */
-	public AlertBuilder setButtons(ButtonType... buttons) {
+	public AlertBuilder setButtons(@Nullable ButtonType... buttons) {
 		this.buttons = Arrays.copyOf(buttons, buttons.length);
 		return this;
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @return
 	 *
 	 * @since 0.1.8
@@ -255,19 +275,23 @@ public class AlertBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @param htmlText
 	 *
 	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */
-	public AlertBuilder setHtmlText(String htmlText) {
+	public AlertBuilder setHtmlText(@Nullable String htmlText) {
 		this.contentText = null;
 		this.htmlText = htmlText;
 		return this;
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @return
 	 *
 	 * @since 0.1.8
@@ -277,18 +301,22 @@ public class AlertBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @param prefWidth
 	 *
 	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */
-	public AlertBuilder setPrefWidth(Double prefWidth) {
+	public AlertBuilder setPrefWidth(@Nullable Double prefWidth) {
 		this.prefWidth = prefWidth;
 		return this;
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @return
 	 *
 	 * @since 0.1.8
@@ -298,18 +326,22 @@ public class AlertBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @param prefHeight
 	 *
 	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */
-	public AlertBuilder setPrefHeight(Double prefHeight) {
+	public AlertBuilder setPrefHeight(@Nullable Double prefHeight) {
 		this.prefHeight = prefHeight;
 		return this;
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @return
 	 *
 	 * @since 0.1.8
@@ -319,19 +351,23 @@ public class AlertBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @param resizable
 	 *
 	 * @return this builder
 	 *
 	 * @since 0.1.8
 	 */
-	public AlertBuilder setResizable(Boolean resizable) {
+	public AlertBuilder setResizable(@Nullable Boolean resizable) {
 		this.resizable = resizable;
 		return this;
 	}
 
 
 	/**
+	 * TODO description
+	 *
 	 * @return
 	 *
 	 * @since 0.1.11
@@ -341,13 +377,15 @@ public class AlertBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @param modality
 	 *
 	 * @return this builder
 	 *
 	 * @since 0.1.11
 	 */
-	public AlertBuilder setModality(Modality modality) {
+	public AlertBuilder setModality(@Nullable Modality modality) {
 		this.modality = modality;
 		return this;
 	}

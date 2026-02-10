@@ -19,6 +19,8 @@ import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeView;
 import javafx.util.Callback;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * TODO description. Syntactic sugar<br>
  * <br>
@@ -49,5 +51,5 @@ public interface TreeCellCallback<T> extends Callback<TreeView<T>, TreeCell<T>> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	TreeCell<T> call(TreeView<T> treeView);
+	TreeCell<T> call(@NotNull TreeView<T> treeView);
 }

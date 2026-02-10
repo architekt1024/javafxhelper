@@ -20,6 +20,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import org.apache.commons.lang3.tuple.Pair;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * TODO description<br>
@@ -73,12 +74,14 @@ public class PairTableRecord {
 	}
 
 	/**
-	 * @param key
-	 * @param value
+	 * TODO description
+	 *
+	 * @param key   key table
+	 * @param value value table
 	 *
 	 * @since 0.1.11
 	 */
-	public PairTableRecord(String key, String value) {
+	public PairTableRecord(@Nullable String key, @Nullable String value) {
 		this.key.setValue(key);
 		this.value.setValue(value);
 	}
@@ -86,28 +89,40 @@ public class PairTableRecord {
 	/**
 	 * Create new table record based on {@link Pair}
 	 *
-	 * @param pair
+	 * @param pair key and value pair
 	 *
 	 * @since 0.1.11
 	 */
-	public PairTableRecord(Pair<String, String> pair) {
-		key.setValue(pair.getKey());
-		value.setValue(pair.getValue());
+	public PairTableRecord(@Nullable Pair<String, String> pair) {
+		if (pair == null) {
+			key.setValue(null);
+			value.setValue(null);
+		} else {
+			key.setValue(pair.getKey());
+			value.setValue(pair.getValue());
+		}
 	}
 
 	/**
 	 * Create  new table record based on {@link javafx.util.Pair}
 	 *
-	 * @param pair
+	 * @param pair key and value pair
 	 *
 	 * @since 0.1.11
 	 */
-	public PairTableRecord(javafx.util.Pair<String, String> pair) {
-		key.setValue(pair.getKey());
-		value.setValue(pair.getValue());
+	public PairTableRecord(@Nullable javafx.util.Pair<String, String> pair) {
+		if (pair == null) {
+			key.setValue(null);
+			value.setValue(null);
+		} else {
+			key.setValue(pair.getKey());
+			value.setValue(pair.getValue());
+		}
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @return 'key' current value
 	 *
 	 * @since 0.1.11
@@ -117,15 +132,19 @@ public class PairTableRecord {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @param key 'key' value
 	 *
 	 * @since 0.1.11
 	 */
-	public void setKey(String key) {
+	public void setKey(@Nullable String key) {
 		this.key.setValue(key);
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @return 'value' current value
 	 *
 	 * @since 0.1.11
@@ -135,11 +154,13 @@ public class PairTableRecord {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @param value 'value' value
 	 *
 	 * @since 0.1.11
 	 */
-	public void setValue(String value) {
+	public void setValue(@Nullable String value) {
 		this.value.setValue(value);
 	}
 }

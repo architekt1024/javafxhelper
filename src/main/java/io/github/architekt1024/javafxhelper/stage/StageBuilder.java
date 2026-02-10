@@ -89,6 +89,8 @@ public class StageBuilder {
 	}
 
 	/**
+	 * Get FXML url
+	 *
 	 * @return fxml URL
 	 *
 	 * @since 0.1.6
@@ -98,6 +100,8 @@ public class StageBuilder {
 	}
 
 	/**
+	 * Get Stage title
+	 *
 	 * @return stage title
 	 *
 	 * @since 0.1.6
@@ -107,6 +111,8 @@ public class StageBuilder {
 	}
 
 	/**
+	 * Get parent windows
+	 *
 	 * @return parent window or null
 	 *
 	 * @since 0.1.6
@@ -116,6 +122,8 @@ public class StageBuilder {
 	}
 
 	/**
+	 * Set parent window
+	 *
 	 * @param parentWindow parent window
 	 *
 	 * @return this builder
@@ -128,6 +136,8 @@ public class StageBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @return can resizable
 	 *
 	 * @since 0.1.6
@@ -137,6 +147,8 @@ public class StageBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @param resizable can resizable
 	 *
 	 * @return this builder
@@ -149,6 +161,8 @@ public class StageBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @return stage modality
 	 *
 	 * @since 0.1.6
@@ -158,6 +172,8 @@ public class StageBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @param modality stage modality
 	 *
 	 * @return this builder
@@ -171,6 +187,8 @@ public class StageBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @return stage style
 	 *
 	 * @since 0.1.6
@@ -180,19 +198,23 @@ public class StageBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @param style stage style
 	 *
 	 * @return this builder
 	 *
 	 * @since 0.1.6
 	 */
-	public StageBuilder setStyle(StageStyle style) {
+	public StageBuilder setStyle(@NotNull StageStyle style) {
 		Objects.requireNonNull(modality, "style is null");
 		this.style = style;
 		return this;
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @return CSS stylesheets
 	 *
 	 * @since 0.1.6
@@ -202,6 +224,8 @@ public class StageBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @param stylesheets CSS stylesheets
 	 *
 	 * @return this builder
@@ -234,6 +258,8 @@ public class StageBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @return resource bundle
 	 *
 	 * @since 0.1.11
@@ -243,13 +269,15 @@ public class StageBuilder {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @param resources resource bundle
 	 *
 	 * @return this builder
 	 *
 	 * @since 0.1.11
 	 */
-	public StageBuilder setResources(ResourceBundle resources) {
+	public StageBuilder setResources(@Nullable ResourceBundle resources) {
 		this.resources = resources;
 		return this;
 	}

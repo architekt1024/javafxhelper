@@ -39,6 +39,7 @@ import javafx.scene.text.Font;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,7 +47,12 @@ import org.slf4j.LoggerFactory;
  * JavaFX common tools.
  *
  * @author architekt1024
+ * @see io.github.architekt1024.javafxhelper.utils.DesktopUtils
+ * @see io.github.architekt1024.javafxhelper.utils.ControlUtils
+ * @deprecated deprecated in 0.1.12, will be removed in 0.2.0
  */
+@Deprecated(since = "0.1.12")
+@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 public final class FXUtils {
 	private static final Logger LOG = LoggerFactory.getLogger(FXUtils.class);
 
@@ -57,8 +63,12 @@ public final class FXUtils {
 	 * Add listener to spinner to update values after editing.
 	 *
 	 * @param spinnerArr spinner array to update, any arguments cannot be null
+	 *
+	 * @deprecated deprecated in 0.1.12, will be removed in 0.2.0
 	 */
-	public static void updateSpinnerValue(Spinner<?>... spinnerArr) {
+	@Deprecated(since = "0.1.12")
+	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
+	public static void updateSpinnerValue(@NotNull Spinner<?>... spinnerArr) {
 		for (final Spinner<?> spinner : spinnerArr) {
 			spinner.focusedProperty().addListener((observable, oldValue, newValue) -> {
 				if (Boolean.FALSE.equals(newValue)) {
@@ -71,12 +81,15 @@ public final class FXUtils {
 	/**
 	 * Change selection mode used in selection model
 	 *
-	 * @param selectionMode selection mode used in selection model, should be not null
+	 * @param selectionMode selection mode used in selection model, if {@code null}, a default value is used
 	 * @param views         list of {@link TreeView}
 	 *
 	 * @since 0.1.8
+	 * @deprecated deprecated in 0.1.12, will be removed in 0.2.0
 	 */
-	public static void updateSelectionMode(SelectionMode selectionMode, TreeView<?>... views) {
+	@Deprecated(since = "0.1.12")
+	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
+	public static void updateSelectionMode(@NotNull SelectionMode selectionMode, @Nullable TreeView<?>... views) {
 		for (TreeView<?> treeView : views) {
 			if (treeView != null && treeView.getSelectionModel() != null) {
 				treeView.getSelectionModel().setSelectionMode(selectionMode);
@@ -87,12 +100,15 @@ public final class FXUtils {
 	/**
 	 * Change selection mode used in selection model
 	 *
-	 * @param selectionMode selection mode used in selection model, should be not null
+	 * @param selectionMode selection mode used in selection model, if {@code null}, a default value is used
 	 * @param views         list of {@link ListView}
 	 *
 	 * @since 0.1.8
+	 * @deprecated deprecated in 0.1.12, will be removed in 0.2.0
 	 */
-	public static void updateSelectionMode(SelectionMode selectionMode, ListView<?>... views) {
+	@Deprecated(since = "0.1.12")
+	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
+	public static void updateSelectionMode(@Nullable SelectionMode selectionMode, @Nullable ListView<?>... views) {
 		for (ListView<?> listView : views) {
 			if (listView != null && listView.getSelectionModel() != null) {
 				listView.getSelectionModel().setSelectionMode(selectionMode);
@@ -103,12 +119,15 @@ public final class FXUtils {
 	/**
 	 * Change selection mode used in selection model
 	 *
-	 * @param selectionMode selection mode used in selection model, should be not null
+	 * @param selectionMode selection mode used in selection model, if {@code null}, a default value is used
 	 * @param views         list of {@link TableView}
 	 *
 	 * @since 0.1.8
+	 * @deprecated deprecated in 0.1.12, will be removed in 0.2.0
 	 */
-	public static void updateSelectionMode(SelectionMode selectionMode, TableView<?>... views) {
+	@Deprecated(since = "0.1.12")
+	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
+	public static void updateSelectionMode(@Nullable SelectionMode selectionMode, @Nullable TableView<?>... views) {
 		for (TableView<?> tableView : views) {
 			if (tableView != null && tableView.getSelectionModel() != null) {
 				tableView.getSelectionModel().setSelectionMode(selectionMode);
@@ -120,12 +139,15 @@ public final class FXUtils {
 	/**
 	 * Change selection mode used in selection model
 	 *
-	 * @param selectionMode selection mode used in selection model, should be not null
+	 * @param selectionMode selection mode used in selection model, if {@code null}, a default value is used
 	 * @param views         list of {@link TreeView}, {@link TableView}, {@link ListView}
 	 *
 	 * @since 0.1.9
+	 * @deprecated deprecated in 0.1.12, will be removed in 0.2.0
 	 */
-	public static void updateSelectionMode(SelectionMode selectionMode, Control... views) {
+	@Deprecated(since = "0.1.12")
+	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
+	public static void updateSelectionMode(@Nullable SelectionMode selectionMode, @Nullable Control... views) {
 		for (Control view : views) {
 			if (view != null) {
 				try {
@@ -149,8 +171,12 @@ public final class FXUtils {
 	 * @param size     font size
 	 *
 	 * @return Loaded font or null if fileFont is blank
+	 *
+	 * @deprecated deprecated in 0.1.12, will be removed in 0.2.0
 	 */
-	public static Font loadFont(String fileFont, double size) {
+	@Deprecated(since = "0.1.12")
+	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
+	public static Font loadFont(@NotNull String fileFont, double size) {
 		if (StringUtils.isBlank(fileFont)) {
 			return null;
 		}

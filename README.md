@@ -12,7 +12,7 @@ The aim of the project is to create reusable JavaFX components. The project is a
 Download last release and install.
 
 ### Prerequisites
-* JDK 17 or newer (ex. AdoptOpenJDK)
+* JDK 17 or newer (Eclipse Adoptium recomened)
 * Maven
 * Set `JAVA_HOME` environment variable
 
@@ -35,12 +35,25 @@ mvn org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=java
 requires io.github.architekt1024.javafxhelper
 ```
 
-## How to use the newer version of JavaFX and OpenJFX
-The library should work with any new Java versions.
+## How to use the newer version of Java and OpenJFX
+This project is built and tested against a specific version of Java / OpenJFX. Newer versions are not officially supported.
 
-Change your pom.xml
+However, advanced users may choose to override the JDK or OpenJFX dependencies if they require a newer version (for example, due to platform constraints or local environment requirements).
+
+**Important notes**
+* Using a newer JDK or OpenJFX version is at your own risk
+* No guarantees are provided regarding:
+  * binary compatibility
+  * runtime behavior
+  * visual correctness
+
+Issues reproducible only with overridden JavaFX versions will not be treated as bugs
+
+### How to override the Java or JavaFX version
+You may override the JDK version or OpenJFX dependencies in your build configuration (for example via Maven):
 ```xml
 <properties>
+	<java.version><!-- Java version --></java.version>
 	<javafx.version><!-- openjfx version --></javafx.version>
 </properties>
 
@@ -86,12 +99,20 @@ Change your pom.xml
 </dependencies>
 ```
 
+**Ensure that**
+* the JavaFX version is compatible with your Java runtime
+* all JavaFX modules are aligned to the same version
+* your platform-specific artifacts (e.g. Linux, Windows) match the JavaFX distribution
+
+**Recommendation**
+
+If you decide to use a newer JavaFX version:
+* verify behavior thoroughly in your environment
+* be prepared to debug JavaFX-related issues independently
+* consider reverting to the supported version when reporting issues
+
 ## Build from sources
 1. Clone repository
 ```git clone git@github.com:architekt1024/javafxhelper.git```
 2. Install to local maven repository
 ```mvn clean install```
-
-### Building with a newer version of Java or OpenJFX
-* Update OpenJFX version: Change `javafx.version` property in `pom.xml` file
-* Update Java version: Change `maven.compiler.source` and `maven.compiler.target` property in `pom.xml` file

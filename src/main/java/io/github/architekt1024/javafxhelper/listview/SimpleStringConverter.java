@@ -18,6 +18,9 @@ package io.github.architekt1024.javafxhelper.listview;
 
 import java.util.function.Function;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 /**
  * TODO description
  * Example use:
@@ -32,14 +35,14 @@ public class SimpleStringConverter<T> extends ReadOnlyStringConverter<T> {
 	private final Function<String, T> fromString;
 
 	/**
-	 * TODO description
+	 * Creates a default simple string converter.
 	 *
 	 * @param toString
 	 * @param fromString
 	 *
 	 * @since 0.1.10
 	 */
-	public SimpleStringConverter(Function<T, String> toString, Function<String, T> fromString) {
+	public SimpleStringConverter(@NotNull Function<T, String> toString, @NotNull Function<String, T> fromString) {
 		super(toString);
 		this.fromString = fromString;
 	}
@@ -48,7 +51,7 @@ public class SimpleStringConverter<T> extends ReadOnlyStringConverter<T> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public T fromString(String string) {
+	public T fromString(@Nullable String string) {
 		return fromString.apply(string);
 	}
 }

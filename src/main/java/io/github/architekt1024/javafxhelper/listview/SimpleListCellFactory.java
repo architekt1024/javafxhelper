@@ -22,6 +22,8 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Cell factory for {@link ListView} using String converter. Set null if item is empty or null, otherwise convert item to String using converter.
  * <p>
@@ -43,7 +45,7 @@ public class SimpleListCellFactory<T> implements Callback<ListView<T>, ListCell<
 	 *
 	 * @param converter result to String converter, cannot be null
 	 */
-	public SimpleListCellFactory(Function<T, String> converter) {
+	public SimpleListCellFactory(@NotNull Function<T, String> converter) {
 		this.converter = Objects.requireNonNull(converter);
 	}
 

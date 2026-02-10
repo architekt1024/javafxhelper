@@ -20,6 +20,9 @@ import java.util.function.Function;
 
 import javafx.util.StringConverter;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 /**
  * <p>TODO description</p>
  * Example use:
@@ -36,13 +39,13 @@ public class ReadOnlyStringConverter<T> extends StringConverter<T> {
 	protected final Function<T, String> converter;
 
 	/**
-	 * TODO description
+	 * Creates a default read-only string converter.
 	 *
 	 * @param converter
 	 *
 	 * @since 0.1.10
 	 */
-	public ReadOnlyStringConverter(Function<T, String> converter) {
+	public ReadOnlyStringConverter(@NotNull Function<T, String> converter) {
 		this.converter = converter;
 	}
 
@@ -50,7 +53,7 @@ public class ReadOnlyStringConverter<T> extends StringConverter<T> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String toString(T object) {
+	public String toString(@Nullable T object) {
 		if (object == null) {
 			return null;
 		}
@@ -61,7 +64,7 @@ public class ReadOnlyStringConverter<T> extends StringConverter<T> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public T fromString(String string) {
+	public T fromString(@Nullable String string) {
 		throw new UnsupportedOperationException("Object is read-only");
 	}
 }

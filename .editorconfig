@@ -24,6 +24,7 @@ ij_java_doc_add_blank_line_after_return = true
 ij_java_class_count_to_use_import_on_demand = 9999
 ij_java_names_count_to_use_import_on_demand = 9999
 ij_java_keep_indents_on_empty_lines = false
+ij_java_imports_layout = java.**,javax.**,|,javafx.**,|,io.github.architekt1024.**,|,*,|,$*
 
 [*.yml]
 indent_size = 2

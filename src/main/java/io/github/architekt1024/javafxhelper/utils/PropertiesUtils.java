@@ -24,6 +24,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Utils to load and save {@link Properties} using file
  *
@@ -40,7 +42,7 @@ public final class PropertiesUtils {
 	 *
 	 * @param fileName filename
 	 *
-	 * @return
+	 * @return loaded properties
 	 *
 	 * @throws IOException error read from file
 	 * @since 0.1.11
@@ -60,12 +62,12 @@ public final class PropertiesUtils {
 	 * Save properties to file
 	 *
 	 * @param fileName   file name
-	 * @param properties
+	 * @param properties properties to save
 	 *
 	 * @throws IOException error save to file
 	 * @since 0.1.11
 	 */
-	public static void saveProperties(String fileName, Properties properties) throws IOException {
+	public static void saveProperties(@NotNull String fileName, @NotNull Properties properties) throws IOException {
 		try (FileWriter fileWriter = new FileWriter(fileName)) {
 			properties.store(fileWriter, null);
 		}
@@ -76,12 +78,12 @@ public final class PropertiesUtils {
 	 *
 	 * @param fileName xml file name
 	 *
-	 * @return
+	 * @return loaded properties
 	 *
 	 * @throws IOException error read from file
 	 * @since 0.1.11
 	 */
-	public static Properties loadPropertiesXML(String fileName) throws IOException {
+	public static Properties loadPropertiesXML(@NotNull String fileName) throws IOException {
 		File file = new File(fileName);
 		Properties properties = new Properties();
 		if (file.exists()) {
@@ -96,12 +98,12 @@ public final class PropertiesUtils {
 	 * Save properties to xml file
 	 *
 	 * @param fileName   xml file name
-	 * @param properties
+	 * @param properties properties to save
 	 *
 	 * @throws IOException error read from file
 	 * @since 0.1.11
 	 */
-	public static void savePropertiesXML(String fileName, Properties properties) throws IOException {
+	public static void savePropertiesXML(@NotNull String fileName, @NotNull Properties properties) throws IOException {
 		try (FileOutputStream fileOutputStream = new FileOutputStream(fileName)) {
 			properties.storeToXML(fileOutputStream, null);
 		}

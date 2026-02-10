@@ -24,7 +24,9 @@ import javafx.scene.control.TextInputDialog;
 import javafx.stage.Window;
 
 import io.github.architekt1024.javafxhelper.dialog.DialogService;
+
 import org.jetbrains.annotations.ApiStatus;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Create and show predefined dialogs ({@link Alert}, {@link TextInputDialog}).
@@ -77,7 +79,7 @@ public final class DialogFacade {
 	 *
 	 * @return An {@link Optional} that contains the dialog result
 	 */
-	public static Optional<ButtonType> showDialog(Alert.AlertType type, String title, String contentText, String headerText, Window parentWindow) {
+	public static Optional<ButtonType> showDialog(@Nullable Alert.AlertType type, String title, String contentText, String headerText, Window parentWindow) {
 		Alert alert = new AlertBuilder(Objects.requireNonNullElse(type, Alert.AlertType.NONE))
 			.setTitle(title)
 			.setContentText(contentText)
@@ -296,6 +298,8 @@ public final class DialogFacade {
 	}
 
 	/**
+	 * TODO description
+	 *
 	 * @since 0.1.10
 	 */
 	public static class Buttons {

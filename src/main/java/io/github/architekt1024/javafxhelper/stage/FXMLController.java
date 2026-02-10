@@ -17,6 +17,8 @@ package io.github.architekt1024.javafxhelper.stage;
 
 import javafx.stage.Stage;
 
+import org.jetbrains.annotations.Nullable;
+
 /**
  * Set {@link Stage} when use {@link StageUtils} or {@link StageBuilder}.
  *
@@ -32,5 +34,5 @@ public interface FXMLController {
 	 *
 	 * @param stage current stage
 	 */
-	void setStage(Stage stage);
+	void setStage(@Nullable Stage stage);
 }

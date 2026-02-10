@@ -22,6 +22,7 @@ import javafx.scene.control.DatePicker;
 import javafx.util.Callback;
 
 import org.apache.commons.lang3.ObjectUtils;
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,6 +32,7 @@ import org.slf4j.LoggerFactory;
  * @author architekt1024
  * @since 0.1.6
  */
+@SuppressWarnings("ClassCanBeRecord")
 public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 	private static final Logger LOG = LoggerFactory.getLogger(DateRestrictionCallback.class);
 
@@ -39,13 +41,14 @@ public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 
 	/**
 	 * TODO description
+	 * If both {@code min} and {@code max} are {@code null}, this restriction has no effect.
 	 *
-	 * @param minDate start date limit
-	 * @param maxDate end date limit
+	 * @param minDate start date limit, may be {@code null}
+	 * @param maxDate end date limit, may be {@code null}
 	 */
-	public DateRestrictionCallback(LocalDate minDate, LocalDate maxDate) {
-		if (!ObjectUtils.anyNotNull(minDate, maxDate)) {
-			LOG.warn("minDate and maxDate is null, no restriction was set");
+	public DateRestrictionCallback(@Nullable LocalDate minDate, @Nullable LocalDate maxDate) {
+		if (ObjectUtils.allNull(minDate, maxDate)) {
+			LOG.info("Date restriction has no effect because minDate and maxDate is null");
 		}
 		this.minDate = minDate;
 		this.maxDate = maxDate;

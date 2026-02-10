@@ -16,14 +16,17 @@
 
 package io.github.architekt1024.javafxhelper.dialog;
 
-import io.github.architekt1024.javafxhelper.AlertBuilder;
-import io.github.architekt1024.javafxhelper.DialogFacade;
+import java.util.Optional;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Window;
 
-import java.util.Optional;
+import io.github.architekt1024.javafxhelper.AlertBuilder;
+import io.github.architekt1024.javafxhelper.DialogFacade;
+
+import org.jetbrains.annotations.Nullable;
 
 import static io.github.architekt1024.javafxhelper.DialogFacade.Buttons.YES_NO;
 import static io.github.architekt1024.javafxhelper.DialogFacade.Buttons.YES_NO_CANCEL;
@@ -48,7 +51,7 @@ public class DialogService {
 	 *
 	 * @since 0.1.10
 	 */
-	public DialogService(String title, Window parentWindow) {
+	public DialogService(@Nullable String title, @Nullable Window parentWindow) {
 		this.title = title;
 		this.parentWindow = parentWindow;
 	}
@@ -64,7 +67,7 @@ public class DialogService {
 	 *
 	 * @since 0.1.10
 	 */
-	public Optional<ButtonType> showDialog(Alert.AlertType type, String contentText, String headerText) {
+	public Optional<ButtonType> showDialog(@Nullable Alert.AlertType type, @Nullable String contentText, @Nullable String headerText) {
 		return DialogFacade.showDialog(type, title, contentText, headerText, parentWindow);
 	}
 
@@ -77,7 +80,7 @@ public class DialogService {
 	 *
 	 * @since 0.1.10
 	 */
-	public Optional<ButtonType> showInfoDialog(String contentText) {
+	public Optional<ButtonType> showInfoDialog(@Nullable String contentText) {
 		return showInfoDialog(contentText, null);
 	}
 
@@ -91,7 +94,7 @@ public class DialogService {
 	 *
 	 * @since 0.1.10
 	 */
-	public Optional<ButtonType> showInfoDialog(String contentText, String headerText) {
+	public Optional<ButtonType> showInfoDialog(@Nullable String contentText, @Nullable String headerText) {
 		return showDialog(Alert.AlertType.INFORMATION, contentText, headerText);
 	}
 
@@ -118,7 +121,7 @@ public class DialogService {
 	 *
 	 * @since 0.1.10
 	 */
-	public Optional<ButtonType> showWarningDialog(String contentText, String headerText) {
+	public Optional<ButtonType> showWarningDialog(@Nullable String contentText, @Nullable String headerText) {
 		return showDialog(Alert.AlertType.WARNING, contentText, headerText);
 	}
 
@@ -131,7 +134,7 @@ public class DialogService {
 	 *
 	 * @since 0.1.10
 	 */
-	public Optional<ButtonType> showErrorDialog(String contentText) {
+	public Optional<ButtonType> showErrorDialog(@Nullable String contentText) {
 		return showErrorDialog(contentText, null);
 	}
 
@@ -145,7 +148,7 @@ public class DialogService {
 	 *
 	 * @since 0.1.10
 	 */
-	public Optional<ButtonType> showErrorDialog(String contentText, String headerText) {
+	public Optional<ButtonType> showErrorDialog(@Nullable String contentText, @Nullable String headerText) {
 		return showDialog(Alert.AlertType.ERROR, contentText, headerText);
 	}
 
@@ -168,7 +171,7 @@ public class DialogService {
 	 *
 	 * @since 0.1.10
 	 */
-	public Optional<ButtonType> showYesNoConfirmDialog(String contentText) {
+	public Optional<ButtonType> showYesNoConfirmDialog(@Nullable String contentText) {
 		return showYesNoConfirmDialog(contentText, null);
 	}
 
@@ -192,7 +195,7 @@ public class DialogService {
 	 *
 	 * @since 0.1.10
 	 */
-	public Optional<ButtonType> showYesNoConfirmDialog(String contentText, String headerText) {
+	public Optional<ButtonType> showYesNoConfirmDialog(@Nullable String contentText, @Nullable String headerText) {
 		Alert alert = new AlertBuilder()
 			.setAlertType(Alert.AlertType.CONFIRMATION)
 			.setTitle(title)
@@ -213,7 +216,7 @@ public class DialogService {
 	 *
 	 * @since 0.1.10
 	 */
-	public Optional<String> showTextInputDialog(String headerText) {
+	public Optional<String> showTextInputDialog(@Nullable String headerText) {
 		return showTextInputDialog("", headerText);
 	}
 
@@ -227,7 +230,7 @@ public class DialogService {
 	 *
 	 * @since 0.1.10
 	 */
-	public Optional<String> showTextInputDialog(String contentText, String headerText) {
+	public Optional<String> showTextInputDialog(@Nullable String contentText, @Nullable String headerText) {
 		return showTextInputDialog(contentText, headerText, "");
 	}
 
@@ -242,7 +245,7 @@ public class DialogService {
 	 *
 	 * @since 0.1.10
 	 */
-	public Optional<String> showTextInputDialog(String contentText, String headerText, String defaultValue) {
+	public Optional<String> showTextInputDialog(@Nullable String contentText, @Nullable String headerText, @Nullable String defaultValue) {
 		return DialogFacade.showTextInputDialog(title, contentText, headerText, parentWindow, defaultValue);
 	}
 
@@ -255,7 +258,7 @@ public class DialogService {
 	 *
 	 * @since 0.1.10
 	 */
-	public Optional<ButtonType> showYesNoCancelDialog(String contentText) {
+	public Optional<ButtonType> showYesNoCancelDialog(@Nullable String contentText) {
 		return showYesNoCancelDialog(contentText, null);
 	}
 
@@ -269,7 +272,7 @@ public class DialogService {
 	 *
 	 * @since 0.1.10
 	 */
-	public Optional<ButtonType> showYesNoCancelDialog(String contentText, String headerText) {
+	public Optional<ButtonType> showYesNoCancelDialog(@Nullable String contentText, @Nullable String headerText) {
 		return new AlertBuilder()
 			.setAlertType(Alert.AlertType.CONFIRMATION)
 			.setTitle(title)

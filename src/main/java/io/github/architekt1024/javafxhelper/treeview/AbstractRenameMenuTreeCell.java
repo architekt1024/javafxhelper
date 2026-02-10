@@ -23,6 +23,7 @@ import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.TextFieldTreeCell;
 import javafx.util.StringConverter;
 
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,9 +42,9 @@ public abstract class AbstractRenameMenuTreeCell<T> extends TextFieldTreeCell<T>
 
 	/**
 	 * @param converter string converter
-	 * @param treeView tree view item
+	 * @param treeView  tree view item
 	 */
-	protected AbstractRenameMenuTreeCell(StringConverter<T> converter, TreeView<T> treeView) {
+	protected AbstractRenameMenuTreeCell(@NotNull StringConverter<T> converter, @NotNull TreeView<T> treeView) {
 		super(converter);
 		this.treeView = treeView;
 	}
@@ -52,11 +53,11 @@ public abstract class AbstractRenameMenuTreeCell<T> extends TextFieldTreeCell<T>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void updateItem(T item, boolean empty) {
-		super.updateItem(item, empty);
+	public void updateItem(@NotNull T item, boolean empty) {
 		if (!empty) {
 			LOG.trace("update item {}", item);
 		}
+		super.updateItem(item, empty);
 		if (!isEditing()) {
 			setContextMenu(menu);
 		}
@@ -66,7 +67,7 @@ public abstract class AbstractRenameMenuTreeCell<T> extends TextFieldTreeCell<T>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void commitEdit(T newValue) {
+	public void commitEdit(@NotNull T newValue) {
 		LOG.trace("commitEdit {}", newValue);
 
 		updateValue(newValue);
@@ -78,7 +79,7 @@ public abstract class AbstractRenameMenuTreeCell<T> extends TextFieldTreeCell<T>
 	 *
 	 * @param newValue updated value
 	 */
-	protected abstract void updateValue(T newValue);
+	protected abstract void updateValue(@NotNull T newValue);
 
 	/**
 	 * Returns default value for new items
@@ -94,7 +95,7 @@ public abstract class AbstractRenameMenuTreeCell<T> extends TextFieldTreeCell<T>
 	 *
 	 * @return "add" {@link MenuItem}.
 	 */
-	protected MenuItem createAddMenuItem(String label) {
+	protected MenuItem createAddMenuItem(@NotNull String label) {
 		MenuItem addMenuItem = new MenuItem(label);
 		addMenuItem.setOnAction((ActionEvent t) -> {
 			if (getTreeItem() == null) {
@@ -118,7 +119,7 @@ public abstract class AbstractRenameMenuTreeCell<T> extends TextFieldTreeCell<T>
 	 *
 	 * @since 0.1.6
 	 */
-	protected TreeItem<T> createTreeItem(final T value) {
+	protected TreeItem<T> createTreeItem(@NotNull final T value) {
 		return new TreeItem<>(value);
 	}
 
@@ -129,7 +130,7 @@ public abstract class AbstractRenameMenuTreeCell<T> extends TextFieldTreeCell<T>
 	 *
 	 * @return "add child" {@link MenuItem}.
 	 */
-	protected MenuItem createAddChildMenuItem(String label) {
+	protected MenuItem createAddChildMenuItem(@NotNull String label) {
 		MenuItem addChildMenuItem = new MenuItem(label);
 		addChildMenuItem.setOnAction((ActionEvent t) -> {
 			if (getTreeItem() == null) {
@@ -148,7 +149,7 @@ public abstract class AbstractRenameMenuTreeCell<T> extends TextFieldTreeCell<T>
 	 *
 	 * @return "remove" {@link MenuItem}
 	 */
-	protected MenuItem createRemoveMenuItem(String label) {
+	protected MenuItem createRemoveMenuItem(@NotNull String label) {
 		MenuItem removeMenuItem = new MenuItem(label);
 		removeMenuItem.setOnAction((ActionEvent t) -> {
 			if (getTreeItem() == null) {
@@ -159,6 +160,7 @@ public abstract class AbstractRenameMenuTreeCell<T> extends TextFieldTreeCell<T>
 				parent.getChildren().remove(getTreeItem());
 			} else {
 				//TODO remove root
+				LOG.warn("Root is null. Not implemented yet.");
 			}
 		});
 		return removeMenuItem;
@@ -171,7 +173,7 @@ public abstract class AbstractRenameMenuTreeCell<T> extends TextFieldTreeCell<T>
 	 *
 	 * @return "rename" {@link MenuItem}
 	 */
-	protected MenuItem createRenameMenuItem(String label) {
+	protected MenuItem createRenameMenuItem(@NotNull String label) {
 		MenuItem renameMenuItem = new MenuItem(label);
 		renameMenuItem.setOnAction(actionEvent -> startEdit());
 		return renameMenuItem;

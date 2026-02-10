@@ -22,6 +22,7 @@ module io.github.architekt1024.javafxhelper {
 	requires javafx.fxml;
 	requires javafx.web;
 	requires javafx.swing;
+	requires javafx.graphics;
 
 	requires org.slf4j;
 
