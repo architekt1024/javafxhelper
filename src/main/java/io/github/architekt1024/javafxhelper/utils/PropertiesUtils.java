@@ -32,6 +32,7 @@ import org.jetbrains.annotations.NotNull;
  * @author architekt1024
  * @since 0.1.11
  */
+@SuppressWarnings("unused")
 public final class PropertiesUtils {
 
 	private PropertiesUtils() {
@@ -74,9 +75,9 @@ public final class PropertiesUtils {
 	}
 
 	/**
-	 * Load properties to xml file. When file not exits, return empty properties.
+	 * Load properties to XML file. When file not exits, return empty properties.
 	 *
-	 * @param fileName xml file name
+	 * @param fileName XML file name
 	 *
 	 * @return loaded properties
 	 *
@@ -95,9 +96,9 @@ public final class PropertiesUtils {
 	}
 
 	/**
-	 * Save properties to xml file
+	 * Save properties to XML file
 	 *
-	 * @param fileName   xml file name
+	 * @param fileName   XML file name
 	 * @param properties properties to save
 	 *
 	 * @throws IOException error read from file
