@@ -9,14 +9,18 @@
 ## New features
 + add `forRemoval` param in `@Deprecated` annotation
 + add `ControlUtils` class
++ add `PropertiesUtils#loadProperties(Path)` method
++ add `PropertiesUtils#loadPropertiesXML(Path)` method
 ## Deprecated or removed
 - removed `Nonnull` annotation
 - removed `prepareUtilityWindow`, `showAndWaitUtilityWindow`, `showAndWaitUtilityWindow` from `StageUtils` class
 ## Other changes
+* Update javadocs
 * Change log level to `INFO` in DateRestrictionCallback
 * Add missing `@NotNull`, `@Nullable` annotation
 * `PairTableRecord` support null variables
 * Format `README.md`. *ClassName#method* -> `ClassName#method`
+* `PropertiesUtils` class: Allowed `null` for the file name parameter in saveProperties(...); when null is provided, the method performs no operation instead of throwing an exception.
 
 # 0.1.11
 Upgrade to Java 17

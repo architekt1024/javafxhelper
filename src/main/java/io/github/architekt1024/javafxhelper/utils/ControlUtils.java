@@ -26,10 +26,10 @@ import org.slf4j.LoggerFactory;
  * @author architekt1024
  * @since 0.1.12
  */
-public class ControlUtils {
+public final class ControlUtils {
 	private static final Logger LOG = LoggerFactory.getLogger(ControlUtils.class);
 
-	public ControlUtils() {
+	private ControlUtils() {
 	}
 
 	/**
@@ -123,8 +123,6 @@ public class ControlUtils {
 	/**
 	 * Load font. Return null if fileFont is null or empty. Return null if try load not supported font. For example TrueType collection (.ttc)
 	 * is supported from Java 9.
-	 * <br>
-	 * See https://bugs.openjdk.java.net/browse/JDK-8139838
 	 *
 	 * @param fileFont font file path
 	 * @param size     font size
@@ -139,12 +137,6 @@ public class ControlUtils {
 		}
 		try {
 			String fontUrl = new File(fileFont).toURI().toURL().toString();
-			/* Throws NullPointerException when loading a font with a .ttc extension (TrueType collection)
-			 *	Exception in thread "JavaFX Application Thread" java.lang.NullPointerException
-			 *		at com.sun.javafx.font.PrismFontFactory.createFontResource(PrismFontFactory.java:333)
-			 *		at com.sun.javafx.font.PrismFontFactory.loadEmbeddedFont(PrismFontFactory.java:1607)
-			 * Fixed in Java 9 https://bugs.openjdk.java.net/browse/JDK-8139838
-			 */
 			return Font.loadFont(fontUrl, size);
 		} catch (MalformedURLException ex) {
 			LOG.debug(ex.getMessage(), ex);

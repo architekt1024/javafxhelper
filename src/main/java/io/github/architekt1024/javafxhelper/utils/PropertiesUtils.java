@@ -16,24 +16,26 @@
 
 package io.github.architekt1024.javafxhelper.utils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Properties;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
- * Utils to load and save {@link Properties} using file
+ * Utils to load and save {@link Properties} file using UTF-8 charset.
  *
  * @author architekt1024
  * @since 0.1.11
  */
 @SuppressWarnings("unused")
 public final class PropertiesUtils {
+	private static final Charset CHARSET = StandardCharsets.UTF_8;
 
 	private PropertiesUtils() {
 	}
@@ -48,34 +50,36 @@ public final class PropertiesUtils {
 	 * @throws IOException error read from file
 	 * @since 0.1.11
 	 */
-	public static Properties loadProperties(String fileName) throws IOException {
-		File file = new File(fileName);
+	public static Properties loadProperties(@Nullable String fileName) throws IOException {
+		if (fileName == null || fileName.isBlank()) {
+			return new Properties();
+		}
+		return loadProperties(Path.of(fileName));
+	}
+
+	/**
+	 * Load properties from file. When file not exits, return empty properties.
+	 *
+	 * @param path properties path
+	 *
+	 * @return loaded properties
+	 *
+	 * @throws IOException error read from file
+	 * @since 0.1.12
+	 */
+	public static Properties loadProperties(@NotNull Path path) throws IOException {
 		Properties properties = new Properties();
-		if (file.exists()) {
-			try (FileReader fileReader = new FileReader(file)) {
-				properties.load(fileReader);
+
+		if (Files.isReadable(path)) {
+			try (var reader = Files.newBufferedReader(path, CHARSET)) {
+				properties.load(reader);
 			}
 		}
 		return properties;
 	}
 
 	/**
-	 * Save properties to file
-	 *
-	 * @param fileName   file name
-	 * @param properties properties to save
-	 *
-	 * @throws IOException error save to file
-	 * @since 0.1.11
-	 */
-	public static void saveProperties(@NotNull String fileName, @NotNull Properties properties) throws IOException {
-		try (FileWriter fileWriter = new FileWriter(fileName)) {
-			properties.store(fileWriter, null);
-		}
-	}
-
-	/**
-	 * Load properties to XML file. When file not exits, return empty properties.
+	 * Load properties from XML file. When file not exits, return empty properties.
 	 *
 	 * @param fileName XML file name
 	 *
@@ -84,11 +88,27 @@ public final class PropertiesUtils {
 	 * @throws IOException error read from file
 	 * @since 0.1.11
 	 */
-	public static Properties loadPropertiesXML(@NotNull String fileName) throws IOException {
-		File file = new File(fileName);
+	public static Properties loadPropertiesXML(@Nullable String fileName) throws IOException {
+		if (fileName == null || fileName.isBlank()) {
+			return new Properties();
+		}
+		return loadPropertiesXML(Path.of(fileName));
+	}
+
+	/**
+	 * Load properties from XML file. When file not exits, return empty properties.
+	 *
+	 * @param path properties path
+	 *
+	 * @return loaded properties
+	 *
+	 * @throws IOException error read from file
+	 * @since 0.1.12
+	 */
+	public static Properties loadPropertiesXML(@Nullable Path path) throws IOException {
 		Properties properties = new Properties();
-		if (file.exists()) {
-			try (FileInputStream fileInputStream = new FileInputStream(fileName)) {
+		if (path != null && Files.isReadable(path)) {
+			try (InputStream fileInputStream = Files.newInputStream(path)) {
 				properties.loadFromXML(fileInputStream);
 			}
 		}
@@ -104,9 +124,53 @@ public final class PropertiesUtils {
 	 * @throws IOException error read from file
 	 * @since 0.1.11
 	 */
+	public static void saveProperties(@Nullable String fileName, @NotNull Properties properties) throws IOException {
+		if (fileName == null || fileName.isBlank()) {
+			return;
+		}
+		saveProperties(Path.of(fileName), properties);
+	}
+
+	/**
+	 * Save properties to XML file
+	 *
+	 * @param path       XML path
+	 * @param properties properties to save
+	 *
+	 * @throws IOException error read from file
+	 * @since 0.1.12
+	 */
+	public static void saveProperties(@NotNull Path path, @NotNull Properties properties) throws IOException {
+		try (var writer = Files.newBufferedWriter(path, CHARSET)) {
+			properties.store(writer, null);
+		}
+	}
+
+	/**
+	 * Save properties to XML file
+	 *
+	 * @param fileName   XML file name
+	 * @param properties properties to save
+	 *
+	 * @throws IOException error read from file
+	 * @since 0.1.11
+	 */
 	public static void savePropertiesXML(@NotNull String fileName, @NotNull Properties properties) throws IOException {
-		try (FileOutputStream fileOutputStream = new FileOutputStream(fileName)) {
-			properties.storeToXML(fileOutputStream, null);
+		savePropertiesXML(Path.of(fileName), properties);
+	}
+
+	/**
+	 * Save properties to XML file
+	 *
+	 * @param path       XML path
+	 * @param properties properties to save
+	 *
+	 * @throws IOException error read from file
+	 * @since 0.1.12
+	 */
+	public static void savePropertiesXML(@NotNull Path path, @NotNull Properties properties) throws IOException {
+		try (var out = Files.newOutputStream(path)) {
+			properties.storeToXML(out, null, CHARSET);
 		}
 	}
 }

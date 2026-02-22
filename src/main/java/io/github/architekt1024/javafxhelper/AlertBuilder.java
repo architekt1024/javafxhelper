@@ -180,7 +180,9 @@ public class AlertBuilder {
 	}
 
 	/**
-	 * @param contentText
+	 * Set {@code contentText}
+	 *
+	 * @param contentText content text
 	 *
 	 * @return this builder
 	 *
@@ -193,6 +195,8 @@ public class AlertBuilder {
 	}
 
 	/**
+	 * Get {@code headerText}
+	 *
 	 * @return
 	 *
 	 * @since 0.1.8
@@ -202,7 +206,9 @@ public class AlertBuilder {
 	}
 
 	/**
-	 * @param headerText
+	 * Set {@code headerText}
+	 *
+	 * @param headerText heder text
 	 *
 	 * @return this builder
 	 *
@@ -264,9 +270,9 @@ public class AlertBuilder {
 	}
 
 	/**
-	 * TODO description
+	 * Get {@code htmlText}
 	 *
-	 * @return
+	 * @return html content text
 	 *
 	 * @since 0.1.8
 	 */
@@ -275,9 +281,9 @@ public class AlertBuilder {
 	}
 
 	/**
-	 * TODO description
+	 * Set {@code htmlText}
 	 *
-	 * @param htmlText
+	 * @param htmlText html content text
 	 *
 	 * @return this builder
 	 *
@@ -366,7 +372,7 @@ public class AlertBuilder {
 
 
 	/**
-	 * TODO description
+	 * Get {@code modality}
 	 *
 	 * @return
 	 *
@@ -377,9 +383,9 @@ public class AlertBuilder {
 	}
 
 	/**
-	 * TODO description
+	 * Set {@code modality}
 	 *
-	 * @param modality
+	 * @param modality type of modality
 	 *
 	 * @return this builder
 	 *

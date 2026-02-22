@@ -36,6 +36,9 @@ import org.jetbrains.annotations.Nullable;
  * @since 0.1.10
  */
 public class ReadOnlyStringConverter<T> extends StringConverter<T> {
+	/**
+	 * TODO description
+	 */
 	protected final Function<T, String> converter;
 
 	/**

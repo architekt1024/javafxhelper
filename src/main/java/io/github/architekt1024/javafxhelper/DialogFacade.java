@@ -298,13 +298,22 @@ public final class DialogFacade {
 	}
 
 	/**
-	 * TODO description
+	 * A pre-defined {@link ButtonType} arrays
 	 *
 	 * @since 0.1.10
 	 */
 	public static class Buttons {
+		/**
+		 * Buttons {@link ButtonType#YES}, {@code ButtonType#NO}
+		 */
 		public static final ButtonType[] YES_NO = {ButtonType.YES, ButtonType.NO};
+		/**
+		 * Buttons {@link ButtonType#YES}, {@code ButtonType#NO}, {@code ButtonType#CANCEL}
+		 */
 		public static final ButtonType[] YES_NO_CANCEL = {ButtonType.YES, ButtonType.NO, ButtonType.CANCEL};
+		/**
+		 * Buttons {@link ButtonType#OK}, {@code ButtonType#CANCEL}
+		 */
 		public static final ButtonType[] OK_CANCEL = {ButtonType.OK, ButtonType.CANCEL};
 
 		private Buttons() {

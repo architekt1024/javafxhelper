@@ -34,7 +34,7 @@ import org.jetbrains.annotations.ApiStatus;
  * @since 0.1.10
  * @deprecated 0.1.11, will be removed in 0.2.0, moved to {@link io.github.architekt1024.javafxhelper.utils.PropertiesUtils}
  */
-@Deprecated(since = "0.1.11")
+@Deprecated(since = "0.1.11", forRemoval = true)
 @ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 public final class PropertiesUtils {
 
@@ -53,7 +53,7 @@ public final class PropertiesUtils {
 	 * @since 0.1.10
 	 * @deprecated 0.1.11, will be removed in 0.2.0
 	 */
-	@Deprecated(since = "0.1.11")
+	@Deprecated(since = "0.1.11", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static Properties loadProperties(String fileName) throws IOException {
 		File file = new File(fileName);
@@ -77,7 +77,7 @@ public final class PropertiesUtils {
 	 * @since 0.1.10
 	 * @deprecated 0.1.11, will be removed in 0.2.0
 	 */
-	@Deprecated(since = "0.1.11")
+	@Deprecated(since = "0.1.11", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static void saveProperties(String fileName, Properties properties) throws IOException {
 		try (FileWriter fileWriter = new FileWriter(fileName)) {
@@ -97,7 +97,7 @@ public final class PropertiesUtils {
 	 * @since 0.1.10
 	 * @deprecated 0.1.11, will be removed in 0.2.0
 	 */
-	@Deprecated(since = "0.1.11")
+	@Deprecated(since = "0.1.11", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static Properties loadPropertiesXML(String fileName) throws IOException {
 		File file = new File(fileName);
@@ -121,7 +121,7 @@ public final class PropertiesUtils {
 	 * @since 0.1.10
 	 * @deprecated 0.1.11, will be removed in 0.2.0
 	 */
-	@Deprecated(since = "0.1.11")
+	@Deprecated(since = "0.1.11", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static void savePropertiesXML(String fileName, Properties properties) throws IOException {
 		try (FileOutputStream fileOutputStream = new FileOutputStream(fileName)) {

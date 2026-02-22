@@ -216,6 +216,7 @@ public final class StageUtils {
 	 * @since 0.1.6
 	 * @deprecated deprecated from 0.1.10 will be removed in 0.1.13
 	 */
+	@ApiStatus.ScheduledForRemoval(inVersion = "0.1.13")
 	@Deprecated(since = "0.1.10", forRemoval = true)
 	public static <T> Stage showNonResizableStageAndWait(@NotNull URL fxml, @NotNull String title, @Nullable Window parentWindow,
 														 @Nullable Consumer<T> beforeShow, @Nullable Consumer<T> afterShow) throws IOException {

@@ -13,6 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * Main module
+ */
 module io.github.architekt1024.javafxhelper {
 	//modules
 	requires java.desktop;

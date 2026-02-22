@@ -64,6 +64,7 @@ public final class FXUtils {
 	 *
 	 * @param spinnerArr spinner array to update, any arguments cannot be null
 	 *
+	 * @see io.github.architekt1024.javafxhelper.utils.ControlUtils#updateSpinnerValue(Spinner[])
 	 * @deprecated deprecated in 0.1.12, will be removed in 0.2.0
 	 */
 	@Deprecated(since = "0.1.12")
@@ -84,6 +85,7 @@ public final class FXUtils {
 	 * @param selectionMode selection mode used in selection model, if {@code null}, a default value is used
 	 * @param views         list of {@link TreeView}
 	 *
+	 * @see io.github.architekt1024.javafxhelper.utils.ControlUtils#updateSelectionMode(SelectionMode, TreeView[])
 	 * @since 0.1.8
 	 * @deprecated deprecated in 0.1.12, will be removed in 0.2.0
 	 */
@@ -172,6 +174,7 @@ public final class FXUtils {
 	 *
 	 * @return Loaded font or null if fileFont is blank
 	 *
+	 * @see io.github.architekt1024.javafxhelper.utils.ControlUtils#loadFont(String, double)
 	 * @deprecated deprecated in 0.1.12, will be removed in 0.2.0
 	 */
 	@Deprecated(since = "0.1.12")
@@ -206,7 +209,7 @@ public final class FXUtils {
 	 * @since 0.1.5
 	 * @deprecated 0.1.11, will be removed in 0.2.0
 	 */
-	@Deprecated(since = "0.1.11")
+	@Deprecated(since = "0.1.11", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static void runFile(@NotNull final String file, @NotNull final Consumer<Exception> consumer) {
 		openFile(file, consumer);
@@ -222,7 +225,7 @@ public final class FXUtils {
 	 * @see io.github.architekt1024.javafxhelper.utils.DesktopUtils#openFile(String, Consumer)
 	 * @deprecated 0.1.11, will be removed in 0.2.0
 	 */
-	@Deprecated(since = "0.1.11")
+	@Deprecated(since = "0.1.11", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	private static void openFile(@NotNull final String file, @NotNull final Consumer<Exception> consumer) {
 		if (!Desktop.isDesktopSupported()) {
@@ -250,7 +253,7 @@ public final class FXUtils {
 	 * @since 0.1.8
 	 * @deprecated 0.1.11, will be removed in 0.2.0
 	 */
-	@Deprecated(since = "0.1.11")
+	@Deprecated(since = "0.1.11", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static void browse(@NotNull String url, @NotNull Consumer<Exception> exceptionConsumer) {
 		try {
@@ -275,7 +278,7 @@ public final class FXUtils {
 	 * @since 0.1.5
 	 * @deprecated 0.1.11, will be removed in 0.2.0
 	 */
-	@Deprecated(since = "0.1.11")
+	@Deprecated(since = "0.1.11", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static void browse(@NotNull String url) throws IOException, URISyntaxException {
 		if (StringUtils.isBlank(url)) {
