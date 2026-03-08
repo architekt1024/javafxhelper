@@ -1,0 +1,7 @@
+# comment
+a=10
+b=test
+c=inne znaki
+pl=zażółć gęślą jaźń
+emoji=test_🔥🧨⚡
+#end comment

@@ -31,6 +31,7 @@
 		<slf4j.version>2.0.17</slf4j.version>
 		<junit-jupiter.version>6.0.2</junit-jupiter.version>
 		<javafx.version>17.0.17</javafx.version>
+		<mockito.version>5.22.0</mockito.version>
 	</properties>
 
 	<dependencies>
@@ -80,13 +81,13 @@
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-			<version>5.21.0</version>
+			<version>${mockito.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-junit-jupiter</artifactId>
-			<version>5.21.0</version>
+			<version>${mockito.version}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -109,7 +110,7 @@
 		<dependency>
 			<groupId>org.jetbrains</groupId>
 			<artifactId>annotations</artifactId>
-			<version>26.0.2-1</version>
+			<version>26.1.0</version>
 		</dependency>
 	</dependencies>
 
@@ -145,7 +146,13 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.5.4</version>
+				<version>3.5.5</version>
+				<configuration>
+					<argLine>
+						-javaagent:${settings.localRepository}/org/mockito/mockito-core/${mockito.version}/mockito-core-${mockito.version}.jar
+						-Xshare:off
+					</argLine>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -165,7 +172,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.14.1</version>
+				<version>3.15.0</version>
 				<configuration>
 					<release>${maven.compiler.source}</release>
 					<showWarnings>true</showWarnings>
