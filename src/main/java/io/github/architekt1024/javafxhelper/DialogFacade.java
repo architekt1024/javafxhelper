@@ -38,6 +38,7 @@ import org.jetbrains.annotations.Nullable;
 public final class DialogFacade {
 
 	private DialogFacade() {
+		throw new AssertionError("Utility class");
 	}
 
 	/**

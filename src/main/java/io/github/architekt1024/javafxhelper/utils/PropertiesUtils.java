@@ -38,6 +38,7 @@ public final class PropertiesUtils {
 	private static final Charset CHARSET = StandardCharsets.UTF_8;
 
 	private PropertiesUtils() {
+		throw new AssertionError("Utility class");
 	}
 
 	/**

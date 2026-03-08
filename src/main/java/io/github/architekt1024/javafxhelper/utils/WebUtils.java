@@ -37,6 +37,7 @@ public final class WebUtils {
 	private static final Logger LOG = LoggerFactory.getLogger(WebUtils.class);
 
 	private WebUtils() {
+		throw new AssertionError("Utility class");
 	}
 
 	private static Object executeScript(@NotNull final WebEngine webEngine, @NotNull final String script) {

@@ -38,6 +38,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public final class DesktopUtils {
 	private DesktopUtils() {
+		throw new AssertionError("Utility class");
 	}
 
 	/**

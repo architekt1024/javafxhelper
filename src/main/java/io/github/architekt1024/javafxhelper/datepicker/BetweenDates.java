@@ -32,6 +32,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public final class BetweenDates {
 	private BetweenDates() {
+		throw new AssertionError("Utility class");
 	}
 
 	/**

@@ -39,6 +39,7 @@ import org.jetbrains.annotations.Nullable;
  */
 public final class StageUtils {
 	private StageUtils() {
+		throw new AssertionError("Utility class");
 	}
 
 	/**

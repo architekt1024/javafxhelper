@@ -40,6 +40,7 @@ public final class FileDialog {
 	private static final String CANCEL_CLICKED_MSG = "cancel clicked";
 
 	private FileDialog() {
+		throw new AssertionError("Utility class");
 	}
 
 	/**

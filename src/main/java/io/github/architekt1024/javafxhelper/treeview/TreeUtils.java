@@ -32,6 +32,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public final class TreeUtils {
 	private TreeUtils() {
+		throw new AssertionError("Utility class");
 	}
 
 	/**

@@ -46,6 +46,7 @@ import javafx.util.converter.LongStringConverter;
  */
 public final class ObjectTextFieldTableCell {
 	private ObjectTextFieldTableCell() {
+		throw new AssertionError("Utility class");
 	}
 
 	/**

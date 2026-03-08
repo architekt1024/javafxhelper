@@ -30,6 +30,7 @@ public final class ControlUtils {
 	private static final Logger LOG = LoggerFactory.getLogger(ControlUtils.class);
 
 	private ControlUtils() {
+		throw new AssertionError("Utility class");
 	}
 
 	/**
