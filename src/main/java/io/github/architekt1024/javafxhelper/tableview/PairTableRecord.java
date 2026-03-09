@@ -62,7 +62,13 @@ import org.jetbrains.annotations.Nullable;
  * @since 0.1.11
  */
 public class PairTableRecord {
+	/**
+	 * TODO description
+	 */
 	protected final StringProperty key = new SimpleStringProperty();
+	/**
+	 * TODO description
+	 */
 	protected final StringProperty value = new SimpleStringProperty();
 
 	/**

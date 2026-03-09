@@ -51,6 +51,8 @@ public class StageBuilder {
 	private ResourceBundle resources;
 
 	/**
+	 * Create default {@link StageBuilder}
+	 *
 	 * @param fxml  FXML {@link URL} For example: {@code ExampleClass.class.getResource(fxmlFile));}, cannot be null
 	 * @param title window title, cannot be null
 	 *

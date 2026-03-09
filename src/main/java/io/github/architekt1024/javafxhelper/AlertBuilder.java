@@ -123,7 +123,7 @@ public class AlertBuilder {
 	/**
 	 * TODO description
 	 *
-	 * @return
+	 * @return alert type
 	 *
 	 * @since 0.1.8
 	 */
@@ -134,7 +134,7 @@ public class AlertBuilder {
 	/**
 	 * TODO description
 	 *
-	 * @param alertType
+	 * @param alertType alert type
 	 *
 	 * @return this builder
 	 *
@@ -146,7 +146,9 @@ public class AlertBuilder {
 	}
 
 	/**
-	 * @return
+	 * TODO description
+	 *
+	 * @return title
 	 *
 	 * @since 0.1.8
 	 */
@@ -171,7 +173,7 @@ public class AlertBuilder {
 	/**
 	 * TODO description
 	 *
-	 * @return
+	 * @return content text
 	 *
 	 * @since 0.1.8
 	 */
@@ -197,7 +199,7 @@ public class AlertBuilder {
 	/**
 	 * Get {@code headerText}
 	 *
-	 * @return
+	 * @return header text
 	 *
 	 * @since 0.1.8
 	 */
@@ -247,7 +249,7 @@ public class AlertBuilder {
 	/**
 	 * TODO description
 	 *
-	 * @return
+	 * @return TODO description
 	 *
 	 * @since 0.1.8
 	 */
@@ -258,7 +260,7 @@ public class AlertBuilder {
 	/**
 	 * TODO description
 	 *
-	 * @param buttons
+	 * @param buttons TODO description
 	 *
 	 * @return this builder
 	 *
@@ -298,7 +300,7 @@ public class AlertBuilder {
 	/**
 	 * TODO description
 	 *
-	 * @return
+	 * @return TODO description
 	 *
 	 * @since 0.1.8
 	 */
@@ -309,7 +311,7 @@ public class AlertBuilder {
 	/**
 	 * TODO description
 	 *
-	 * @param prefWidth
+	 * @param prefWidth TODO description
 	 *
 	 * @return this builder
 	 *
@@ -323,7 +325,7 @@ public class AlertBuilder {
 	/**
 	 * TODO description
 	 *
-	 * @return
+	 * @return TODO description
 	 *
 	 * @since 0.1.8
 	 */
@@ -334,7 +336,7 @@ public class AlertBuilder {
 	/**
 	 * TODO description
 	 *
-	 * @param prefHeight
+	 * @param prefHeight TODO description
 	 *
 	 * @return this builder
 	 *
@@ -348,7 +350,7 @@ public class AlertBuilder {
 	/**
 	 * TODO description
 	 *
-	 * @return
+	 * @return TODO description
 	 *
 	 * @since 0.1.8
 	 */
@@ -359,7 +361,7 @@ public class AlertBuilder {
 	/**
 	 * TODO description
 	 *
-	 * @param resizable
+	 * @param resizable TODO description
 	 *
 	 * @return this builder
 	 *
@@ -374,7 +376,7 @@ public class AlertBuilder {
 	/**
 	 * Get {@code modality}
 	 *
-	 * @return
+	 * @return TODO description
 	 *
 	 * @since 0.1.11
 	 */

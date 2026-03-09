@@ -37,10 +37,17 @@ import org.slf4j.LoggerFactory;
 public abstract class AbstractRenameMenuTreeCell<T> extends TextFieldTreeCell<T> {
 	private static final Logger LOG = LoggerFactory.getLogger(AbstractRenameMenuTreeCell.class);
 
+	/**
+	 * TODO description
+	 */
 	protected final ContextMenu menu = new ContextMenu();
+	/**
+	 * TODO description
+	 */
 	protected final TreeView<T> treeView;
 
 	/**
+	 * TODO description
 	 * @param converter string converter
 	 * @param treeView  tree view item
 	 */

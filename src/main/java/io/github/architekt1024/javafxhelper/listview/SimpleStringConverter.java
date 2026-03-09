@@ -62,7 +62,7 @@ public class SimpleStringConverter<T> extends ReadOnlyStringConverter<T> {
 	 *
 	 * @param string the {@code String} to convert
 	 *
-	 * @return
+	 * @return the result value
 	 */
 	@Override
 	public T fromString(@Nullable String string) {
