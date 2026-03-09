@@ -15,8 +15,11 @@
  */
 package io.github.architekt1024.javafxhelper;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+
+import io.github.architekt1024.javafxhelper.tableview.PairTableRecord;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -53,7 +56,7 @@ public final class DialogFacade {
 	 *
 	 * @return created alert
 	 *
-	 * @deprecated deprecated 0.1.10, will be removed in 0.1.13 Should use {{@link AlertBuilder}}
+	 * @deprecated since 0.1.10, will be removed in 0.1.13. Use {{@link AlertBuilder}} instead.
 	 */
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.1.13")
 	@Deprecated(since = "0.1.10", forRemoval = true)
@@ -203,7 +206,7 @@ public final class DialogFacade {
 			.setContentText(contentText)
 			.setHeaderText(headerText)
 			.setParentWindow(parentWindow)
-			.setButtons(Buttons.YES_NO)
+			.setButtons(DialogButtons.yesNo())
 			.build()
 			.showAndWait();
 	}
@@ -294,31 +297,77 @@ public final class DialogFacade {
 			.setContentText(contentText)
 			.setHeaderText(headerText)
 			.setParentWindow(parentWindow)
-			.setButtons(Buttons.YES_NO_CANCEL)
+			.setButtons(DialogButtons.yesNoCancel())
 			.buildAndShow();
 	}
 
 	/**
 	 * A pre-defined {@link ButtonType} arrays
 	 *
+	 * @see DialogButtons
 	 * @since 0.1.10
+	 * @deprecated since 0.1.12. Will be removed in 0.1.14. Use {@link DialogButtons} instead.
 	 */
+	@ApiStatus.ScheduledForRemoval(inVersion = "0.1.14")
+	@Deprecated(since = "0.1.12", forRemoval = true)
 	public static class Buttons {
 		/**
-		 * Buttons {@link ButtonType#YES}, {@code ButtonType#NO}
+		 * Buttons {@link ButtonType#YES}, {@link ButtonType#NO}
 		 */
 		public static final ButtonType[] YES_NO = {ButtonType.YES, ButtonType.NO};
 		/**
-		 * Buttons {@link ButtonType#YES}, {@code ButtonType#NO}, {@code ButtonType#CANCEL}
+		 * Buttons {@link ButtonType#YES}, {@link ButtonType#NO}, {@link ButtonType#CANCEL}
 		 */
 		public static final ButtonType[] YES_NO_CANCEL = {ButtonType.YES, ButtonType.NO, ButtonType.CANCEL};
 		/**
-		 * Buttons {@link ButtonType#OK}, {@code ButtonType#CANCEL}
+		 * Buttons {@link ButtonType#OK}, {@link ButtonType#CANCEL}
 		 */
 		public static final ButtonType[] OK_CANCEL = {ButtonType.OK, ButtonType.CANCEL};
 
 		private Buttons() {
+			throw new AssertionError("Utility class");
+		}
+	}
+
+	/**
+	 * Predefined button sets for JavaFX dialogs.
+	 *
+	 * @since 0.1.12
+	 */
+	public static final class DialogButtons {
+		private static final ButtonType[] YES_NO = {ButtonType.YES, ButtonType.NO};
+		private static final ButtonType[] YES_NO_CANCEL = {ButtonType.YES, ButtonType.NO, ButtonType.CANCEL};
+		private static final ButtonType[] OK_CANCEL = {ButtonType.OK, ButtonType.CANCEL};
+
+		/**
+		 * Returns a button set containing {@link ButtonType#YES}, {@link ButtonType#NO}.
+		 *
+		 * @return a copy of the button set
+		 */
+		public static ButtonType[] yesNo() {
+			return YES_NO.clone();
 		}
 
+		/**
+		 * Returns a button set containing {@link ButtonType#YES}, {@link ButtonType#NO}, {@link ButtonType#CANCEL}.
+		 *
+		 * @return a copy of the button set
+		 */
+		public static ButtonType[] yesNoCancel() {
+			return YES_NO_CANCEL.clone();
+		}
+
+		/**
+		 * Returns a button set containing {@link ButtonType#OK}, {@link ButtonType#CANCEL}.
+		 *
+		 * @return a copy of the button set
+		 */
+		public static ButtonType[] okCancel() {
+			return OK_CANCEL.clone();
+		}
+
+		private DialogButtons() {
+			throw new AssertionError("Utility class");
+		}
 	}
 }

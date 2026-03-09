@@ -49,7 +49,7 @@ import org.slf4j.LoggerFactory;
  * @author architekt1024
  * @see io.github.architekt1024.javafxhelper.utils.DesktopUtils
  * @see io.github.architekt1024.javafxhelper.utils.ControlUtils
- * @deprecated deprecated in 0.1.12, will be removed in 0.2.0
+ * @deprecated since 0.1.12, will be removed in 0.2.0
  */
 @Deprecated(since = "0.1.12")
 @ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
@@ -65,7 +65,7 @@ public final class FXUtils {
 	 * @param spinnerArr spinner array to update, any arguments cannot be null
 	 *
 	 * @see io.github.architekt1024.javafxhelper.utils.ControlUtils#updateSpinnerValue(Spinner[])
-	 * @deprecated deprecated in 0.1.12, will be removed in 0.2.0
+	 * @deprecated since 0.1.12, will be removed in 0.2.0
 	 */
 	@Deprecated(since = "0.1.12")
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
@@ -87,7 +87,7 @@ public final class FXUtils {
 	 *
 	 * @see io.github.architekt1024.javafxhelper.utils.ControlUtils#updateSelectionMode(SelectionMode, TreeView[])
 	 * @since 0.1.8
-	 * @deprecated deprecated in 0.1.12, will be removed in 0.2.0
+	 * @deprecated since 0.1.12, will be removed in 0.2.0
 	 */
 	@Deprecated(since = "0.1.12")
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
@@ -106,7 +106,7 @@ public final class FXUtils {
 	 * @param views         list of {@link ListView}
 	 *
 	 * @since 0.1.8
-	 * @deprecated deprecated in 0.1.12, will be removed in 0.2.0
+	 * @deprecated since 0.1.12, will be removed in 0.2.0
 	 */
 	@Deprecated(since = "0.1.12")
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
@@ -125,7 +125,7 @@ public final class FXUtils {
 	 * @param views         list of {@link TableView}
 	 *
 	 * @since 0.1.8
-	 * @deprecated deprecated in 0.1.12, will be removed in 0.2.0
+	 * @deprecated since 0.1.12, will be removed in 0.2.0
 	 */
 	@Deprecated(since = "0.1.12")
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
@@ -145,7 +145,7 @@ public final class FXUtils {
 	 * @param views         list of {@link TreeView}, {@link TableView}, {@link ListView}
 	 *
 	 * @since 0.1.9
-	 * @deprecated deprecated in 0.1.12, will be removed in 0.2.0
+	 * @deprecated since 0.1.12, will be removed in 0.2.0
 	 */
 	@Deprecated(since = "0.1.12")
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
@@ -175,7 +175,7 @@ public final class FXUtils {
 	 * @return Loaded font or null if fileFont is blank
 	 *
 	 * @see io.github.architekt1024.javafxhelper.utils.ControlUtils#loadFont(String, double)
-	 * @deprecated deprecated in 0.1.12, will be removed in 0.2.0
+	 * @deprecated since 0.1.12, will be removed in 0.2.0
 	 */
 	@Deprecated(since = "0.1.12")
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
@@ -207,7 +207,7 @@ public final class FXUtils {
 	 * @throws UnsupportedOperationException Desktop is not supported at this platform
 	 * @see io.github.architekt1024.javafxhelper.utils.DesktopUtils#openFile(String, Consumer)
 	 * @since 0.1.5
-	 * @deprecated 0.1.11, will be removed in 0.2.0
+	 * @deprecated since 0.1.11, will be removed in 0.2.0
 	 */
 	@Deprecated(since = "0.1.11", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
@@ -223,7 +223,7 @@ public final class FXUtils {
 	 *
 	 * @throws UnsupportedOperationException Desktop is not supported at this platform
 	 * @see io.github.architekt1024.javafxhelper.utils.DesktopUtils#openFile(String, Consumer)
-	 * @deprecated 0.1.11, will be removed in 0.2.0
+	 * @deprecated since 0.1.11, will be removed in 0.2.0
 	 */
 	@Deprecated(since = "0.1.11", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
@@ -251,7 +251,7 @@ public final class FXUtils {
 	 * @see #browse(String)
 	 * @see io.github.architekt1024.javafxhelper.utils.DesktopUtils#browse(String, Consumer)
 	 * @since 0.1.8
-	 * @deprecated 0.1.11, will be removed in 0.2.0
+	 * @deprecated since 0.1.11, will be removed in 0.2.0
 	 */
 	@Deprecated(since = "0.1.11", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
@@ -276,7 +276,7 @@ public final class FXUtils {
 	 * @see #browse(String, Consumer)
 	 * @see io.github.architekt1024.javafxhelper.utils.DesktopUtils#browse(String)
 	 * @since 0.1.5
-	 * @deprecated 0.1.11, will be removed in 0.2.0
+	 * @deprecated since 0.1.11, will be removed in 0.2.0
 	 */
 	@Deprecated(since = "0.1.11", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")

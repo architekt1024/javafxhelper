@@ -32,7 +32,7 @@ import org.jetbrains.annotations.ApiStatus;
  * @author architekt1024
  * @see io.github.architekt1024.javafxhelper.utils.PropertiesUtils
  * @since 0.1.10
- * @deprecated 0.1.11, will be removed in 0.2.0, moved to {@link io.github.architekt1024.javafxhelper.utils.PropertiesUtils}
+ * @deprecated since 0.1.11, will be removed in 0.2.0, moved to {@link io.github.architekt1024.javafxhelper.utils.PropertiesUtils}
  */
 @Deprecated(since = "0.1.11", forRemoval = true)
 @ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
@@ -51,7 +51,7 @@ public final class PropertiesUtils {
 	 * @throws IOException error read from file
 	 * @see io.github.architekt1024.javafxhelper.utils.PropertiesUtils#loadProperties(String)
 	 * @since 0.1.10
-	 * @deprecated 0.1.11, will be removed in 0.2.0
+	 * @deprecated since 0.1.11, will be removed in 0.2.0
 	 */
 	@Deprecated(since = "0.1.11", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
@@ -75,7 +75,7 @@ public final class PropertiesUtils {
 	 * @throws IOException error save to file
 	 * @see io.github.architekt1024.javafxhelper.utils.PropertiesUtils#saveProperties(String, Properties)
 	 * @since 0.1.10
-	 * @deprecated 0.1.11, will be removed in 0.2.0
+	 * @deprecated since 0.1.11, will be removed in 0.2.0
 	 */
 	@Deprecated(since = "0.1.11", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
@@ -95,7 +95,7 @@ public final class PropertiesUtils {
 	 * @throws IOException error read from file
 	 * @see io.github.architekt1024.javafxhelper.utils.PropertiesUtils#loadProperties(String)
 	 * @since 0.1.10
-	 * @deprecated 0.1.11, will be removed in 0.2.0
+	 * @deprecated since 0.1.11, will be removed in 0.2.0
 	 */
 	@Deprecated(since = "0.1.11", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
@@ -119,7 +119,7 @@ public final class PropertiesUtils {
 	 * @throws IOException error read from file
 	 * @see io.github.architekt1024.javafxhelper.utils.PropertiesUtils#saveProperties(String, Properties)
 	 * @since 0.1.10
-	 * @deprecated 0.1.11, will be removed in 0.2.0
+	 * @deprecated since 0.1.11, will be removed in 0.2.0
 	 */
 	@Deprecated(since = "0.1.11", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")

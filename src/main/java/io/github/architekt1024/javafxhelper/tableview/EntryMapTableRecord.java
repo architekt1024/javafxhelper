@@ -60,7 +60,7 @@ import org.jetbrains.annotations.ApiStatus;
  *
  * @author architekt1024
  * @since 0.1.10
- * @deprecated 0.1.11 will be removed in 0.1.13, use {@link PairTableRecord}
+ * @deprecated since 0.1.11 will be removed in 0.1.13, use {@link PairTableRecord}
  */
 @ApiStatus.Experimental
 @ApiStatus.ScheduledForRemoval(inVersion = "0.1.13")

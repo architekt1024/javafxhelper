@@ -25,12 +25,9 @@ import javafx.stage.Window;
 
 import io.github.architekt1024.javafxhelper.AlertBuilder;
 import io.github.architekt1024.javafxhelper.DialogFacade;
+import io.github.architekt1024.javafxhelper.DialogFacade.DialogButtons;
 
 import org.jetbrains.annotations.Nullable;
-
-import static io.github.architekt1024.javafxhelper.DialogFacade.Buttons.YES_NO;
-import static io.github.architekt1024.javafxhelper.DialogFacade.Buttons.YES_NO_CANCEL;
-
 
 /**
  * Create and show predefined dialogs ({@link Alert}, {@link TextInputDialog}).
@@ -204,7 +201,7 @@ public class DialogService {
 			.setContentText(contentText)
 			.setHeaderText(headerText)
 			.setParentWindow(parentWindow)
-			.setButtons(YES_NO)
+			.setButtons(DialogButtons.yesNo())
 			.build();
 		return alert.showAndWait();
 	}
@@ -281,7 +278,7 @@ public class DialogService {
 			.setContentText(contentText)
 			.setHeaderText(headerText)
 			.setParentWindow(parentWindow)
-			.setButtons(YES_NO_CANCEL)
+			.setButtons(DialogButtons.yesNoCancel())
 			.buildAndShow();
 	}
 }
