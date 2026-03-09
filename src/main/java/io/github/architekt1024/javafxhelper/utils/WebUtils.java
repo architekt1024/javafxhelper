@@ -28,7 +28,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Provides utilities for {@link WebEngine}.
+ * Utility methods for working with web resources ({@link WebEngine}).
+ * <p>This class provides helper methods for opening URLs, interacting with web browsers, or performing simple operations related to web
+ * resources.</p>
  *
  * @author architekt1024
  * @since 0.1.11

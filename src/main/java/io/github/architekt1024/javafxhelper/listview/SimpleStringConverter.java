@@ -22,23 +22,33 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * TODO description
- * Example use:
+ * A {@link javafx.util.StringConverter} implementation based on functional converters.
+ *
+ * <p>This class extends {@link ReadOnlyStringConverter} by adding support for
+ * reverse conversion using a function provided at construction time.</p>
+ *
+ * <p>The conversion logic is delegated to two {@link Function} instances:</p>
+ * <ul>
+ *   <li>a function converting a value to its string representation</li>
+ *   <li>a function converting a string back to a value</li>
+ * </ul>
+ * <p>Example usage</p>
  * <pre>{@code myList.setConverter(new SimpleStringConverter<>(SomeObject::getName, s -> new SomeObject(s)));}</pre>
  *
- * @param <T>
+ * @param <T> the type being converted
  *
  * @author architekt1024
  * @since 0.1.10
  */
+
 public class SimpleStringConverter<T> extends ReadOnlyStringConverter<T> {
 	private final Function<String, T> fromString;
 
 	/**
-	 * Creates a default simple string converter.
+	 * Creates a converter using the provided conversion functions.
 	 *
-	 * @param toString
-	 * @param fromString
+	 * @param toString   function used to convert a value to its string representation
+	 * @param fromString function used to convert a string back to a value
 	 *
 	 * @since 0.1.10
 	 */
@@ -48,7 +58,11 @@ public class SimpleStringConverter<T> extends ReadOnlyStringConverter<T> {
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Converts the given string to a value using the configured function.
+	 *
+	 * @param string the {@code String} to convert
+	 *
+	 * @return
 	 */
 	@Override
 	public T fromString(@Nullable String string) {

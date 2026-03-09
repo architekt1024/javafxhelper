@@ -28,6 +28,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
 
+import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -146,6 +147,32 @@ public final class StageUtils {
 		throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(fxml);
 		Stage stage = prepareUtilityWindow(fxmlLoader, title, parentWindow, modality);
+		setStageForFXMLController(stage, fxmlLoader);
+		stage.sizeToScene();
+		stage.showAndWait();
+		return fxmlLoader.getController();
+	}
+
+	/**
+	 * Create and show window. Wait for close. If controller implements {@link FXMLController}, it set stage.
+	 *
+	 * @param fxml         {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}
+	 * @param title        window title
+	 * @param parentWindow parent window
+	 * @param modality     modality type, {@link Modality#NONE} will be used if null
+	 * @param <T>          controller class
+	 *
+	 * @return stage controller or null if not set
+	 *
+	 * @throws IOException fail load FXML file
+	 * @since 0.1.12
+	 */
+	@ApiStatus.Experimental
+	public static <T> T showAndWaitUtilityWindow2(@NotNull URL fxml, @NotNull String title, @Nullable Window parentWindow, @Nullable Modality modality) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(fxml);
+		Stage stage = loadNonResizableStage(fxmlLoader, title, parentWindow);
+		stage.initModality(Objects.requireNonNullElse(modality, Modality.NONE));
+		stage.sizeToScene();
 		setStageForFXMLController(stage, fxmlLoader);
 		stage.showAndWait();
 		return fxmlLoader.getController();

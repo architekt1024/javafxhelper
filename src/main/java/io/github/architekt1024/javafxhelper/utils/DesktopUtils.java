@@ -31,7 +31,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * TODO description
+ * Utility methods related to desktop integration.
+ * <p>This class provides helpers for interacting with the operating system desktop environment, such as opening files, launching external
+ * applications, or handling system resources.</p>
  *
  * @author architekt1024
  * @since 0.1.11

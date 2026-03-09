@@ -24,13 +24,24 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * <p>TODO description</p>
- * Example use:
+ * A {@link StringConverter} implementation intended for read-only conversions.
+ *
+ * <p>This converter supports conversion from an object to its string
+ * representation via {@link #toString(Object)} but does not support
+ * the reverse operation.</p>
+ *
+ * <p>Calling {@link #fromString(String)} will always throw an
+ * {@link UnsupportedOperationException}.</p>
+ *
+ * <p>This class is useful in contexts where a {@link StringConverter}
+ * is required by an API but the value is not intended to be edited
+ * or parsed from text.</p>
+ * <p>Example usage:</p>
  * <pre>{@code
  * myList.setConverter(new ReadOnlyStringConverter<>(SomeObject::getName));
  * }</pre>
  *
- * @param <T>
+ * @param <T> the type being converted to a string
  *
  * @author architekt1024
  * @since 0.1.10
@@ -42,9 +53,9 @@ public class ReadOnlyStringConverter<T> extends StringConverter<T> {
 	protected final Function<T, String> converter;
 
 	/**
-	 * Creates a default read-only string converter.
+	 * Creates a read-only converter using the given conversion function.
 	 *
-	 * @param converter
+	 * @param converter function used to convert a value to its string representation
 	 *
 	 * @since 0.1.10
 	 */
@@ -64,10 +75,12 @@ public class ReadOnlyStringConverter<T> extends StringConverter<T> {
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * This operation is not supported.
+	 *
+	 * @throws UnsupportedOperationException always thrown
 	 */
 	@Override
 	public T fromString(@Nullable String string) {
-		throw new UnsupportedOperationException("Object is read-only");
+		throw new UnsupportedOperationException("Read-only converter");
 	}
 }

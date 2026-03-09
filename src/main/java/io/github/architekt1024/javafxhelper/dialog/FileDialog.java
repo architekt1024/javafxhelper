@@ -30,7 +30,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Show open/save file dialogs.
+ * Utility methods for displaying file selection dialogs using {@link FileChooser}.
+ *
+ * <p>This class provides convenience methods for opening standard file chooser dialogs without requiring direct interaction with
+ * {@link FileChooser}.</p>
+ *
+ * <p>The methods in this class create and display a configured {@link FileChooser} instance and return the selected file or files.</p>
+ *
+ * <p>This is a utility class and cannot be instantiated.</p>
  *
  * @author architekt1024
  * @since 0.1.11
@@ -44,7 +51,7 @@ public final class FileDialog {
 	}
 
 	/**
-	 * Show open file dialog
+	 * Shows a dialog for selecting a single file to open.
 	 *
 	 * @param stage the owner window of the displayed file dialog
 	 *
@@ -57,10 +64,10 @@ public final class FileDialog {
 	}
 
 	/**
-	 * Show open file dialog
+	 * Shows a dialog for selecting a single file to open.
 	 *
 	 * @param stage            the owner window of the displayed file dialog
-	 * @param initialDirectory initial directory, null if not set
+	 * @param initialDirectory initial directory, null for not set
 	 *
 	 * @return optional selected file
 	 *
@@ -71,7 +78,7 @@ public final class FileDialog {
 	}
 
 	/**
-	 * Show open file dialog
+	 * Shows a dialog for selecting a single file to open.
 	 *
 	 * @param stage            the owner window of the displayed file dialog
 	 * @param extensionFilters extension filters
@@ -86,11 +93,11 @@ public final class FileDialog {
 
 
 	/**
-	 * Show open file dialog
+	 * Shows a dialog for selecting a single file to open.
 	 *
 	 * @param stage            the owner window of the displayed file dialog
 	 * @param initialDirectory initial directory, null if not set
-	 * @param extensionFilters extension filters
+	 * @param extensionFilters filters optional extension filters applied to the dialog
 	 *
 	 * @return optional selected file
 	 *
@@ -114,7 +121,7 @@ public final class FileDialog {
 	}
 
 	/**
-	 * Show open directory dialog
+	 * Shows a dialog for selecting a single directory to open.
 	 *
 	 * @param stage            the owner window of the displayed file dialog
 	 * @param initialDirectory initial directory, null if not set
@@ -128,7 +135,7 @@ public final class FileDialog {
 	}
 
 	/**
-	 * Show open directory dialog
+	 * Shows a dialog for selecting a single directory to open.
 	 *
 	 * @param stage            the owner window of the displayed file dialog
 	 * @param initialDirectory initial directory, null if not set
@@ -155,7 +162,7 @@ public final class FileDialog {
 	}
 
 	/**
-	 * Show save dialog
+	 * Shows a dialog for selecting a file location for saving.
 	 *
 	 * @param stage the owner window of the displayed file dialog
 	 *
@@ -173,7 +180,7 @@ public final class FileDialog {
 	}
 
 	/**
-	 * Show save dialog
+	 * Shows a dialog for selecting a file location for saving.
 	 *
 	 * @param stage           the owner window of the displayed file dialog
 	 * @param initialFileName set initial file name

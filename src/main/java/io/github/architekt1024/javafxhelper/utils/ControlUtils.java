@@ -21,7 +21,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Common {@link Control} utils.
+ * Utility methods for working with JavaFX {@link Control} classes.
+ * <p>This class provides helper methods simplifying common operations on JavaFX UI controls.</p>
  *
  * @author architekt1024
  * @since 0.1.12

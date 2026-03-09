@@ -25,25 +25,29 @@ import javafx.util.Callback;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Cell factory for {@link ListView} using String converter. Set null if item is empty or null, otherwise convert item to String using converter.
- * <p>
- * Example usage:<br>
- * {@code exampleList.setCellFactory(new SimpleListCellFactory<>(item -> item.getA() + " - " + item.getB()));}
- * </p>
+ * A simple {@link javafx.util.Callback} implementation creating {@link javafx.scene.control.ListCell} instances using a functional string
+ * converter.
  *
- * @param <T> result type
+ * <p>The cell text is produced by applying the provided {@link Function} to the cell item.</p>
  *
- * @author architekt1024
- * @since 0.1.5
+ * <p>This class is useful for quickly configuring {@link javafx.scene.control.ListView} or {@link javafx.scene.control.ComboBox} controls
+ * without creating a custom {@link javafx.scene.control.ListCell} implementation.</p>
+ *
+ * <p><b>Example usage:</b></p>
+ * <pre>{@code listView.setCellFactory(new SimpleListCellFactory<>(Person::getName));}</pre>
+ * <pre>{@code exampleList.setCellFactory(new SimpleListCellFactory<>(item -> item.getA() + " - " + item.getB()));}</pre>
+ *
+ * @param <T> the type of items contained in the list
  */
 @SuppressWarnings("ClassCanBeRecord")
 public class SimpleListCellFactory<T> implements Callback<ListView<T>, ListCell<T>> {
 	private final Function<T, String> converter;
 
 	/**
-	 * Create default simple {@link ListView} cell factory
+	 * Creates a cell factory using the provided conversion function.
 	 *
-	 * @param converter result to String converter, cannot be null
+	 * @param converter function used to convert a cell item to its string representation
+	 *
 	 */
 	public SimpleListCellFactory(@NotNull Function<T, String> converter) {
 		this.converter = Objects.requireNonNull(converter);

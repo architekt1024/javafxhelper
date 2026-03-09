@@ -15,7 +15,10 @@
  */
 
 /**
- * Common utils
+ * Utility classes supporting JavaFX desktop applications.
+ *
+ * <p>This package provides small reusable helpers simplifying common tasks encountered in desktop applications.</p>
+ *
  * @since 0.1.11
  */
 package io.github.architekt1024.javafxhelper.utils;

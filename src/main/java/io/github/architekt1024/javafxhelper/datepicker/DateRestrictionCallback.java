@@ -23,11 +23,25 @@ import javafx.util.Callback;
 
 import org.apache.commons.lang3.ObjectUtils;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.VisibleForTesting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Restrict {@link DatePicker} to choose a date range.
+ * A {@link javafx.util.Callback} used as a {@link DatePicker#setDayCellFactory(Callback)} implementation that restricts selectable dates
+ * in a {@link DatePicker}.
+ *
+ * <p>The callback disables days outside the configured date bounds.</p>
+ *
+ * <p>Both bounds are optional:</p>
+ * <ul>
+ *   <li>If {@code minDate} is specified, all earlier dates are disabled.</li>
+ *   <li>If {@code maxDate} is specified, all later dates are disabled.</li>
+ *   <li>If both are specified, the selectable dates form a closed interval.</li>
+ * </ul>
+ *
+ * <p>This callback is typically used to enforce date constraints or to coordinate multiple {@link DatePicker} controls
+ * (for example a date range selector).</p>
  *
  * @author architekt1024
  * @since 0.1.6
@@ -40,11 +54,10 @@ public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 	private final LocalDate maxDate;
 
 	/**
-	 * TODO description
-	 * If both {@code min} and {@code max} are {@code null}, this restriction has no effect.
+	 * Creates a date restriction callback with optional bounds.
 	 *
-	 * @param minDate start date limit, may be {@code null}
-	 * @param maxDate end date limit, may be {@code null}
+	 * @param minDate the earliest selectable date, or {@code null} if unbounded
+	 * @param maxDate the latest selectable date, or {@code null} if unbounded
 	 */
 	public DateRestrictionCallback(@Nullable LocalDate minDate, @Nullable LocalDate maxDate) {
 		if (ObjectUtils.allNull(minDate, maxDate)) {
@@ -67,6 +80,7 @@ public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 	 *
 	 * @return min date
 	 */
+	@VisibleForTesting
 	LocalDate getMinDate() {
 		return minDate;
 	}
@@ -76,12 +90,13 @@ public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 	 *
 	 * @return max date
 	 */
+	@VisibleForTesting
 	LocalDate getMaxDate() {
 		return maxDate;
 	}
 
 	/**
-	 * TODO description
+	 * Creates a callback that allows only dates after {@code minDate}
 	 *
 	 * @param minDate start date limit
 	 *
@@ -94,7 +109,7 @@ public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 	}
 
 	/**
-	 * TODO description
+	 * Creates a callback that allows only dates before {@code maxDate}
 	 *
 	 * @param maxDate end date limit
 	 *
@@ -107,7 +122,7 @@ public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 	}
 
 	/**
-	 * TODO description
+	 * Creates a callback that allows only future dates (starting from today).
 	 *
 	 * @return date restriction callback
 	 *
@@ -118,7 +133,7 @@ public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 	}
 
 	/**
-	 * TODO description
+	 * Creates a callback that allows only past dates (up to today).
 	 *
 	 * @return date restriction callback
 	 *
@@ -146,10 +161,7 @@ public class DateRestrictionCallback implements Callback<DatePicker, DateCell> {
 		}
 
 		private boolean validateDate(LocalDate item) {
-			if (maxDate != null && item.isAfter(maxDate)) {
-				return true;
-			}
-			return minDate != null && item.isBefore(minDate);
+			return (minDate != null && item.isBefore(minDate)) || (maxDate != null && item.isAfter(maxDate));
 		}
 	}
 }

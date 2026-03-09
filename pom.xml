@@ -23,9 +23,12 @@
 		<developerConnection>scm:git:ssh://github.com:architekt1024/javafxhelper.git</developerConnection>
 	</scm>
 
+	<description>A small library providing reusable utility components for JavaFX applications.</description>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>17</java.version>
+		<javafx.major.version>17</javafx.major.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<slf4j.version>2.0.17</slf4j.version>
@@ -142,6 +145,12 @@
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+					<links>
+						<link>https://docs.oracle.com/en/java/javase/${java.version}/docs/api/</link>
+						<link>https://openjfx.io/javadoc/${javafx.major.version}/</link>
+					</links>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -205,8 +214,10 @@
 		<profile>
 			<id>sonar</id>
 			<properties>
-				<sonar.dependencyCheck.xmlReportPath>${project.build.directory}/dependency-check-report.xml</sonar.dependencyCheck.xmlReportPath>
-				<sonar.dependencyCheck.htmlReportPath>${project.build.directory}/dependency-check-report.html</sonar.dependencyCheck.htmlReportPath>
+				<sonar.dependencyCheck.xmlReportPath>${project.build.directory}/dependency-check-report.xml
+				</sonar.dependencyCheck.xmlReportPath>
+				<sonar.dependencyCheck.htmlReportPath>${project.build.directory}/dependency-check-report.html
+				</sonar.dependencyCheck.htmlReportPath>
 			</properties>
 			<build>
 				<plugins>
@@ -289,6 +300,30 @@
 					</plugin>
 				</plugins>
 			</build>
+			<reporting>
+				<plugins>
+					<plugin>
+						<groupId>org.owasp</groupId>
+						<artifactId>dependency-check-maven</artifactId>
+						<version>12.2.0</version>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-pmd-plugin</artifactId>
+						<version>3.28.0</version>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-checkstyle-plugin</artifactId>
+						<version>3.6.0</version>
+					</plugin>
+					<plugin>
+						<groupId>com.github.spotbugs</groupId>
+						<artifactId>spotbugs-maven-plugin</artifactId>
+						<version>4.9.8.2</version>
+					</plugin>
+				</plugins>
+			</reporting>
 		</profile>
 		<profile>
 			<id>sonarcloud</id>
