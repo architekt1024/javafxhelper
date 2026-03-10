@@ -176,8 +176,8 @@ public class DialogService {
 
 	/**
 	 * Create and show {@link javafx.scene.control.Alert.AlertType#CONFIRMATION} dialog with Yes/No buttons.
-	 * <br>
-	 * Example usage: <pre>{@code
+	 * <p><b>Example usage:</b></p>
+	 * <pre>{@code
 	 * dialogService.showYesNoConfirmDialog(name).ifPresent(buttonType -> {
 	 *     if (ButtonType.YES.equals(buttonType)) {
 	 * 	     //action when user click YES

@@ -236,7 +236,7 @@ public class StageBuilder {
 	 */
 	public StageBuilder setStylesheets(@Nullable List<String> stylesheets) {
 		if (stylesheets == null) {
-			this.stylesheets = Collections.emptyList();
+			this.stylesheets = new ArrayList<>();
 		} else {
 			this.stylesheets = new ArrayList<>(stylesheets);
 		}
@@ -253,7 +253,7 @@ public class StageBuilder {
 	 * @since 0.1.10
 	 */
 	public StageBuilder addStylesheet(@Nullable String stylesheet) {
-		if (stylesheets != null) {
+		if (stylesheet != null) {
 			this.stylesheets.add(stylesheet);
 		}
 		return this;

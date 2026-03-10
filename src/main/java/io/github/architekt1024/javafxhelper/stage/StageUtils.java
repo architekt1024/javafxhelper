@@ -33,9 +33,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Create and show windows ({@link Stage})
+ * Utility methods for creating and configuring JavaFX {@link Stage} instances.
  *
  * @author architekt1024
+ * @see StageBuilder
  * @since 0.1.6
  */
 public final class StageUtils {
@@ -44,7 +45,7 @@ public final class StageUtils {
 	}
 
 	/**
-	 * Load main stage. If controller implements {@link FXMLController}, it set stage.
+	 * Load main stage. <p>If controller implements {@link FXMLController}, it set stage.</p>
 	 *
 	 * @param fxml  {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}, cannot be null
 	 * @param stage JavaFX primary stage, cannot be null
@@ -58,7 +59,7 @@ public final class StageUtils {
 	}
 
 	/**
-	 * Load main stage. If controller implements {@link FXMLController}, it set stage.
+	 * Load main stage. <p>If controller implements {@link FXMLController}, it set stage.</p>
 	 *
 	 * @param fxml        {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}, cannot be null
 	 * @param stage       JavaFX primary stage, cannot be null
@@ -108,7 +109,7 @@ public final class StageUtils {
 	}
 
 	/**
-	 * Create and show utility window. If controller implements {@link FXMLController}, it set stage.
+	 * Create and show utility window. <p>If controller implements {@link FXMLController}, it set stage.</p>
 	 *
 	 * @param fxml         {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}
 	 * @param title        window title
@@ -130,7 +131,7 @@ public final class StageUtils {
 	}
 
 	/**
-	 * Create and show utility window. Wait for close. If controller implements {@link FXMLController}, it set stage.
+	 * Create and show utility window. Wait for close. <p>If controller implements {@link FXMLController}, it set stage.</p>
 	 *
 	 * @param fxml         {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}
 	 * @param title        window title
@@ -154,7 +155,7 @@ public final class StageUtils {
 	}
 
 	/**
-	 * Create and show window. Wait for close. If controller implements {@link FXMLController}, it set stage.
+	 * Create and show window. Wait for close. <p>If controller implements {@link FXMLController}, it set stage.</p>
 	 *
 	 * @param fxml         {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}
 	 * @param title        window title
@@ -186,8 +187,11 @@ public final class StageUtils {
 	}
 
 	/**
-	 * TODO description
-	 * If controller implements {@link FXMLController}, it set stage.
+	 * Loads an FXML view and creates a non-resizable {@link Stage}.
+	 *
+	 * <p>The stage title is set to the provided value. If a {@code parentWindow} is specified, the created stage will use it as its owner.</p>
+	 *
+	 * <p>If controller implements {@link FXMLController}, it set stage.</p>
 	 *
 	 * @param fxmlLoader   fxml loader instance, cannot be null
 	 * @param title        window title
@@ -210,7 +214,7 @@ public final class StageUtils {
 	}
 
 	/**
-	 * TODO description
+	 * Loads an FXML view, creates and show a non-resizable {@link Stage}.
 	 *
 	 * @param fxml         {@link URL} to FXML file, cannot be null
 	 * @param title        window title, cannot be null
@@ -242,7 +246,7 @@ public final class StageUtils {
 	 *
 	 * @throws IOException fail load FXML file
 	 * @since 0.1.6
-	 * @deprecated deprecated from 0.1.10 will be removed in 0.1.13
+	 * @deprecated since 0.1.10, will be removed in 0.1.13
 	 */
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.1.13")
 	@Deprecated(since = "0.1.10", forRemoval = true)

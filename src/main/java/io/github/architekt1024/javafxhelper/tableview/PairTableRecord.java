@@ -24,7 +24,7 @@ import org.jetbrains.annotations.Nullable;
 
 /**
  * TODO description<br>
- * <p>Example usage</p>
+ * <p><b>Example usage</b></p>
  * <p>In FXML:</p>
  * <pre>{@code
  * <TableView ...>
@@ -55,7 +55,7 @@ import org.jetbrains.annotations.Nullable;
  *
  * <pre>
  * {@literal @FXML}
- *  private ObservableList&lt;EntryMapTableRecord&gt; tableItems;
+ * private ObservableList&lt;EntryMapTableRecord&gt; tableItems;
  * </pre>
  *
  * @author architekt1024

@@ -40,7 +40,6 @@ import org.jetbrains.annotations.Nullable;
  * @author architekt1024
  * @since 0.1.10
  */
-
 public class SimpleStringConverter<T> extends ReadOnlyStringConverter<T> {
 	private final Function<String, T> fromString;
 

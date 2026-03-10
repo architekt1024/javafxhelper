@@ -15,11 +15,8 @@
  */
 package io.github.architekt1024.javafxhelper;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-
-import io.github.architekt1024.javafxhelper.tableview.PairTableRecord;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;

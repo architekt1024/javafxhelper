@@ -111,7 +111,7 @@ public final class FileDialog {
 		if (extensionFilters != null) {
 			fileChooser.getExtensionFilters().addAll(Arrays.stream(extensionFilters)
 				.filter(Objects::nonNull)
-				.collect(Collectors.toList()));
+				.toList());
 		}
 		final File selectedFile = fileChooser.showOpenDialog(stage);
 		if (selectedFile == null) {
