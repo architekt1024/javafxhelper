@@ -51,7 +51,7 @@ import org.slf4j.LoggerFactory;
  * @see io.github.architekt1024.javafxhelper.utils.ControlUtils
  * @deprecated since 0.1.12, will be removed in 0.2.0
  */
-@Deprecated(since = "0.1.12")
+@Deprecated(since = "0.1.12", forRemoval = true)
 @ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 public final class FXUtils {
 	private static final Logger LOG = LoggerFactory.getLogger(FXUtils.class);
@@ -67,7 +67,7 @@ public final class FXUtils {
 	 * @see io.github.architekt1024.javafxhelper.utils.ControlUtils#updateSpinnerValue(Spinner[])
 	 * @deprecated since 0.1.12, will be removed in 0.2.0
 	 */
-	@Deprecated(since = "0.1.12")
+	@Deprecated(since = "0.1.12", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static void updateSpinnerValue(@NotNull Spinner<?>... spinnerArr) {
 		for (final Spinner<?> spinner : spinnerArr) {
@@ -89,7 +89,7 @@ public final class FXUtils {
 	 * @since 0.1.8
 	 * @deprecated since 0.1.12, will be removed in 0.2.0
 	 */
-	@Deprecated(since = "0.1.12")
+	@Deprecated(since = "0.1.12", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static void updateSelectionMode(@NotNull SelectionMode selectionMode, @Nullable TreeView<?>... views) {
 		for (TreeView<?> treeView : views) {
@@ -108,7 +108,7 @@ public final class FXUtils {
 	 * @since 0.1.8
 	 * @deprecated since 0.1.12, will be removed in 0.2.0
 	 */
-	@Deprecated(since = "0.1.12")
+	@Deprecated(since = "0.1.12", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static void updateSelectionMode(@Nullable SelectionMode selectionMode, @Nullable ListView<?>... views) {
 		for (ListView<?> listView : views) {
@@ -127,7 +127,7 @@ public final class FXUtils {
 	 * @since 0.1.8
 	 * @deprecated since 0.1.12, will be removed in 0.2.0
 	 */
-	@Deprecated(since = "0.1.12")
+	@Deprecated(since = "0.1.12", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static void updateSelectionMode(@Nullable SelectionMode selectionMode, @Nullable TableView<?>... views) {
 		for (TableView<?> tableView : views) {
@@ -147,7 +147,7 @@ public final class FXUtils {
 	 * @since 0.1.9
 	 * @deprecated since 0.1.12, will be removed in 0.2.0
 	 */
-	@Deprecated(since = "0.1.12")
+	@Deprecated(since = "0.1.12", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static void updateSelectionMode(@Nullable SelectionMode selectionMode, @Nullable Control... views) {
 		for (Control view : views) {
@@ -177,7 +177,7 @@ public final class FXUtils {
 	 * @see io.github.architekt1024.javafxhelper.utils.ControlUtils#loadFont(String, double)
 	 * @deprecated since 0.1.12, will be removed in 0.2.0
 	 */
-	@Deprecated(since = "0.1.12")
+	@Deprecated(since = "0.1.12", forRemoval = true)
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.2.0")
 	public static Font loadFont(@NotNull String fileFont, double size) {
 		if (StringUtils.isBlank(fileFont)) {

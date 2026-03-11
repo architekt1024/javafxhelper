@@ -27,7 +27,7 @@ mvn org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=java
 <dependency>
 	<groupId>io.github.architekt1024</groupId>
 	<artifactId>javafxhelper</artifactId>
-	<version>0.1.11</version>
+	<version>0.1.12</version>
 </dependency>
 ```
 4. Add to your module-info.java (only if you use modules)
@@ -69,10 +69,6 @@ You may override the JDK version or OpenJFX dependencies in your build configura
 				<groupId>org.openjfx</groupId>
 			</exclusion>
 			<exclusion>
-				<artifactId>javafx-swing</artifactId>
-				<groupId>org.openjfx</groupId>
-			</exclusion>
-			<exclusion>
 				<artifactId>javafx-web</artifactId>
 				<groupId>org.openjfx</groupId>
 			</exclusion>
@@ -81,11 +77,6 @@ You may override the JDK version or OpenJFX dependencies in your build configura
 
 	<dependency>
 		<artifactId>javafx-fxml</artifactId>
-		<groupId>org.openjfx</groupId>
-		<version>${javafx.version}</version>
-	</dependency>
-	<dependency>
-		<artifactId>javafx-swing</artifactId>
 		<groupId>org.openjfx</groupId>
 		<version>${javafx.version}</version>
 	</dependency>

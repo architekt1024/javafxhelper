@@ -108,6 +108,7 @@
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-swing</artifactId>
 			<version>${javafx.version}</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>

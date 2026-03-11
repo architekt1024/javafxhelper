@@ -14,6 +14,7 @@
 ## Deprecated or removed
 - removed `Nonnull` annotation
 - removed `prepareUtilityWindow`, `showAndWaitUtilityWindow`, `showAndWaitUtilityWindow` from `StageUtils` class
+- removed unnecessary runtime dependency on `javafx-swing`.
 ## Other changes
 * Update javadocs
 * Change log level to `INFO` in DateRestrictionCallback
