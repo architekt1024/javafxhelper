@@ -18,6 +18,7 @@ package io.github.architekt1024.javafxhelper.stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 import java.util.function.Consumer;
 
 import javafx.fxml.FXMLLoader;
@@ -55,7 +56,7 @@ public final class StageUtils {
 	 * @since 0.1.11
 	 */
 	public static void loadMainStage(@NotNull URL fxml, @NotNull Stage stage, @NotNull String title) throws IOException {
-		loadMainStage(fxml, stage, title, null);
+		loadMainStage(fxml, stage, title, null, null);
 	}
 
 	/**
@@ -70,7 +71,38 @@ public final class StageUtils {
 	 * @since 0.1.6
 	 */
 	public static void loadMainStage(@NotNull URL fxml, @NotNull Stage stage, @NotNull String title, @Nullable String stylesheets) throws IOException {
-		FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(fxml));
+		loadMainStage(fxml, stage, title, stylesheets, null);
+	}
+
+	/**
+	 * Load the main stage. <p>If controller implements {@link FXMLController}, it set stage.</p>
+	 *
+	 * @param fxml           {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}, cannot be null
+	 * @param stage          JavaFX primary stage (cannot be null)
+	 * @param title          window title (cannot be null)
+	 * @param resourceBundle resource bundle
+	 *
+	 * @throws IOException fail to load FXML file
+	 * @since 0.1.12
+	 */
+	public static void loadMainStage(@NotNull URL fxml, @NotNull Stage stage, @NotNull String title, @Nullable ResourceBundle resourceBundle) throws IOException {
+		loadMainStage(fxml, stage, title, null, resourceBundle);
+	}
+
+	/**
+	 * Load the main stage. <p>If controller implements {@link FXMLController}, it set stage.</p>
+	 *
+	 * @param fxml           {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}, cannot be null
+	 * @param stage          JavaFX primary stage (cannot be null)
+	 * @param title          window title (cannot be null)
+	 * @param stylesheets    stylesheet file path
+	 * @param resourceBundle resource bundle
+	 *
+	 * @throws IOException fail to load FXML file
+	 * @since 0.1.12
+	 */
+	public static void loadMainStage(@NotNull URL fxml, @NotNull Stage stage, @NotNull String title, @Nullable String stylesheets, @Nullable ResourceBundle resourceBundle) throws IOException {
+		FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(fxml), resourceBundle);
 		Parent root = loader.load();
 
 		setStageForFXMLController(Objects.requireNonNull(stage), loader);
@@ -100,7 +132,7 @@ public final class StageUtils {
 	 * @since 0.1.9
 	 */
 	public static Stage prepareUtilityWindow(@NotNull FXMLLoader fxml, @NotNull String title, @Nullable Window parentWindow,
-											 @Nullable Modality modality) throws IOException {
+	                                         @Nullable Modality modality) throws IOException {
 		Stage stage = loadNonResizableStage(fxml, title, parentWindow);
 		stage.initStyle(StageStyle.UTILITY);
 		stage.initModality(Objects.requireNonNullElse(modality, Modality.NONE));
@@ -251,7 +283,7 @@ public final class StageUtils {
 	@ApiStatus.ScheduledForRemoval(inVersion = "0.1.13")
 	@Deprecated(since = "0.1.10", forRemoval = true)
 	public static <T> Stage showNonResizableStageAndWait(@NotNull URL fxml, @NotNull String title, @Nullable Window parentWindow,
-														 @Nullable Consumer<T> beforeShow, @Nullable Consumer<T> afterShow) throws IOException {
+	                                                     @Nullable Consumer<T> beforeShow, @Nullable Consumer<T> afterShow) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(fxml);
 		Stage stage = loadNonResizableStage(fxmlLoader, title, parentWindow);
 		if (beforeShow != null) {
@@ -279,7 +311,7 @@ public final class StageUtils {
 	 * @since 0.1.10
 	 */
 	public static <T> T showNonResizableStageAndWait(@NotNull URL fxml, @NotNull String title, @Nullable Window parentWindow,
-													 @Nullable Consumer<T> beforeShow) throws IOException {
+	                                                 @Nullable Consumer<T> beforeShow) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(fxml));
 		Stage stage = loadNonResizableStage(fxmlLoader, Objects.requireNonNull(title), parentWindow);
 		if (beforeShow != null) {

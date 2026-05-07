@@ -11,6 +11,8 @@
 + add `ControlUtils` class
 + add `PropertiesUtils#loadProperties(Path)` method
 + add `PropertiesUtils#loadPropertiesXML(Path)` method
++ add `StageUtils#loadMainStage(URL, Stage, String, ResourceBundle)`
++ add `StageUtils#loadMainStage(URL, Stage, String, String, ResourceBundle)`
 ## Deprecated or removed
 - removed `Nonnull` annotation
 - removed `prepareUtilityWindow`, `showAndWaitUtilityWindow`, `showAndWaitUtilityWindow` from `StageUtils` class
