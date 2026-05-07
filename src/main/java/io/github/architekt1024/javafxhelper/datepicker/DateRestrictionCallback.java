@@ -41,7 +41,7 @@ import org.slf4j.LoggerFactory;
  * </ul>
  *
  * <p>This callback is typically used to enforce date constraints or to coordinate multiple {@link DatePicker} controls
- * (for example a date range selector).</p>
+ * (for example, a date range selector).</p>
  *
  * @author architekt1024
  * @since 0.1.6

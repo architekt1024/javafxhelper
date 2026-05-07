@@ -27,12 +27,13 @@ import javafx.stage.Window;
 
 import io.github.architekt1024.javafxhelper.utils.WebUtils;
 
+import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Nullable;
 
 /**
  * {@link Alert} builder.
- * Example:
- * <pre>
+ * <p><b>Example usage:</b></p>
+ * <pre>{@code
  * Alert alert = new AlertBuilder()
  *         .setAlertType(Alert.AlertType.CONFIRMATION)
  *         .setTitle("Title")
@@ -40,13 +41,16 @@ import org.jetbrains.annotations.Nullable;
  *         .setParentWindow(stage)
  *         .setButtons(ButtonType.OK)
  *         .build();
- * </pre>
+ * }</pre>
+ * <p><b>Obsolete</b></p>
+ * <p>see: {@link io.github.architekt1024.javafxhelper.dialog.AlertBuilder}</p>
  *
  * @author architekt1024
  * @see DialogFacade
  * @see io.github.architekt1024.javafxhelper.dialog.DialogService
  * @since 0.1.8
  */
+@ApiStatus.Obsolete(since = "0.1.12")
 public class AlertBuilder {
 	private Alert.AlertType alertType;
 	private String title;

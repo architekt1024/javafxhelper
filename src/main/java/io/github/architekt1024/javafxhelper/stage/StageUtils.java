@@ -45,13 +45,13 @@ public final class StageUtils {
 	}
 
 	/**
-	 * Load main stage. <p>If controller implements {@link FXMLController}, it set stage.</p>
+	 * Load the main stage. <p>If controller implements {@link FXMLController}, it set stage.</p>
 	 *
 	 * @param fxml  {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}, cannot be null
-	 * @param stage JavaFX primary stage, cannot be null
-	 * @param title window title, cannot be null
+	 * @param stage JavaFX primary stage (cannot be null)
+	 * @param title window title (cannot be null)
 	 *
-	 * @throws IOException fail load FXML file
+	 * @throws IOException fail to load FXML file
 	 * @since 0.1.11
 	 */
 	public static void loadMainStage(@NotNull URL fxml, @NotNull Stage stage, @NotNull String title) throws IOException {
@@ -59,14 +59,14 @@ public final class StageUtils {
 	}
 
 	/**
-	 * Load main stage. <p>If controller implements {@link FXMLController}, it set stage.</p>
+	 * Load the main stage. <p>If controller implements {@link FXMLController}, it set stage.</p>
 	 *
 	 * @param fxml        {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}, cannot be null
-	 * @param stage       JavaFX primary stage, cannot be null
-	 * @param title       window title, cannot be null
+	 * @param stage       JavaFX primary stage (cannot be null)
+	 * @param title       window title (cannot be null)
 	 * @param stylesheets stylesheet file path
 	 *
-	 * @throws IOException fail load FXML file
+	 * @throws IOException fail to load FXML file
 	 * @since 0.1.6
 	 */
 	public static void loadMainStage(@NotNull URL fxml, @NotNull Stage stage, @NotNull String title, @Nullable String stylesheets) throws IOException {
@@ -87,7 +87,7 @@ public final class StageUtils {
 	}
 
 	/**
-	 * Create utility window and return.
+	 * Create a utility window and return.
 	 *
 	 * @param fxml         fxml loader instance
 	 * @param title        window title
@@ -96,7 +96,7 @@ public final class StageUtils {
 	 *
 	 * @return created stage
 	 *
-	 * @throws IOException fail load FXML file
+	 * @throws IOException fail to load FXML file
 	 * @since 0.1.9
 	 */
 	public static Stage prepareUtilityWindow(@NotNull FXMLLoader fxml, @NotNull String title, @Nullable Window parentWindow,
@@ -109,7 +109,7 @@ public final class StageUtils {
 	}
 
 	/**
-	 * Create and show utility window. <p>If controller implements {@link FXMLController}, it set stage.</p>
+	 * Create and show a utility window. <p>If controller implements {@link FXMLController}, it set stage.</p>
 	 *
 	 * @param fxml         {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}
 	 * @param title        window title
@@ -119,7 +119,7 @@ public final class StageUtils {
 	 *
 	 * @return stage controller or null if not set
 	 *
-	 * @throws IOException fail load FXML file
+	 * @throws IOException fail to load FXML file
 	 * @since 0.1.9
 	 */
 	public static <T> T showUtilityWindow(@NotNull URL fxml, @NotNull String title, @Nullable Window parentWindow, @Nullable Modality modality) throws IOException {
@@ -131,7 +131,7 @@ public final class StageUtils {
 	}
 
 	/**
-	 * Create and show utility window. Wait for close. <p>If controller implements {@link FXMLController}, it set stage.</p>
+	 * Create and show a utility window. Wait for close. <p>If controller implements {@link FXMLController}, it set stage.</p>
 	 *
 	 * @param fxml         {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}
 	 * @param title        window title
@@ -141,7 +141,7 @@ public final class StageUtils {
 	 *
 	 * @return stage controller or null if not set
 	 *
-	 * @throws IOException fail load FXML file
+	 * @throws IOException fail to load FXML file
 	 * @since 0.1.9
 	 */
 	public static <T> T showAndWaitUtilityWindow(@NotNull URL fxml, @NotNull String title, @Nullable Window parentWindow, @Nullable Modality modality)
@@ -155,9 +155,9 @@ public final class StageUtils {
 	}
 
 	/**
-	 * Create and show window. Wait for close. <p>If controller implements {@link FXMLController}, it set stage.</p>
+	 * Create and show a window. Wait for close. <p>If controller implements {@link FXMLController}, it set stage.</p>
 	 *
-	 * @param fxml         {@link URL} to FXML file For example: {@code ExampleClass.class.getResource(fxmlFile));}
+	 * @param fxml         {@link URL} to FXML file, For example: {@code ExampleClass.class.getResource(fxmlFile));}
 	 * @param title        window title
 	 * @param parentWindow parent window
 	 * @param modality     modality type, {@link Modality#NONE} will be used if null
@@ -165,7 +165,7 @@ public final class StageUtils {
 	 *
 	 * @return stage controller or null if not set
 	 *
-	 * @throws IOException fail load FXML file
+	 * @throws IOException fail to load FXML file
 	 * @since 0.1.12
 	 */
 	@ApiStatus.Experimental
@@ -193,13 +193,13 @@ public final class StageUtils {
 	 *
 	 * <p>If controller implements {@link FXMLController}, it set stage.</p>
 	 *
-	 * @param fxmlLoader   fxml loader instance, cannot be null
+	 * @param fxmlLoader   fxml loader instance (cannot be null)
 	 * @param title        window title
 	 * @param parentWindow parent window
 	 *
 	 * @return loaded stage
 	 *
-	 * @throws IOException fail load FXML file
+	 * @throws IOException fail to load FXML file
 	 * @since 0.1.6
 	 */
 	public static Stage loadNonResizableStage(@NotNull FXMLLoader fxmlLoader, @NotNull String title, @Nullable Window parentWindow) throws IOException {
@@ -217,7 +217,7 @@ public final class StageUtils {
 	 * Loads an FXML view, creates and show a non-resizable {@link Stage}.
 	 *
 	 * @param fxml         {@link URL} to FXML file, cannot be null
-	 * @param title        window title, cannot be null
+	 * @param title        window title (cannot be null)
 	 * @param parentWindow parent window
 	 *
 	 * @return loaded stage
@@ -244,7 +244,7 @@ public final class StageUtils {
 	 *
 	 * @return loaded stage
 	 *
-	 * @throws IOException fail load FXML file
+	 * @throws IOException fail to load FXML file
 	 * @since 0.1.6
 	 * @deprecated since 0.1.10, will be removed in 0.1.13
 	 */
@@ -275,7 +275,7 @@ public final class StageUtils {
 	 *
 	 * @return controller
 	 *
-	 * @throws IOException fail load FXML file
+	 * @throws IOException fail to load FXML file
 	 * @since 0.1.10
 	 */
 	public static <T> T showNonResizableStageAndWait(@NotNull URL fxml, @NotNull String title, @Nullable Window parentWindow,
